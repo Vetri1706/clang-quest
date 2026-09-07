@@ -106,6 +106,8 @@ def save(fig, output, name):
             'Date': None, 'Creator': 'Questline evidence renderer',
         }
         fig.savefig(path, dpi=160, facecolor=BG, metadata=metadata)
+        if extension == 'svg':
+            path.write_text('\n'.join(line.rstrip() for line in path.read_text().splitlines()) + '\n')
         outputs.append(path)
     plt.close(fig)
     return outputs

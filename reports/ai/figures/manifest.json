@@ -1,7 +1,7 @@
 {
   "purpose": "Static figures of existing recorded evidence; no training or tests rerun.",
   "renderer": "scripts/plot_ai_results.py",
-  "renderer_sha256": "f25f7665eafe8b129b3c7d33b7b4736753dc4c6ca040452a907dbde7fdbc0993",
+  "renderer_sha256": "8f35aa5aa4e0a458814dd64b002c386e9380a71847161c3a5188e469b7eae45e",
   "python_version": "3.14.6",
   "matplotlib_version": "3.11.1",
   "source_sha256": {
@@ -15,10 +15,10 @@
   },
   "figure_sha256": {
     "training-loss.png": "ccbc706276f4d709277d1610a3a0b4214b8a891ed048aad21c97be0ca169f0e4",
-    "training-loss.svg": "a3014b81dfb25320e9d44ba178d7bed17406511642212d9268ef4e1bc5046e5f",
+    "training-loss.svg": "a6c1a74211d5e0ba02c668fd7e63c87a05b85574737e8800ee4a0dbd3bd023a5",
     "environment-tests.png": "da4a724f2ec6b9888a30786da469ccebf439f8758b7010e6e4c85e6e32290a77",
-    "environment-tests.svg": "7620fae8b86f0326661060c1ab7c094eabfb5b9e7419ffc3e7531aea2f750bfb",
+    "environment-tests.svg": "d5a1721689bfbfb1d09ac6d349b77e5be53faa7c335d50317891e089aa6f7501",
     "cpp-quality.png": "a266795846ec9d7820f7cd7dadcc0b23ddbeb85ebd1149b4f14ddb02546f9d87",
-    "cpp-quality.svg": "2d319adaebac79103119cfcf709a4598b2f101584aa957872303c6a89fd34f05"
+    "cpp-quality.svg": "78e817b87e63d870b9fec7c040af915d8630c0f28683d5c6015f125fe19a7ebd"
   }
 }
