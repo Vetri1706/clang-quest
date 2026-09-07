@@ -1,0 +1,1800 @@
+{
+  "tracks": [
+    {
+      "id": "foundations",
+      "title": "C++ foundations",
+      "description": "Build reliable habits with values, decisions, loops, functions, and collections.",
+      "color": "violet"
+    },
+    {
+      "id": "systems",
+      "title": "Real-world systems",
+      "description": "Turn telemetry, events, caches, and networks into dependable algorithms.",
+      "color": "cyan"
+    },
+    {
+      "id": "games",
+      "title": "Game development",
+      "description": "Solve movement, scoring, scheduling, and frame-budget problems.",
+      "color": "lime"
+    },
+    {
+      "id": "compilers",
+      "title": "Compiler workshop",
+      "description": "Explore scanners, build graphs, name versions, and bytecode machines.",
+      "color": "amber"
+    }
+  ],
+  "challenges": [
+    {
+      "id": "cafe-receipt",
+      "slug": "cafe-receipt",
+      "title": "Caf\u00e9 receipt",
+      "summary": "Turn a drink order into an exact bill.",
+      "story": "The campus caf\u00e9 is replacing handwritten receipts. Its terminal already reads the order; your function calculates the total in cents.",
+      "difficulty": "beginner",
+      "track": "foundations",
+      "order": 1,
+      "xp": 50,
+      "minutes": 6,
+      "concepts": [
+        {
+          "title": "Whole-number money",
+          "body": "Store prices in cents so this bill uses exact integer arithmetic. Multiplication combines the number of drinks with the price of one drink.",
+          "code": "long long total = quantity * unit_price;"
+        },
+        {
+          "title": "Return a result",
+          "body": "A function returns one value to its caller. main prints that value and a newline.",
+          "code": "return total;"
+        }
+      ],
+      "objectives": [
+        "Read two integers",
+        "Multiply without using floating point",
+        "Return an exact bill"
+      ],
+      "prompt": "Implement total_cost(quantity, unit_price). Every drink costs the same amount. Return the order total in cents.",
+      "input_format": "Two integers: quantity and unit_price in cents.",
+      "output_format": "One integer: the total price in cents.",
+      "constraints": [
+        "0 \u2264 quantity \u2264 100000",
+        "0 \u2264 unit_price \u2264 100000",
+        "Use long long for the product."
+      ],
+      "starter_code": "#include <iostream>\nusing namespace std;\n\nlong long total_cost(long long quantity, long long unit_price) {\n    return 0;\n}\n\nint main() {\n    long long quantity, unit_price;\n    cin >> quantity >> unit_price;\n    cout << total_cost(quantity, unit_price) << \"\\n\";\n}\n",
+      "reference_solution": "#include <iostream>\nusing namespace std;\n\nlong long total_cost(long long quantity, long long unit_price) {\n    return quantity * unit_price;\n}\n\nint main() {\n    long long quantity, unit_price;\n    cin >> quantity >> unit_price;\n    cout << total_cost(quantity, unit_price) << \"\\n\";\n}\n",
+      "hints": [
+        "A total is the price of one item repeated once for each item.",
+        "Use the * operator to multiply quantity and unit_price.",
+        "Return quantity * unit_price from total_cost."
+      ],
+      "tests": [
+        {
+          "input": "3 250\n",
+          "output": "750\n",
+          "hidden": false
+        },
+        {
+          "input": "1 425\n",
+          "output": "425\n",
+          "hidden": false
+        },
+        {
+          "input": "0 120\n",
+          "output": "0\n",
+          "hidden": true
+        },
+        {
+          "input": "100000 100000\n",
+          "output": "10000000000\n",
+          "hidden": true
+        },
+        {
+          "input": "12 0\n",
+          "output": "0\n",
+          "hidden": true
+        }
+      ],
+      "tags": [
+        "variables",
+        "arithmetic",
+        "money"
+      ]
+    },
+    {
+      "id": "stock-alert",
+      "slug": "stock-alert",
+      "title": "Stockroom signal",
+      "summary": "Decide when a shop needs to reorder.",
+      "story": "A maker shop tracks spare components. A quantity strictly below its reorder threshold needs attention; an exact match is still ready.",
+      "difficulty": "beginner",
+      "track": "foundations",
+      "order": 2,
+      "xp": 50,
+      "minutes": 7,
+      "concepts": [
+        {
+          "title": "A precise boundary",
+          "body": "The requirement says strictly below. The < operator excludes equality, while <= includes it.",
+          "code": "if (quantity < threshold) { return \"REORDER\"; }"
+        },
+        {
+          "title": "Two outcomes",
+          "body": "An if statement chooses a path. Returning from the first path lets the following return handle every other case."
+        }
+      ],
+      "objectives": [
+        "Translate a business rule into a comparison",
+        "Handle equality deliberately"
+      ],
+      "prompt": "Implement stock_status(quantity, threshold). Return REORDER when quantity is strictly less than threshold. Otherwise return READY.",
+      "input_format": "Two integers: quantity and threshold.",
+      "output_format": "Exactly REORDER or READY.",
+      "constraints": [
+        "0 \u2264 quantity, threshold \u2264 1000000"
+      ],
+      "starter_code": "#include <iostream>\n#include <string>\nusing namespace std;\n\nstring stock_status(int quantity, int threshold) {\n    return \"READY\";\n}\n\nint main() {\n    int quantity, threshold;\n    cin >> quantity >> threshold;\n    cout << stock_status(quantity, threshold) << \"\\n\";\n}\n",
+      "reference_solution": "#include <iostream>\n#include <string>\nusing namespace std;\n\nstring stock_status(int quantity, int threshold) {\n    if (quantity < threshold) return \"REORDER\";\n    return \"READY\";\n}\n\nint main() {\n    int quantity, threshold;\n    cin >> quantity >> threshold;\n    cout << stock_status(quantity, threshold) << \"\\n\";\n}\n",
+      "hints": [
+        "There are two outcomes, so an if statement is enough.",
+        "Equality belongs to READY. Compare with <, not <=.",
+        "If quantity < threshold return \"REORDER\"; otherwise return \"READY\"."
+      ],
+      "tests": [
+        {
+          "input": "4 10\n",
+          "output": "REORDER\n",
+          "hidden": false
+        },
+        {
+          "input": "10 10\n",
+          "output": "READY\n",
+          "hidden": false
+        },
+        {
+          "input": "0 0\n",
+          "output": "READY\n",
+          "hidden": true
+        },
+        {
+          "input": "0 1\n",
+          "output": "REORDER\n",
+          "hidden": true
+        },
+        {
+          "input": "1000000 2\n",
+          "output": "READY\n",
+          "hidden": true
+        }
+      ],
+      "tags": [
+        "conditions",
+        "boundaries",
+        "inventory"
+      ]
+    },
+    {
+      "id": "delivery-total",
+      "slug": "delivery-total",
+      "title": "Delivery odometer",
+      "summary": "Add the legs of a delivery route.",
+      "story": "A bicycle courier records each completed leg in meters. The dashboard needs the full distance, including routes with no completed legs.",
+      "difficulty": "beginner",
+      "track": "foundations",
+      "order": 3,
+      "xp": 50,
+      "minutes": 9,
+      "concepts": [
+        {
+          "title": "An accumulator",
+          "body": "Start a running total at zero. Visit each distance and add it once. The loop also behaves correctly for an empty vector.",
+          "code": "long long total = 0;\nfor (long long distance : distances) total += distance;"
+        },
+        {
+          "title": "A wide sum",
+          "body": "A collection of valid small inputs can produce a large sum. A long long accumulator avoids overflowing a 32-bit int."
+        }
+      ],
+      "objectives": [
+        "Traverse a vector with a loop",
+        "Choose a safe accumulator type"
+      ],
+      "prompt": "Implement total_distance(distances). Return the sum of all recorded route legs.",
+      "input_format": "An integer n, followed by n nonnegative distances in meters.",
+      "output_format": "One integer: total meters.",
+      "constraints": [
+        "0 \u2264 n \u2264 100000",
+        "0 \u2264 each distance \u2264 1000000000"
+      ],
+      "starter_code": "#include <iostream>\n#include <vector>\nusing namespace std;\n\nlong long total_distance(const vector<long long>& distances) {\n    return 0;\n}\n\nint main() {\n    int n; cin >> n;\n    vector<long long> distances(n);\n    for (auto& distance : distances) cin >> distance;\n    cout << total_distance(distances) << \"\\n\";\n}\n",
+      "reference_solution": "#include <iostream>\n#include <vector>\nusing namespace std;\n\nlong long total_distance(const vector<long long>& distances) {\n    long long total = 0;\n    for (long long distance : distances) total += distance;\n    return total;\n}\n\nint main() {\n    int n; cin >> n;\n    vector<long long> distances(n);\n    for (auto& distance : distances) cin >> distance;\n    cout << total_distance(distances) << \"\\n\";\n}\n",
+      "hints": [
+        "Keep one running total as you visit each distance.",
+        "Initialize the total to zero before the loop.",
+        "Add every element to a long long total and return it after the loop."
+      ],
+      "tests": [
+        {
+          "input": "4\n120 80 250 50\n",
+          "output": "500\n",
+          "hidden": false
+        },
+        {
+          "input": "0\n",
+          "output": "0\n",
+          "hidden": false
+        },
+        {
+          "input": "1\n9\n",
+          "output": "9\n",
+          "hidden": true
+        },
+        {
+          "input": "3\n1000000000 1000000000 1000000000\n",
+          "output": "3000000000\n",
+          "hidden": true
+        },
+        {
+          "input": "5\n0 0 7 0 3\n",
+          "output": "10\n",
+          "hidden": true
+        }
+      ],
+      "tags": [
+        "loops",
+        "vectors",
+        "accumulation"
+      ]
+    },
+    {
+      "id": "quest-reward",
+      "slug": "quest-reward",
+      "title": "Quest reward function",
+      "summary": "Package a repeatable game rule in a function.",
+      "story": "Your game awards a base reward plus one bonus for every completed objective. Other game systems will reuse this function, so keep input and output in main.",
+      "difficulty": "beginner",
+      "track": "foundations",
+      "order": 4,
+      "xp": 50,
+      "minutes": 8,
+      "concepts": [
+        {
+          "title": "Separate a rule from I/O",
+          "body": "A pure calculation takes arguments and returns a result. It can be tested without reading from cin or printing to cout."
+        },
+        {
+          "title": "Compose arithmetic",
+          "body": "Calculate the total bonus with multiplication, then add the base reward. C++ evaluates multiplication before addition.",
+          "code": "return base + completed * bonus;"
+        }
+      ],
+      "objectives": [
+        "Implement a reusable calculation",
+        "Keep calculation separate from console I/O"
+      ],
+      "prompt": "Implement quest_reward(base, completed, bonus). Return base plus completed times bonus.",
+      "input_format": "Three integers: base reward, completed objective count, and bonus per objective.",
+      "output_format": "One integer: the earned reward.",
+      "constraints": [
+        "0 \u2264 base, completed, bonus \u2264 100000"
+      ],
+      "starter_code": "#include <iostream>\nusing namespace std;\n\nlong long quest_reward(long long base, long long completed, long long bonus) {\n    return 0;\n}\n\nint main() {\n    long long base, completed, bonus;\n    cin >> base >> completed >> bonus;\n    cout << quest_reward(base, completed, bonus) << \"\\n\";\n}\n",
+      "reference_solution": "#include <iostream>\nusing namespace std;\n\nlong long quest_reward(long long base, long long completed, long long bonus) {\n    return base + completed * bonus;\n}\n\nint main() {\n    long long base, completed, bonus;\n    cin >> base >> completed >> bonus;\n    cout << quest_reward(base, completed, bonus) << \"\\n\";\n}\n",
+      "hints": [
+        "Find the bonus for all objectives first.",
+        "Multiply completed by bonus, then add base.",
+        "Return base + completed * bonus; main already prints the result."
+      ],
+      "tests": [
+        {
+          "input": "100 3 25\n",
+          "output": "175\n",
+          "hidden": false
+        },
+        {
+          "input": "40 0 9\n",
+          "output": "40\n",
+          "hidden": false
+        },
+        {
+          "input": "0 5 0\n",
+          "output": "0\n",
+          "hidden": true
+        },
+        {
+          "input": "100000 100000 100000\n",
+          "output": "10000100000\n",
+          "hidden": true
+        },
+        {
+          "input": "7 2 4\n",
+          "output": "15\n",
+          "hidden": true
+        }
+      ],
+      "tags": [
+        "functions",
+        "parameters",
+        "game-rules"
+      ]
+    },
+    {
+      "id": "temperature-watch",
+      "slug": "temperature-watch",
+      "title": "Temperature watch",
+      "summary": "Find the hottest sensor reading.",
+      "story": "A cold-storage monitor records integer temperatures, including negative ones. Find the hottest observed reading so the operator can inspect it.",
+      "difficulty": "beginner",
+      "track": "systems",
+      "order": 5,
+      "xp": 50,
+      "minutes": 10,
+      "concepts": [
+        {
+          "title": "Initialize from real data",
+          "body": "When all readings are negative, zero is not a valid starting maximum. Start with the first reading because the input is guaranteed nonempty.",
+          "code": "int hottest = readings.front();"
+        },
+        {
+          "title": "Maintain an invariant",
+          "body": "After visiting a reading, hottest should equal the largest value seen so far."
+        }
+      ],
+      "objectives": [
+        "Find an extremum in one pass",
+        "Handle negative input values"
+      ],
+      "prompt": "Implement hottest_reading(readings). Return the largest temperature in the nonempty vector.",
+      "input_format": "An integer n, followed by n integer temperatures.",
+      "output_format": "One integer: the largest temperature.",
+      "constraints": [
+        "1 \u2264 n \u2264 100000",
+        "-1000000 \u2264 each reading \u2264 1000000"
+      ],
+      "starter_code": "#include <iostream>\n#include <vector>\n#include <algorithm>\nusing namespace std;\n\nint hottest_reading(const vector<int>& readings) {\n    return 0;\n}\n\nint main() {\n    int n; cin >> n;\n    vector<int> readings(n);\n    for (int& reading : readings) cin >> reading;\n    cout << hottest_reading(readings) << \"\\n\";\n}\n",
+      "reference_solution": "#include <iostream>\n#include <vector>\n#include <algorithm>\nusing namespace std;\n\nint hottest_reading(const vector<int>& readings) {\n    int hottest = readings.front();\n    for (int reading : readings) hottest = max(hottest, reading);\n    return hottest;\n}\n\nint main() {\n    int n; cin >> n;\n    vector<int> readings(n);\n    for (int& reading : readings) cin >> reading;\n    cout << hottest_reading(readings) << \"\\n\";\n}\n",
+      "hints": [
+        "You only need to remember the largest value encountered so far.",
+        "Initialize that value with readings.front() so all-negative data works.",
+        "For every reading, replace hottest with max(hottest, reading), then return hottest."
+      ],
+      "tests": [
+        {
+          "input": "5\n18 23 19 21 20\n",
+          "output": "23\n",
+          "hidden": false
+        },
+        {
+          "input": "3\n-8 -2 -11\n",
+          "output": "-2\n",
+          "hidden": false
+        },
+        {
+          "input": "1\n-1000000\n",
+          "output": "-1000000\n",
+          "hidden": true
+        },
+        {
+          "input": "4\n5 5 5 5\n",
+          "output": "5\n",
+          "hidden": true
+        },
+        {
+          "input": "3\n0 1000000 -1000000\n",
+          "output": "1000000\n",
+          "hidden": true
+        }
+      ],
+      "tags": [
+        "vectors",
+        "maximum",
+        "sensors"
+      ]
+    },
+    {
+      "id": "player-level",
+      "slug": "player-level",
+      "title": "Level-up ledger",
+      "summary": "Convert accumulated XP into a player level.",
+      "story": "Your first level begins at zero XP. Every full block of 100 XP adds one level; any remainder contributes to the next level.",
+      "difficulty": "beginner",
+      "track": "games",
+      "order": 6,
+      "xp": 50,
+      "minutes": 7,
+      "concepts": [
+        {
+          "title": "Integer division",
+          "body": "Dividing two nonnegative integers discards the fractional part. That counts completed 100-XP blocks.",
+          "code": "long long completed_blocks = xp / 100;"
+        },
+        {
+          "title": "An offset",
+          "body": "Level numbers begin at one even though completed blocks begin at zero."
+        }
+      ],
+      "objectives": [
+        "Use integer division",
+        "Reason about transition boundaries"
+      ],
+      "prompt": "Implement player_level(xp). A player starts at level 1 and gains one level for each full 100 XP. Return their level.",
+      "input_format": "One nonnegative integer xp.",
+      "output_format": "One integer: the player level.",
+      "constraints": [
+        "0 \u2264 xp \u2264 1000000000000"
+      ],
+      "starter_code": "#include <iostream>\nusing namespace std;\n\nlong long player_level(long long xp) {\n    return 1;\n}\n\nint main() {\n    long long xp; cin >> xp;\n    cout << player_level(xp) << \"\\n\";\n}\n",
+      "reference_solution": "#include <iostream>\nusing namespace std;\n\nlong long player_level(long long xp) {\n    return xp / 100 + 1;\n}\n\nint main() {\n    long long xp; cin >> xp;\n    cout << player_level(xp) << \"\\n\";\n}\n",
+      "hints": [
+        "Count complete groups of 100 XP.",
+        "Use xp / 100; then account for the initial level.",
+        "Return xp / 100 + 1. Check both 99 XP and 100 XP."
+      ],
+      "tests": [
+        {
+          "input": "250\n",
+          "output": "3\n",
+          "hidden": false
+        },
+        {
+          "input": "99\n",
+          "output": "1\n",
+          "hidden": false
+        },
+        {
+          "input": "0\n",
+          "output": "1\n",
+          "hidden": true
+        },
+        {
+          "input": "100\n",
+          "output": "2\n",
+          "hidden": true
+        },
+        {
+          "input": "1000000000000\n",
+          "output": "10000000001\n",
+          "hidden": true
+        }
+      ],
+      "tags": [
+        "integer-division",
+        "xp",
+        "boundaries"
+      ]
+    },
+    {
+      "id": "signal-count",
+      "slug": "signal-count",
+      "title": "Lexical signal counter",
+      "summary": "Count selected characters in source text.",
+      "story": "A tiny source-analysis tool marks each semicolon as a completed statement candidate. At this stage it simply counts characters; it does not parse C++ or ignore comments.",
+      "difficulty": "beginner",
+      "track": "compilers",
+      "order": 7,
+      "xp": 50,
+      "minutes": 9,
+      "concepts": [
+        {
+          "title": "Characters and strings",
+          "body": "A string is a sequence of characters. Single quotes describe a character such as ';'; double quotes describe a string.",
+          "code": "if (character == ';') ++count;"
+        },
+        {
+          "title": "Scope matters",
+          "body": "A character counter is simpler than a parser. This exercise deliberately counts every semicolon, wherever it appears."
+        }
+      ],
+      "objectives": [
+        "Iterate over a string",
+        "Compare characters precisely"
+      ],
+      "prompt": "Implement count_semicolons(source). Return the number of semicolon characters in the input line. Count every semicolon, including repeated ones.",
+      "input_format": "One line of text, which may be empty or contain spaces.",
+      "output_format": "One integer: the semicolon count.",
+      "constraints": [
+        "0 \u2264 line length \u2264 100000",
+        "Input contains printable ASCII characters."
+      ],
+      "starter_code": "#include <iostream>\n#include <string>\nusing namespace std;\n\nint count_semicolons(const string& source) {\n    return 0;\n}\n\nint main() {\n    string source; getline(cin, source);\n    cout << count_semicolons(source) << \"\\n\";\n}\n",
+      "reference_solution": "#include <iostream>\n#include <string>\nusing namespace std;\n\nint count_semicolons(const string& source) {\n    int count = 0;\n    for (char character : source) if (character == ';') ++count;\n    return count;\n}\n\nint main() {\n    string source; getline(cin, source);\n    cout << count_semicolons(source) << \"\\n\";\n}\n",
+      "hints": [
+        "Visit each character and test whether it is a semicolon.",
+        "Start a count at zero and increment only on character == ';'.",
+        "Use a range-based for loop over source, then return the count."
+      ],
+      "tests": [
+        {
+          "input": "int x = 1; x++;\n",
+          "output": "2\n",
+          "hidden": false
+        },
+        {
+          "input": "return value\n",
+          "output": "0\n",
+          "hidden": false
+        },
+        {
+          "input": "\n",
+          "output": "0\n",
+          "hidden": true
+        },
+        {
+          "input": ";;;\n",
+          "output": "3\n",
+          "hidden": true
+        },
+        {
+          "input": "a; b ; c; d\n",
+          "output": "3\n",
+          "hidden": true
+        }
+      ],
+      "tags": [
+        "strings",
+        "characters",
+        "lexing"
+      ]
+    },
+    {
+      "id": "average-latency",
+      "slug": "average-latency",
+      "title": "Latency snapshot",
+      "summary": "Report an integer average for service timing.",
+      "story": "A local service records request durations in microseconds. Its status panel displays the average rounded down, using exact integer arithmetic.",
+      "difficulty": "beginner",
+      "track": "systems",
+      "order": 8,
+      "xp": 50,
+      "minutes": 10,
+      "concepts": [
+        {
+          "title": "Sum before dividing",
+          "body": "Divide the final total once. Dividing individual values first loses information and can change the answer."
+        },
+        {
+          "title": "Integer mean",
+          "body": "For nonnegative values, integer division rounds the mean down. The input is nonempty so the divisor is never zero.",
+          "code": "return total / static_cast<long long>(durations.size());"
+        }
+      ],
+      "objectives": [
+        "Combine accumulation and integer division",
+        "Avoid premature rounding"
+      ],
+      "prompt": "Implement average_latency(durations). Return the floor of the average duration.",
+      "input_format": "An integer n, followed by n durations in microseconds.",
+      "output_format": "One integer: the average rounded down.",
+      "constraints": [
+        "1 \u2264 n \u2264 100000",
+        "0 \u2264 each duration \u2264 1000000000"
+      ],
+      "starter_code": "#include <iostream>\n#include <vector>\nusing namespace std;\n\nlong long average_latency(const vector<long long>& durations) {\n    return 0;\n}\n\nint main() {\n    int n; cin >> n;\n    vector<long long> durations(n);\n    for (auto& duration : durations) cin >> duration;\n    cout << average_latency(durations) << \"\\n\";\n}\n",
+      "reference_solution": "#include <iostream>\n#include <vector>\nusing namespace std;\n\nlong long average_latency(const vector<long long>& durations) {\n    long long total = 0;\n    for (long long duration : durations) total += duration;\n    return total / static_cast<long long>(durations.size());\n}\n\nint main() {\n    int n; cin >> n;\n    vector<long long> durations(n);\n    for (auto& duration : durations) cin >> duration;\n    cout << average_latency(durations) << \"\\n\";\n}\n",
+      "hints": [
+        "Compute one total for all durations.",
+        "Divide that total by durations.size(), once.",
+        "Keep total as long long and use integer division for the required rounding."
+      ],
+      "tests": [
+        {
+          "input": "4\n10 20 30 40\n",
+          "output": "25\n",
+          "hidden": false
+        },
+        {
+          "input": "3\n1 2 2\n",
+          "output": "1\n",
+          "hidden": false
+        },
+        {
+          "input": "1\n999\n",
+          "output": "999\n",
+          "hidden": true
+        },
+        {
+          "input": "3\n1000000000 1000000000 1000000000\n",
+          "output": "1000000000\n",
+          "hidden": true
+        },
+        {
+          "input": "2\n0 1\n",
+          "output": "0\n",
+          "hidden": true
+        }
+      ],
+      "tags": [
+        "averages",
+        "integer-arithmetic",
+        "observability"
+      ]
+    },
+    {
+      "id": "tile-distance",
+      "slug": "tile-distance",
+      "title": "Tile navigator",
+      "summary": "Measure movement on a square game board.",
+      "story": "A turn-based character can move one tile up, down, left, or right. The board has no obstacles, so calculate the minimum moves between two coordinates.",
+      "difficulty": "intermediate",
+      "track": "games",
+      "order": 9,
+      "xp": 100,
+      "minutes": 12,
+      "concepts": [
+        {
+          "title": "Independent axes",
+          "body": "Horizontal and vertical displacement must both be covered. A shortest route never wastes movement reversing direction."
+        },
+        {
+          "title": "Absolute differences",
+          "body": "A distance is nonnegative regardless of coordinate order. Use the magnitude of each coordinate difference.",
+          "code": "long long dx = x1 > x2 ? x1 - x2 : x2 - x1;"
+        }
+      ],
+      "objectives": [
+        "Model a movement rule mathematically",
+        "Handle negative coordinates safely"
+      ],
+      "prompt": "Implement tile_distance(x1, y1, x2, y2). Return the shortest four-direction move count on an obstacle-free integer grid.",
+      "input_format": "Four integers: x1 y1 x2 y2.",
+      "output_format": "One integer: minimum moves.",
+      "constraints": [
+        "-1000000000 \u2264 each coordinate \u2264 1000000000",
+        "A move changes exactly one coordinate by 1."
+      ],
+      "starter_code": "#include <iostream>\nusing namespace std;\n\nlong long tile_distance(long long x1, long long y1, long long x2, long long y2) {\n    return 0;\n}\n\nint main() {\n    long long x1, y1, x2, y2; cin >> x1 >> y1 >> x2 >> y2;\n    cout << tile_distance(x1, y1, x2, y2) << \"\\n\";\n}\n",
+      "reference_solution": "#include <iostream>\nusing namespace std;\n\nlong long tile_distance(long long x1, long long y1, long long x2, long long y2) {\n    long long dx = x1 > x2 ? x1 - x2 : x2 - x1;\n    long long dy = y1 > y2 ? y1 - y2 : y2 - y1;\n    return dx + dy;\n}\n\nint main() {\n    long long x1, y1, x2, y2; cin >> x1 >> y1 >> x2 >> y2;\n    cout << tile_distance(x1, y1, x2, y2) << \"\\n\";\n}\n",
+      "hints": [
+        "Count the necessary horizontal and vertical moves separately.",
+        "Take the absolute difference for x and the absolute difference for y.",
+        "Add those differences. Use long long because the total can exceed 32-bit int."
+      ],
+      "tests": [
+        {
+          "input": "1 2 4 6\n",
+          "output": "7\n",
+          "hidden": false
+        },
+        {
+          "input": "-2 3 -2 3\n",
+          "output": "0\n",
+          "hidden": false
+        },
+        {
+          "input": "-5 -5 5 5\n",
+          "output": "20\n",
+          "hidden": true
+        },
+        {
+          "input": "1000000000 1000000000 -1000000000 -1000000000\n",
+          "output": "4000000000\n",
+          "hidden": true
+        },
+        {
+          "input": "0 0 0 -7\n",
+          "output": "7\n",
+          "hidden": true
+        }
+      ],
+      "tags": [
+        "geometry",
+        "grids",
+        "pathfinding"
+      ]
+    },
+    {
+      "id": "seat-reservations",
+      "slug": "seat-reservations",
+      "title": "Duplicate reservations",
+      "summary": "Count seats after repeated booking events.",
+      "story": "A community theater receives booking events that may be retried. Repeated events for the same seat must consume that seat only once.",
+      "difficulty": "intermediate",
+      "track": "foundations",
+      "order": 10,
+      "xp": 100,
+      "minutes": 15,
+      "concepts": [
+        {
+          "title": "A set stores membership",
+          "body": "A set represents distinct values. Inserting an existing seat does not add a second copy.",
+          "code": "set<int> reserved;\nreserved.insert(seat);"
+        },
+        {
+          "title": "Idempotent events",
+          "body": "An operation is idempotent when applying it repeatedly has the same result as applying it once. Distinct-seat counting provides that behavior here."
+        }
+      ],
+      "objectives": [
+        "Use a set to remove duplicates",
+        "Connect idempotency to event handling"
+      ],
+      "prompt": "Implement available_seats(capacity, bookings). Every booking refers to a valid seat. Return capacity minus the number of distinct booked seats.",
+      "input_format": "Integers capacity and m, followed by m seat numbers.",
+      "output_format": "One integer: seats still available.",
+      "constraints": [
+        "1 \u2264 capacity \u2264 1000000",
+        "0 \u2264 m \u2264 100000",
+        "1 \u2264 each seat number \u2264 capacity"
+      ],
+      "starter_code": "#include <iostream>\n#include <vector>\n#include <set>\nusing namespace std;\n\nint available_seats(int capacity, const vector<int>& bookings) {\n    return capacity;\n}\n\nint main() {\n    int capacity, m; cin >> capacity >> m;\n    vector<int> bookings(m); for (int& seat : bookings) cin >> seat;\n    cout << available_seats(capacity, bookings) << \"\\n\";\n}\n",
+      "reference_solution": "#include <iostream>\n#include <vector>\n#include <set>\nusing namespace std;\n\nint available_seats(int capacity, const vector<int>& bookings) {\n    set<int> reserved(bookings.begin(), bookings.end());\n    return capacity - static_cast<int>(reserved.size());\n}\n\nint main() {\n    int capacity, m; cin >> capacity >> m;\n    vector<int> bookings(m); for (int& seat : bookings) cin >> seat;\n    cout << available_seats(capacity, bookings) << \"\\n\";\n}\n",
+      "hints": [
+        "The number of events can be larger than the number of occupied seats.",
+        "Insert each seat into a set so retries do not increase occupancy.",
+        "Subtract the set size from capacity."
+      ],
+      "tests": [
+        {
+          "input": "8 5\n2 3 2 8 3\n",
+          "output": "5\n",
+          "hidden": false
+        },
+        {
+          "input": "4 0\n",
+          "output": "4\n",
+          "hidden": false
+        },
+        {
+          "input": "1 4\n1 1 1 1\n",
+          "output": "0\n",
+          "hidden": true
+        },
+        {
+          "input": "5 5\n1 2 3 4 5\n",
+          "output": "0\n",
+          "hidden": true
+        },
+        {
+          "input": "1000000 3\n1 500000 1000000\n",
+          "output": "999997\n",
+          "hidden": true
+        }
+      ],
+      "tags": [
+        "sets",
+        "deduplication",
+        "idempotency"
+      ]
+    },
+    {
+      "id": "sensor-window",
+      "slug": "sensor-window",
+      "title": "Burst detector",
+      "summary": "Find the busiest fixed-length sensor window.",
+      "story": "A monitoring service groups a stream into consecutive windows. Find the largest total in any window of exactly k readings, including streams whose readings are all negative.",
+      "difficulty": "intermediate",
+      "track": "systems",
+      "order": 11,
+      "xp": 100,
+      "minutes": 20,
+      "concepts": [
+        {
+          "title": "Reuse neighboring work",
+          "body": "Adjacent windows share k \u2212 1 elements. Subtract the departing value and add the arriving value instead of summing from scratch."
+        },
+        {
+          "title": "State and boundaries",
+          "body": "Build the first full window before updating the best result. This handles k = n and all-negative streams.",
+          "code": "window += readings[i] - readings[i - k];"
+        }
+      ],
+      "objectives": [
+        "Implement an O(n) sliding window",
+        "Handle the first window and negative totals"
+      ],
+      "prompt": "Implement max_window_sum(readings, k). Return the largest sum of exactly k consecutive readings.",
+      "input_format": "Integers n and k, followed by n signed readings.",
+      "output_format": "One integer: the maximum window sum.",
+      "constraints": [
+        "1 \u2264 k \u2264 n \u2264 100000",
+        "-1000000000 \u2264 each reading \u2264 1000000000"
+      ],
+      "starter_code": "#include <iostream>\n#include <vector>\n#include <algorithm>\nusing namespace std;\n\nlong long max_window_sum(const vector<long long>& readings, int k) {\n    return 0;\n}\n\nint main() {\n    int n, k; cin >> n >> k;\n    vector<long long> readings(n); for (auto& value : readings) cin >> value;\n    cout << max_window_sum(readings, k) << \"\\n\";\n}\n",
+      "reference_solution": "#include <iostream>\n#include <vector>\n#include <algorithm>\nusing namespace std;\n\nlong long max_window_sum(const vector<long long>& readings, int k) {\n    long long window = 0;\n    for (int i = 0; i < k; ++i) window += readings[i];\n    long long best = window;\n    for (int i = k; i < static_cast<int>(readings.size()); ++i) {\n        window += readings[i] - readings[i - k];\n        best = max(best, window);\n    }\n    return best;\n}\n\nint main() {\n    int n, k; cin >> n >> k;\n    vector<long long> readings(n); for (auto& value : readings) cin >> value;\n    cout << max_window_sum(readings, k) << \"\\n\";\n}\n",
+      "hints": [
+        "Sum the first k readings to establish the first valid window.",
+        "When shifting right, remove readings[i-k] and add readings[i].",
+        "Initialize best to the first window sum, then update best after every shift."
+      ],
+      "tests": [
+        {
+          "input": "6 3\n2 1 5 1 3 2\n",
+          "output": "9\n",
+          "hidden": false
+        },
+        {
+          "input": "4 2\n-4 -2 -8 -1\n",
+          "output": "-6\n",
+          "hidden": false
+        },
+        {
+          "input": "3 3\n1 2 3\n",
+          "output": "6\n",
+          "hidden": true
+        },
+        {
+          "input": "3 1\n-9 7 2\n",
+          "output": "7\n",
+          "hidden": true
+        },
+        {
+          "input": "3 2\n1000000000 1000000000 0\n",
+          "output": "2000000000\n",
+          "hidden": true
+        }
+      ],
+      "tags": [
+        "sliding-window",
+        "complexity",
+        "telemetry"
+      ]
+    },
+    {
+      "id": "inventory-merge",
+      "slug": "inventory-merge",
+      "title": "Warehouse merge",
+      "summary": "Combine stock adjustments and print a stable report.",
+      "story": "Two warehouse feeds have been concatenated. Item identifiers can appear many times, including negative adjustments. Produce one total per item in alphabetical order.",
+      "difficulty": "intermediate",
+      "track": "foundations",
+      "order": 12,
+      "xp": 100,
+      "minutes": 20,
+      "concepts": [
+        {
+          "title": "Map keys to totals",
+          "body": "A map associates an item name with an accumulated quantity. operator[] creates a zero-initialized total for a new key.",
+          "code": "totals[item] += adjustment;"
+        },
+        {
+          "title": "Deterministic iteration",
+          "body": "std::map visits keys in sorted order. This gives a stable report without a separate sorting pass."
+        }
+      ],
+      "objectives": [
+        "Aggregate records by key",
+        "Produce deterministic sorted output"
+      ],
+      "prompt": "Implement merge_inventory(records). Return a map from each item name to the sum of its adjustments. Keep entries whose final total is zero. main prints the map in ascending name order.",
+      "input_format": "An integer n, followed by n lines containing item_name and signed adjustment.",
+      "output_format": "One line per distinct item: item_name total. Print nothing when n is zero.",
+      "constraints": [
+        "0 \u2264 n \u2264 100000",
+        "Names contain 1 to 20 lowercase letters.",
+        "-1000000000 \u2264 each adjustment \u2264 1000000000"
+      ],
+      "starter_code": "#include <iostream>\n#include <vector>\n#include <string>\n#include <utility>\n#include <map>\nusing namespace std;\n\nmap<string, long long> merge_inventory(const vector<pair<string, long long>>& records) {\n    return {};\n}\n\nint main() {\n    int n; cin >> n;\n    vector<pair<string, long long>> records(n);\n    for (auto& [item, adjustment] : records) cin >> item >> adjustment;\n    for (const auto& [item, total] : merge_inventory(records)) cout << item << \" \" << total << \"\\n\";\n}\n",
+      "reference_solution": "#include <iostream>\n#include <vector>\n#include <string>\n#include <utility>\n#include <map>\nusing namespace std;\n\nmap<string, long long> merge_inventory(const vector<pair<string, long long>>& records) {\n    map<string, long long> totals;\n    for (const auto& [item, adjustment] : records) totals[item] += adjustment;\n    return totals;\n}\n\nint main() {\n    int n; cin >> n;\n    vector<pair<string, long long>> records(n);\n    for (auto& [item, adjustment] : records) cin >> item >> adjustment;\n    for (const auto& [item, total] : merge_inventory(records)) cout << item << \" \" << total << \"\\n\";\n}\n",
+      "hints": [
+        "Use an item name as a key and its accumulated stock as the value.",
+        "A map<string, long long> both aggregates quantities and orders names.",
+        "For each record, execute totals[item] += adjustment. Return totals without removing zero entries."
+      ],
+      "tests": [
+        {
+          "input": "4\nbolt 8\ngear 3\nbolt -2\naxle 1\n",
+          "output": "axle 1\nbolt 6\ngear 3\n",
+          "hidden": false
+        },
+        {
+          "input": "2\nwire 5\nwire -5\n",
+          "output": "wire 0\n",
+          "hidden": false
+        },
+        {
+          "input": "0\n",
+          "output": "",
+          "hidden": true
+        },
+        {
+          "input": "3\nz 2\na 4\nm -1\n",
+          "output": "a 4\nm -1\nz 2\n",
+          "hidden": true
+        },
+        {
+          "input": "3\nchip 1000000000\nchip 1000000000\nchip 1000000000\n",
+          "output": "chip 3000000000\n",
+          "hidden": true
+        }
+      ],
+      "tags": [
+        "maps",
+        "aggregation",
+        "deterministic-output"
+      ]
+    },
+    {
+      "id": "error-run",
+      "slug": "error-run",
+      "title": "Incident streak",
+      "summary": "Find the longest uninterrupted repeated status.",
+      "story": "A service log stores status codes in arrival order. The operations team wants the longest consecutive run of one code, even when the code itself is zero.",
+      "difficulty": "intermediate",
+      "track": "systems",
+      "order": 13,
+      "xp": 100,
+      "minutes": 16,
+      "concepts": [
+        {
+          "title": "Consecutive is different from frequent",
+          "body": "Only adjacent equal values belong to the same run. A later appearance after another code begins a new run."
+        },
+        {
+          "title": "Two counters",
+          "body": "Track the current run length and the largest completed or current run. Reset the current length to one when the code changes."
+        }
+      ],
+      "objectives": [
+        "Track state across adjacent elements",
+        "Distinguish runs from global frequency"
+      ],
+      "prompt": "Implement longest_run(codes). Return the length of the longest contiguous run of equal codes. Return zero for an empty log.",
+      "input_format": "An integer n, followed by n status codes.",
+      "output_format": "One integer: longest run length.",
+      "constraints": [
+        "0 \u2264 n \u2264 100000",
+        "0 \u2264 each code \u2264 999"
+      ],
+      "starter_code": "#include <iostream>\n#include <vector>\n#include <algorithm>\nusing namespace std;\n\nint longest_run(const vector<int>& codes) {\n    return 0;\n}\n\nint main() {\n    int n; cin >> n;\n    vector<int> codes(n); for (int& code : codes) cin >> code;\n    cout << longest_run(codes) << \"\\n\";\n}\n",
+      "reference_solution": "#include <iostream>\n#include <vector>\n#include <algorithm>\nusing namespace std;\n\nint longest_run(const vector<int>& codes) {\n    int best = 0, current = 0;\n    for (int i = 0; i < static_cast<int>(codes.size()); ++i) {\n        current = (i > 0 && codes[i] == codes[i - 1]) ? current + 1 : 1;\n        best = max(best, current);\n    }\n    return best;\n}\n\nint main() {\n    int n; cin >> n;\n    vector<int> codes(n); for (int& code : codes) cin >> code;\n    cout << longest_run(codes) << \"\\n\";\n}\n",
+      "hints": [
+        "Remember the run ending at the current position, not just a code frequency.",
+        "Equal to the previous code means extend the run; otherwise start at one.",
+        "Update best every iteration, and initialize both counters to zero for an empty vector."
+      ],
+      "tests": [
+        {
+          "input": "8\n200 200 500 500 500 200 200 200\n",
+          "output": "3\n",
+          "hidden": false
+        },
+        {
+          "input": "0\n",
+          "output": "0\n",
+          "hidden": false
+        },
+        {
+          "input": "1\n0\n",
+          "output": "1\n",
+          "hidden": true
+        },
+        {
+          "input": "5\n7 7 7 7 7\n",
+          "output": "5\n",
+          "hidden": true
+        },
+        {
+          "input": "6\n1 2 1 2 1 2\n",
+          "output": "1\n",
+          "hidden": true
+        }
+      ],
+      "tags": [
+        "state-machines",
+        "sequences",
+        "logs"
+      ]
+    },
+    {
+      "id": "packet-checksum",
+      "slug": "packet-checksum",
+      "title": "Packet parity",
+      "summary": "Fold packet bytes into an XOR checksum.",
+      "story": "A device protocol includes a simple XOR checksum. It helps detect some transmission errors, but is not a cryptographic integrity check. Recreate the protocol exactly.",
+      "difficulty": "intermediate",
+      "track": "systems",
+      "order": 14,
+      "xp": 100,
+      "minutes": 14,
+      "concepts": [
+        {
+          "title": "Bitwise XOR",
+          "body": "The ^ operator combines individual bits. Equal bits produce zero and different bits produce one. Applying the same value twice cancels it.",
+          "code": "checksum ^= byte;"
+        },
+        {
+          "title": "Identity element",
+          "body": "XOR with zero leaves a value unchanged, so zero is the correct initial checksum and the result for an empty packet."
+        }
+      ],
+      "objectives": [
+        "Use a bitwise reduction",
+        "Understand a checksum limitation"
+      ],
+      "prompt": "Implement packet_checksum(bytes). XOR all byte values and return the result as a decimal integer.",
+      "input_format": "An integer n, followed by n decimal byte values.",
+      "output_format": "One decimal integer from 0 to 255.",
+      "constraints": [
+        "0 \u2264 n \u2264 100000",
+        "0 \u2264 each byte \u2264 255"
+      ],
+      "starter_code": "#include <iostream>\n#include <vector>\nusing namespace std;\n\nint packet_checksum(const vector<int>& bytes) {\n    return 0;\n}\n\nint main() {\n    int n; cin >> n;\n    vector<int> bytes(n); for (int& byte : bytes) cin >> byte;\n    cout << packet_checksum(bytes) << \"\\n\";\n}\n",
+      "reference_solution": "#include <iostream>\n#include <vector>\nusing namespace std;\n\nint packet_checksum(const vector<int>& bytes) {\n    int checksum = 0;\n    for (int byte : bytes) checksum ^= byte;\n    return checksum;\n}\n\nint main() {\n    int n; cin >> n;\n    vector<int> bytes(n); for (int& byte : bytes) cin >> byte;\n    cout << packet_checksum(bytes) << \"\\n\";\n}\n",
+      "hints": [
+        "Combine values with ^, which is XOR in C++; it is not exponentiation.",
+        "Start at zero and XOR each byte into the accumulator.",
+        "Return the accumulator. Two identical bytes cancel each other."
+      ],
+      "tests": [
+        {
+          "input": "3\n1 2 3\n",
+          "output": "0\n",
+          "hidden": false
+        },
+        {
+          "input": "2\n240 15\n",
+          "output": "255\n",
+          "hidden": false
+        },
+        {
+          "input": "0\n",
+          "output": "0\n",
+          "hidden": true
+        },
+        {
+          "input": "1\n255\n",
+          "output": "255\n",
+          "hidden": true
+        },
+        {
+          "input": "5\n12 12 7 7 99\n",
+          "output": "99\n",
+          "hidden": true
+        }
+      ],
+      "tags": [
+        "bitwise",
+        "protocols",
+        "checksums"
+      ]
+    },
+    {
+      "id": "expression-tokens",
+      "slug": "expression-tokens",
+      "title": "Expression scanner",
+      "summary": "Split arithmetic source into lexical tokens.",
+      "story": "Before a compiler builds a syntax tree, its scanner groups characters into tokens. Build a tiny scanner for nonnegative decimal integers and arithmetic punctuation.",
+      "difficulty": "intermediate",
+      "track": "compilers",
+      "order": 15,
+      "xp": 100,
+      "minutes": 25,
+      "concepts": [
+        {
+          "title": "Maximal digit runs",
+          "body": "A number token consumes every consecutive digit. The source text 120 contains one number token, not three."
+        },
+        {
+          "title": "A scanner advances",
+          "body": "At each position, skip whitespace, scan a full number, or emit one punctuation character. Each branch must advance the index.",
+          "code": "while (i < source.size() && isdigit(static_cast<unsigned char>(source[i]))) ++i;"
+        }
+      ],
+      "objectives": [
+        "Implement a deterministic lexical scan",
+        "Group multi-digit integers",
+        "Handle whitespace without changing tokens"
+      ],
+      "prompt": "Implement scan_tokens(source). Ignore spaces. A maximal run of digits is one token; each +, -, *, /, (, or ) is a separate token. Do not evaluate the expression. main prints the token count and then tokens joined by single spaces.",
+      "input_format": "One line containing digits, spaces, and the punctuation + - * / ( ). The line may be empty.",
+      "output_format": "First line: token count. Second line: tokens separated by single spaces; an empty token list produces an empty second line.",
+      "constraints": [
+        "0 \u2264 source length \u2264 100000",
+        "Preserve number spelling, including leading zeroes."
+      ],
+      "starter_code": "#include <iostream>\n#include <vector>\n#include <string>\n#include <cctype>\nusing namespace std;\n\nvector<string> scan_tokens(const string& source) {\n    return {};\n}\n\nint main() {\n    string source; getline(cin, source);\n    auto tokens = scan_tokens(source);\n    cout << tokens.size() << \"\\n\";\n    for (size_t i = 0; i < tokens.size(); ++i) { if (i) cout << \" \"; cout << tokens[i]; }\n    cout << \"\\n\";\n}\n",
+      "reference_solution": "#include <iostream>\n#include <vector>\n#include <string>\n#include <cctype>\nusing namespace std;\n\nvector<string> scan_tokens(const string& source) {\n    vector<string> tokens;\n    size_t i = 0;\n    while (i < source.size()) {\n        unsigned char character = static_cast<unsigned char>(source[i]);\n        if (isspace(character)) { ++i; continue; }\n        if (isdigit(character)) {\n            size_t start = i;\n            while (i < source.size() && isdigit(static_cast<unsigned char>(source[i]))) ++i;\n            tokens.push_back(source.substr(start, i - start));\n        } else {\n            tokens.push_back(source.substr(i, 1));\n            ++i;\n        }\n    }\n    return tokens;\n}\n\nint main() {\n    string source; getline(cin, source);\n    auto tokens = scan_tokens(source);\n    cout << tokens.size() << \"\\n\";\n    for (size_t i = 0; i < tokens.size(); ++i) { if (i) cout << \" \"; cout << tokens[i]; }\n    cout << \"\\n\";\n}\n",
+      "hints": [
+        "Use an index to walk the string and skip spaces.",
+        "When a digit starts a token, advance until the next character is not a digit.",
+        "Save that digit substring; otherwise emit a one-character punctuation token and advance once."
+      ],
+      "tests": [
+        {
+          "input": "12 + (3*40)\n",
+          "output": "7\n12 + ( 3 * 40 )\n",
+          "hidden": false
+        },
+        {
+          "input": "  007 / 2 - 1\n",
+          "output": "5\n007 / 2 - 1\n",
+          "hidden": false
+        },
+        {
+          "input": "\n",
+          "output": "0\n\n",
+          "hidden": true
+        },
+        {
+          "input": "12345\n",
+          "output": "1\n12345\n",
+          "hidden": true
+        },
+        {
+          "input": "((1+2)*(3-4))\n",
+          "output": "13\n( ( 1 + 2 ) * ( 3 - 4 ) )\n",
+          "hidden": true
+        }
+      ],
+      "tags": [
+        "lexing",
+        "compiler-frontends",
+        "strings"
+      ]
+    },
+    {
+      "id": "scoreboard-cut",
+      "slug": "scoreboard-cut",
+      "title": "Leaderboard cut",
+      "summary": "Select top scores without losing ties.",
+      "story": "A tournament display has room for k score entries. Repeated scores belong to different players and must remain present. Show the selected entries in descending order.",
+      "difficulty": "intermediate",
+      "track": "games",
+      "order": 16,
+      "xp": 100,
+      "minutes": 17,
+      "concepts": [
+        {
+          "title": "Ordering with a comparator",
+          "body": "std::sort accepts a comparison that places larger values first. Equal scores stay as distinct entries.",
+          "code": "sort(scores.begin(), scores.end(), greater<long long>());"
+        },
+        {
+          "title": "Copy and resize",
+          "body": "Passing the vector by value gives the function a local copy it may sort. Resizing after sorting selects the first k values."
+        }
+      ],
+      "objectives": [
+        "Sort with an explicit order",
+        "Preserve duplicate values",
+        "Handle selecting zero entries"
+      ],
+      "prompt": "Implement top_scores(scores, k). Return the k largest scores in descending order, preserving duplicates.",
+      "input_format": "Integers n and k, followed by n signed scores.",
+      "output_format": "The k selected scores on one line separated by single spaces. Print an empty line when k is zero.",
+      "constraints": [
+        "0 \u2264 k \u2264 n \u2264 100000",
+        "-1000000000 \u2264 each score \u2264 1000000000"
+      ],
+      "starter_code": "#include <iostream>\n#include <vector>\n#include <functional>\n#include <algorithm>\nusing namespace std;\n\nvector<long long> top_scores(vector<long long> scores, int k) {\n    return {};\n}\n\nint main() {\n    int n, k; cin >> n >> k;\n    vector<long long> scores(n); for (auto& score : scores) cin >> score;\n    auto selected = top_scores(scores, k);\n    for (size_t i = 0; i < selected.size(); ++i) { if (i) cout << \" \"; cout << selected[i]; }\n    cout << \"\\n\";\n}\n",
+      "reference_solution": "#include <iostream>\n#include <vector>\n#include <functional>\n#include <algorithm>\nusing namespace std;\n\nvector<long long> top_scores(vector<long long> scores, int k) {\n    sort(scores.begin(), scores.end(), greater<long long>());\n    scores.resize(k);\n    return scores;\n}\n\nint main() {\n    int n, k; cin >> n >> k;\n    vector<long long> scores(n); for (auto& score : scores) cin >> score;\n    auto selected = top_scores(scores, k);\n    for (size_t i = 0; i < selected.size(); ++i) { if (i) cout << \" \"; cout << selected[i]; }\n    cout << \"\\n\";\n}\n",
+      "hints": [
+        "A descending sort places the desired entries at the beginning.",
+        "Do not put scores in a set: that would remove tied entries.",
+        "Sort with greater<long long>(), then resize the vector to k."
+      ],
+      "tests": [
+        {
+          "input": "5 3\n40 90 90 20 70\n",
+          "output": "90 90 70\n",
+          "hidden": false
+        },
+        {
+          "input": "3 0\n2 4 6\n",
+          "output": "\n",
+          "hidden": false
+        },
+        {
+          "input": "0 0\n",
+          "output": "\n",
+          "hidden": true
+        },
+        {
+          "input": "4 4\n-3 -1 -2 -1\n",
+          "output": "-1 -1 -2 -3\n",
+          "hidden": true
+        },
+        {
+          "input": "1 1\n1000000000\n",
+          "output": "1000000000\n",
+          "hidden": true
+        }
+      ],
+      "tags": [
+        "sorting",
+        "comparators",
+        "leaderboards"
+      ]
+    },
+    {
+      "id": "request-cache",
+      "slug": "request-cache",
+      "title": "Request cache",
+      "summary": "Simulate a least-recently-used cache.",
+      "story": "An API gateway caches recently requested assets. A hit refreshes an asset; a miss loads it and may evict the least recently used asset. Measure hits and misses for a request trace.",
+      "difficulty": "advanced",
+      "track": "systems",
+      "order": 17,
+      "xp": 150,
+      "minutes": 35,
+      "concepts": [
+        {
+          "title": "Two structures, one invariant",
+          "body": "A list stores recency from newest to oldest. A hash map points each cached key to its list iterator. Every cached key must appear exactly once in each structure."
+        },
+        {
+          "title": "Refresh without a search",
+          "body": "list::splice moves an existing node without invalidating its iterator. New keys go at the front; eviction removes the back.",
+          "code": "recency.splice(recency.begin(), recency, position[key]);"
+        }
+      ],
+      "objectives": [
+        "Maintain a consistent list and hash index",
+        "Implement LRU eviction",
+        "Achieve expected O(n) processing"
+      ],
+      "prompt": "Implement cache_counts(capacity, requests). The cache starts empty. A cached request is a hit and becomes most recent. Otherwise count a miss, insert it as most recent, and evict the least recent key if capacity is exceeded. Return {hits, misses}.",
+      "input_format": "Integers capacity and n, followed by n request keys.",
+      "output_format": "Two integers: hits misses.",
+      "constraints": [
+        "1 \u2264 capacity \u2264 100000",
+        "0 \u2264 n \u2264 100000",
+        "0 \u2264 each key \u2264 1000000000"
+      ],
+      "starter_code": "#include <iostream>\n#include <vector>\n#include <utility>\n#include <unordered_map>\n#include <list>\nusing namespace std;\n\npair<int, int> cache_counts(int capacity, const vector<int>& requests) {\n    return {0, static_cast<int>(requests.size())};\n}\n\nint main() {\n    int capacity, n; cin >> capacity >> n;\n    vector<int> requests(n); for (int& key : requests) cin >> key;\n    auto [hits, misses] = cache_counts(capacity, requests);\n    cout << hits << \" \" << misses << \"\\n\";\n}\n",
+      "reference_solution": "#include <iostream>\n#include <vector>\n#include <utility>\n#include <unordered_map>\n#include <list>\nusing namespace std;\n\npair<int, int> cache_counts(int capacity, const vector<int>& requests) {\n    list<int> recency;\n    unordered_map<int, list<int>::iterator> position;\n    int hits = 0, misses = 0;\n    for (int key : requests) {\n        auto found = position.find(key);\n        if (found != position.end()) {\n            ++hits;\n            recency.splice(recency.begin(), recency, found->second);\n        } else {\n            ++misses;\n            recency.push_front(key);\n            position[key] = recency.begin();\n            if (static_cast<int>(recency.size()) > capacity) {\n                position.erase(recency.back());\n                recency.pop_back();\n            }\n        }\n    }\n    return {hits, misses};\n}\n\nint main() {\n    int capacity, n; cin >> capacity >> n;\n    vector<int> requests(n); for (int& key : requests) cin >> key;\n    auto [hits, misses] = cache_counts(capacity, requests);\n    cout << hits << \" \" << misses << \"\\n\";\n}\n",
+      "hints": [
+        "You need membership lookup plus the order of recent use; one queue alone makes hit refresh expensive.",
+        "Use unordered_map<int, list<int>::iterator> with the most recent list entry at the front.",
+        "On a hit splice its node to the front. On a miss insert at the front and erase the back key from both structures if over capacity."
+      ],
+      "tests": [
+        {
+          "input": "2 7\n1 2 1 3 1 2 2\n",
+          "output": "3 4\n",
+          "hidden": false
+        },
+        {
+          "input": "1 5\n8 8 9 8 8\n",
+          "output": "2 3\n",
+          "hidden": false
+        },
+        {
+          "input": "3 0\n",
+          "output": "0 0\n",
+          "hidden": true
+        },
+        {
+          "input": "5 5\n1 2 3 4 5\n",
+          "output": "0 5\n",
+          "hidden": true
+        },
+        {
+          "input": "2 8\n1 2 1 2 3 1 3 1\n",
+          "output": "4 4\n",
+          "hidden": true
+        }
+      ],
+      "tags": [
+        "lru",
+        "hash-maps",
+        "iterators",
+        "caching"
+      ]
+    },
+    {
+      "id": "rescue-route",
+      "slug": "rescue-route",
+      "title": "Rescue route",
+      "summary": "Find a shortest route through a blocked game map.",
+      "story": "A rescue unit must reach an exit using four-direction movement. All moves cost one turn, and walls cannot be crossed. Report the fewest turns or signal that rescue is impossible.",
+      "difficulty": "advanced",
+      "track": "games",
+      "order": 18,
+      "xp": 150,
+      "minutes": 35,
+      "concepts": [
+        {
+          "title": "Breadth-first layers",
+          "body": "A FIFO queue visits reachable cells in increasing distance when every move has equal cost. The first distance assigned to a cell is therefore shortest."
+        },
+        {
+          "title": "Visit when enqueuing",
+          "body": "Mark a cell as visited as soon as you add it to the queue. That prevents many frontier cells from enqueueing it repeatedly."
+        }
+      ],
+      "objectives": [
+        "Implement breadth-first search",
+        "Respect grid boundaries and walls",
+        "Represent unreachable states"
+      ],
+      "prompt": "Implement rescue_distance(grid). Find the minimum number of up, down, left, or right moves from S to E. Return -1 if no route exists. Each grid contains exactly one S and one E.",
+      "input_format": "Integers rows and columns, followed by rows strings containing ., #, S, or E.",
+      "output_format": "One integer: shortest move count, or -1.",
+      "constraints": [
+        "1 \u2264 rows, columns \u2264 200",
+        "rows \u00d7 columns \u2265 2",
+        "Every row has exactly columns characters."
+      ],
+      "starter_code": "#include <iostream>\n#include <vector>\n#include <string>\n#include <utility>\n#include <queue>\nusing namespace std;\n\nint rescue_distance(const vector<string>& grid) {\n    return -1;\n}\n\nint main() {\n    int rows, columns; cin >> rows >> columns;\n    vector<string> grid(rows); for (string& row : grid) cin >> row;\n    cout << rescue_distance(grid) << \"\\n\";\n}\n",
+      "reference_solution": "#include <iostream>\n#include <vector>\n#include <string>\n#include <utility>\n#include <queue>\nusing namespace std;\n\nint rescue_distance(const vector<string>& grid) {\n    int rows = static_cast<int>(grid.size()), columns = static_cast<int>(grid[0].size());\n    vector<vector<int>> distance(rows, vector<int>(columns, -1));\n    queue<pair<int, int>> frontier;\n    for (int r = 0; r < rows; ++r) for (int c = 0; c < columns; ++c) {\n        if (grid[r][c] == 'S') { distance[r][c] = 0; frontier.push({r, c}); }\n    }\n    const int dr[] = {-1, 1, 0, 0}, dc[] = {0, 0, -1, 1};\n    while (!frontier.empty()) {\n        auto [r, c] = frontier.front(); frontier.pop();\n        if (grid[r][c] == 'E') return distance[r][c];\n        for (int direction = 0; direction < 4; ++direction) {\n            int nr = r + dr[direction], nc = c + dc[direction];\n            if (nr < 0 || nr >= rows || nc < 0 || nc >= columns) continue;\n            if (grid[nr][nc] == '#' || distance[nr][nc] != -1) continue;\n            distance[nr][nc] = distance[r][c] + 1;\n            frontier.push({nr, nc});\n        }\n    }\n    return -1;\n}\n\nint main() {\n    int rows, columns; cin >> rows >> columns;\n    vector<string> grid(rows); for (string& row : grid) cin >> row;\n    cout << rescue_distance(grid) << \"\\n\";\n}\n",
+      "hints": [
+        "Every move has the same cost, so use BFS from S.",
+        "Store distance -1 for unseen cells and set distance before pushing a neighbor into the queue.",
+        "Check four neighbors, rejecting out-of-bounds cells and walls. Return the distance when E leaves the queue, or -1 if the queue empties."
+      ],
+      "tests": [
+        {
+          "input": "3 4\nS..#\n.#..\n...E\n",
+          "output": "5\n",
+          "hidden": false
+        },
+        {
+          "input": "2 3\nS#E\n###\n",
+          "output": "-1\n",
+          "hidden": false
+        },
+        {
+          "input": "1 2\nSE\n",
+          "output": "1\n",
+          "hidden": true
+        },
+        {
+          "input": "1 5\nE...S\n",
+          "output": "4\n",
+          "hidden": true
+        },
+        {
+          "input": "4 4\nS###\n...#\n##.#\nE...\n",
+          "output": "7\n",
+          "hidden": true
+        }
+      ],
+      "tags": [
+        "bfs",
+        "graphs",
+        "pathfinding",
+        "game-ai"
+      ]
+    },
+    {
+      "id": "build-order",
+      "slug": "build-order",
+      "title": "Build graph",
+      "summary": "Schedule compiler targets in dependency order.",
+      "story": "A build tool must compile dependencies before their consumers. When several targets are ready, it picks the smallest identifier to keep logs reproducible. Cycles make the build impossible.",
+      "difficulty": "advanced",
+      "track": "compilers",
+      "order": 19,
+      "xp": 150,
+      "minutes": 35,
+      "concepts": [
+        {
+          "title": "Incoming dependencies",
+          "body": "The indegree of a target counts prerequisites still unfinished. A zero-indegree target is ready to build."
+        },
+        {
+          "title": "Deterministic Kahn algorithm",
+          "body": "Use a min-priority queue for ready targets. Removing a target decrements each consumer indegree. If fewer than n targets are emitted, a cycle remains."
+        }
+      ],
+      "objectives": [
+        "Implement topological sorting",
+        "Detect directed cycles",
+        "Use deterministic tie breaking"
+      ],
+      "prompt": "Implement build_order(n, edges). Each pair u v means target u must be built before v. Return the lexicographically smallest valid target order. Return an empty vector if a cycle prevents a full order. main prints CYCLE for that result.",
+      "input_format": "Integers n and m, followed by m lines u v.",
+      "output_format": "All n target identifiers in build order, separated by spaces, or CYCLE.",
+      "constraints": [
+        "1 \u2264 n \u2264 100000",
+        "0 \u2264 m \u2264 200000",
+        "0 \u2264 u, v < n",
+        "Edges may repeat; self-dependencies form a cycle."
+      ],
+      "starter_code": "#include <iostream>\n#include <vector>\n#include <utility>\n#include <queue>\n#include <functional>\nusing namespace std;\n\nvector<int> build_order(int n, const vector<pair<int, int>>& edges) {\n    return {};\n}\n\nint main() {\n    int n, m; cin >> n >> m;\n    vector<pair<int, int>> edges(m); for (auto& [u, v] : edges) cin >> u >> v;\n    auto order = build_order(n, edges);\n    if (order.empty()) { cout << \"CYCLE\\n\"; return 0; }\n    for (size_t i = 0; i < order.size(); ++i) { if (i) cout << \" \"; cout << order[i]; }\n    cout << \"\\n\";\n}\n",
+      "reference_solution": "#include <iostream>\n#include <vector>\n#include <utility>\n#include <queue>\n#include <functional>\nusing namespace std;\n\nvector<int> build_order(int n, const vector<pair<int, int>>& edges) {\n    vector<vector<int>> consumers(n);\n    vector<int> indegree(n, 0);\n    for (auto [u, v] : edges) { consumers[u].push_back(v); ++indegree[v]; }\n    priority_queue<int, vector<int>, greater<int>> ready;\n    for (int target = 0; target < n; ++target) if (indegree[target] == 0) ready.push(target);\n    vector<int> order;\n    while (!ready.empty()) {\n        int target = ready.top(); ready.pop(); order.push_back(target);\n        for (int consumer : consumers[target]) if (--indegree[consumer] == 0) ready.push(consumer);\n    }\n    if (static_cast<int>(order.size()) != n) return {};\n    return order;\n}\n\nint main() {\n    int n, m; cin >> n >> m;\n    vector<pair<int, int>> edges(m); for (auto& [u, v] : edges) cin >> u >> v;\n    auto order = build_order(n, edges);\n    if (order.empty()) { cout << \"CYCLE\\n\"; return 0; }\n    for (size_t i = 0; i < order.size(); ++i) { if (i) cout << \" \"; cout << order[i]; }\n    cout << \"\\n\";\n}\n",
+      "hints": [
+        "Count the prerequisites of each node and start with nodes that have none.",
+        "Use a min-heap so every step chooses the smallest currently ready target.",
+        "After removing a target, decrement its consumers. If the emitted order has fewer than n nodes, return an empty vector for a cycle."
+      ],
+      "tests": [
+        {
+          "input": "4 3\n0 2\n1 2\n2 3\n",
+          "output": "0 1 2 3\n",
+          "hidden": false
+        },
+        {
+          "input": "3 3\n0 1\n1 2\n2 0\n",
+          "output": "CYCLE\n",
+          "hidden": false
+        },
+        {
+          "input": "1 0\n",
+          "output": "0\n",
+          "hidden": true
+        },
+        {
+          "input": "4 0\n",
+          "output": "0 1 2 3\n",
+          "hidden": true
+        },
+        {
+          "input": "3 3\n0 1\n0 1\n1 2\n",
+          "output": "0 1 2\n",
+          "hidden": true
+        }
+      ],
+      "tags": [
+        "topological-sort",
+        "build-systems",
+        "dag"
+      ]
+    },
+    {
+      "id": "event-scheduler",
+      "slug": "event-scheduler",
+      "title": "Arena event scheduler",
+      "summary": "Fit the most events on a single game server.",
+      "story": "A tournament server can host only one event at a time. An event ending at time t can be followed immediately by another starting at t. Choose the largest number of compatible events.",
+      "difficulty": "advanced",
+      "track": "games",
+      "order": 20,
+      "xp": 150,
+      "minutes": 30,
+      "concepts": [
+        {
+          "title": "Greedy choice",
+          "body": "Selecting the available event that finishes earliest leaves at least as much room for later events as selecting a later-finishing alternative."
+        },
+        {
+          "title": "Half-open intervals",
+          "body": "Treat an event as [start, end). Two events are compatible when the later start is greater than or equal to the previous end."
+        }
+      ],
+      "objectives": [
+        "Apply an interval-scheduling greedy algorithm",
+        "Use the correct touching-boundary comparison"
+      ],
+      "prompt": "Implement max_events(events). Each pair is {start, end} with start < end. Return the maximum number of non-overlapping events. Events that touch at an endpoint do not overlap.",
+      "input_format": "An integer n, followed by n lines start end.",
+      "output_format": "One integer: maximum compatible event count.",
+      "constraints": [
+        "0 \u2264 n \u2264 100000",
+        "0 \u2264 start < end \u2264 1000000000"
+      ],
+      "starter_code": "#include <iostream>\n#include <vector>\n#include <utility>\n#include <algorithm>\nusing namespace std;\n\nint max_events(vector<pair<int, int>> events) {\n    return 0;\n}\n\nint main() {\n    int n; cin >> n;\n    vector<pair<int, int>> events(n); for (auto& [start, end] : events) cin >> start >> end;\n    cout << max_events(events) << \"\\n\";\n}\n",
+      "reference_solution": "#include <iostream>\n#include <vector>\n#include <utility>\n#include <algorithm>\nusing namespace std;\n\nint max_events(vector<pair<int, int>> events) {\n    sort(events.begin(), events.end(), [](const auto& a, const auto& b) {\n        if (a.second != b.second) return a.second < b.second;\n        return a.first < b.first;\n    });\n    int count = 0, available = 0;\n    for (auto [start, end] : events) {\n        if (start >= available) { ++count; available = end; }\n    }\n    return count;\n}\n\nint main() {\n    int n; cin >> n;\n    vector<pair<int, int>> events(n); for (auto& [start, end] : events) cin >> start >> end;\n    cout << max_events(events) << \"\\n\";\n}\n",
+      "hints": [
+        "Choosing the shortest duration is not always optimal. Consider which choice frees the server earliest.",
+        "Sort events by increasing end time.",
+        "Keep the next available time; accept an event when start >= available, then set available = end."
+      ],
+      "tests": [
+        {
+          "input": "5\n1 4\n2 3\n3 5\n5 7\n6 8\n",
+          "output": "3\n",
+          "hidden": false
+        },
+        {
+          "input": "3\n0 1\n1 2\n2 3\n",
+          "output": "3\n",
+          "hidden": false
+        },
+        {
+          "input": "0\n",
+          "output": "0\n",
+          "hidden": true
+        },
+        {
+          "input": "3\n1 10\n2 9\n3 8\n",
+          "output": "1\n",
+          "hidden": true
+        },
+        {
+          "input": "5\n0 100\n0 20\n20 40\n40 60\n60 80\n",
+          "output": "4\n",
+          "hidden": true
+        }
+      ],
+      "tags": [
+        "greedy",
+        "intervals",
+        "scheduling"
+      ]
+    },
+    {
+      "id": "ssa-renaming",
+      "slug": "ssa-renaming",
+      "title": "SSA name ledger",
+      "summary": "Give each straight-line assignment a unique name.",
+      "story": "A toy compiler prepares straight-line assignments for later analysis. Each write gets a fresh version; each variable read refers to the latest earlier version. This is a name-renaming exercise, not a complete LLVM or control-flow SSA implementation.",
+      "difficulty": "advanced",
+      "track": "compilers",
+      "order": 21,
+      "xp": 150,
+      "minutes": 35,
+      "concepts": [
+        {
+          "title": "Definitions and uses",
+          "body": "Process the right-hand side before assigning a new version to the left-hand side. In x = x, the right x must refer to the older definition."
+        },
+        {
+          "title": "Initial versions",
+          "body": "A variable read before any assignment refers to version 0. A first assignment creates version 1. Integer literals pass through unchanged."
+        }
+      ],
+      "objectives": [
+        "Track symbol versions",
+        "Separate definition order from use lookup",
+        "Understand the limits of straight-line SSA"
+      ],
+      "prompt": "Implement rename_assignments(assignments). Each pair means lhs = rhs. A variable name contains lowercase letters only. rhs is either a variable name or a nonnegative integer literal. Rewrite variables as name.version; reads use the latest previous version or 0, and each write increments its lhs version. Return formatted lines exactly as lhs.version = rhs.",
+      "input_format": "An integer n, followed by n lines lhs rhs.",
+      "output_format": "One rewritten assignment per line, with one space on each side of =.",
+      "constraints": [
+        "0 \u2264 n \u2264 100000",
+        "Variable names contain 1 to 20 lowercase letters.",
+        "Integer literals contain 1 to 20 digits; preserve their spelling.",
+        "There are no branches or phi nodes in this exercise."
+      ],
+      "starter_code": "#include <iostream>\n#include <vector>\n#include <string>\n#include <utility>\n#include <unordered_map>\n#include <cctype>\nusing namespace std;\n\nvector<string> rename_assignments(const vector<pair<string, string>>& assignments) {\n    return {};\n}\n\nint main() {\n    int n; cin >> n;\n    vector<pair<string, string>> assignments(n); for (auto& [lhs, rhs] : assignments) cin >> lhs >> rhs;\n    for (const string& line : rename_assignments(assignments)) cout << line << \"\\n\";\n}\n",
+      "reference_solution": "#include <iostream>\n#include <vector>\n#include <string>\n#include <utility>\n#include <unordered_map>\n#include <cctype>\nusing namespace std;\n\nvector<string> rename_assignments(const vector<pair<string, string>>& assignments) {\n    unordered_map<string, int> version;\n    vector<string> output;\n    for (const auto& [lhs, rhs] : assignments) {\n        string use = rhs;\n        if (isalpha(static_cast<unsigned char>(rhs[0]))) use += \".\" + to_string(version[rhs]);\n        int definition = ++version[lhs];\n        output.push_back(lhs + \".\" + to_string(definition) + \" = \" + use);\n    }\n    return output;\n}\n\nint main() {\n    int n; cin >> n;\n    vector<pair<string, string>> assignments(n); for (auto& [lhs, rhs] : assignments) cin >> lhs >> rhs;\n    for (const string& line : rename_assignments(assignments)) cout << line << \"\\n\";\n}\n",
+      "hints": [
+        "Maintain a map from each variable name to its latest assigned version.",
+        "Resolve rhs using the current map before incrementing lhs; otherwise x = x reads its own new version.",
+        "Leave numeric rhs unchanged, append the current version to variable rhs, then increment lhs and format the assignment."
+      ],
+      "tests": [
+        {
+          "input": "4\nx 5\ny x\nx y\nz x\n",
+          "output": "x.1 = 5\ny.1 = x.1\nx.2 = y.1\nz.1 = x.2\n",
+          "hidden": false
+        },
+        {
+          "input": "2\nx x\nx x\n",
+          "output": "x.1 = x.0\nx.2 = x.1\n",
+          "hidden": false
+        },
+        {
+          "input": "0\n",
+          "output": "",
+          "hidden": true
+        },
+        {
+          "input": "2\nb a\na b\n",
+          "output": "b.1 = a.0\na.1 = b.1\n",
+          "hidden": true
+        },
+        {
+          "input": "3\nn 007\nn 99999999999999999999\nm n\n",
+          "output": "n.1 = 007\nn.2 = 99999999999999999999\nm.1 = n.2\n",
+          "hidden": true
+        }
+      ],
+      "tags": [
+        "ssa",
+        "symbol-tables",
+        "compiler-ir"
+      ]
+    },
+    {
+      "id": "bytecode-stack",
+      "slug": "bytecode-stack",
+      "title": "Bytecode stack machine",
+      "summary": "Execute a tiny arithmetic instruction stream.",
+      "story": "A game scripting runtime uses stack bytecode. Implement PUSH, ADD, SUB, and MUL so scripted calculations run in their original operand order. The provided programs are valid.",
+      "difficulty": "advanced",
+      "track": "compilers",
+      "order": 22,
+      "xp": 150,
+      "minutes": 32,
+      "concepts": [
+        {
+          "title": "Stack operands",
+          "body": "PUSH adds a value. A binary instruction removes rhs first and then lhs. It pushes the result of lhs op rhs. This ordering matters for subtraction."
+        },
+        {
+          "title": "A compact virtual machine",
+          "body": "The program is a sequence of named operations. Dispatch each operation and update explicit machine state; no dynamic code evaluation is required."
+        }
+      ],
+      "objectives": [
+        "Implement a stack-based interpreter",
+        "Preserve operand order",
+        "Separate parsing from execution"
+      ],
+      "prompt": "Implement execute_bytecode(program). PUSH has its integer argument in the pair; ADD, SUB, and MUL ignore that field. Run all instructions and return the sole final stack value.",
+      "input_format": "An integer n, followed by n instructions. Each instruction is PUSH value, ADD, SUB, or MUL.",
+      "output_format": "One integer: the final stack result.",
+      "constraints": [
+        "1 \u2264 n \u2264 100000",
+        "All programs have enough operands and finish with exactly one value.",
+        "Every input and intermediate result fits signed 64-bit long long."
+      ],
+      "starter_code": "#include <iostream>\n#include <vector>\n#include <string>\n#include <utility>\nusing namespace std;\n\nlong long execute_bytecode(const vector<pair<string, long long>>& program) {\n    return 0;\n}\n\nint main() {\n    int n; cin >> n;\n    vector<pair<string, long long>> program;\n    for (int i = 0; i < n; ++i) {\n        string operation; long long argument = 0; cin >> operation;\n        if (operation == \"PUSH\") cin >> argument;\n        program.push_back({operation, argument});\n    }\n    cout << execute_bytecode(program) << \"\\n\";\n}\n",
+      "reference_solution": "#include <iostream>\n#include <vector>\n#include <string>\n#include <utility>\nusing namespace std;\n\nlong long execute_bytecode(const vector<pair<string, long long>>& program) {\n    vector<long long> stack;\n    for (const auto& [operation, argument] : program) {\n        if (operation == \"PUSH\") { stack.push_back(argument); continue; }\n        long long rhs = stack.back(); stack.pop_back();\n        long long lhs = stack.back(); stack.pop_back();\n        if (operation == \"ADD\") stack.push_back(lhs + rhs);\n        else if (operation == \"SUB\") stack.push_back(lhs - rhs);\n        else stack.push_back(lhs * rhs);\n    }\n    return stack.back();\n}\n\nint main() {\n    int n; cin >> n;\n    vector<pair<string, long long>> program;\n    for (int i = 0; i < n; ++i) {\n        string operation; long long argument = 0; cin >> operation;\n        if (operation == \"PUSH\") cin >> argument;\n        program.push_back({operation, argument});\n    }\n    cout << execute_bytecode(program) << \"\\n\";\n}\n",
+      "hints": [
+        "Use vector<long long> as a stack, with push_back, back, and pop_back.",
+        "For binary operations, the first popped value is rhs and the next is lhs.",
+        "Push lhs + rhs, lhs - rhs, or lhs * rhs. Return the last value after the full program."
+      ],
+      "tests": [
+        {
+          "input": "5\nPUSH 7\nPUSH 2\nSUB\nPUSH 3\nMUL\n",
+          "output": "15\n",
+          "hidden": false
+        },
+        {
+          "input": "3\nPUSH 2\nPUSH 7\nSUB\n",
+          "output": "-5\n",
+          "hidden": false
+        },
+        {
+          "input": "1\nPUSH -9\n",
+          "output": "-9\n",
+          "hidden": true
+        },
+        {
+          "input": "7\nPUSH 4\nPUSH 3\nADD\nPUSH 2\nPUSH 1\nSUB\nMUL\n",
+          "output": "7\n",
+          "hidden": true
+        },
+        {
+          "input": "3\nPUSH 1000000000\nPUSH 1000000000\nMUL\n",
+          "output": "1000000000000000000\n",
+          "hidden": true
+        }
+      ],
+      "tags": [
+        "virtual-machines",
+        "stacks",
+        "interpreters"
+      ]
+    },
+    {
+      "id": "network-route",
+      "slug": "network-route",
+      "title": "Network route planner",
+      "summary": "Find a minimum-cost directed network route.",
+      "story": "A service mesh advertises nonnegative link delays. Choose the lowest total delay from a source to a destination. Links are directed and a destination may be unreachable.",
+      "difficulty": "advanced",
+      "track": "systems",
+      "order": 23,
+      "xp": 150,
+      "minutes": 40,
+      "concepts": [
+        {
+          "title": "Dijkstra and nonnegative weights",
+          "body": "A min-priority queue processes the smallest tentative distance. Nonnegative edge weights make finalizing distances in this order valid."
+        },
+        {
+          "title": "Lazy queue entries",
+          "body": "When a better distance is found, push a new entry. Older entries can remain in the queue; skip them when their stored distance differs from the current best."
+        }
+      ],
+      "objectives": [
+        "Implement Dijkstra shortest paths",
+        "Handle stale priority-queue entries",
+        "Use wide distances and unreachable sentinels"
+      ],
+      "prompt": "Implement shortest_delay(n, edges, source, target). Each edge is {from, to, weight}. Return the minimum summed weight of a directed route, or -1 if no route exists. A source equal to the target has distance zero.",
+      "input_format": "Integers n, m, source, target, followed by m lines from to weight.",
+      "output_format": "One integer: minimum delay, or -1.",
+      "constraints": [
+        "1 \u2264 n \u2264 100000",
+        "0 \u2264 m \u2264 200000",
+        "0 \u2264 source, target, from, to < n",
+        "0 \u2264 weight \u2264 1000000000",
+        "Parallel edges and zero-weight edges are allowed."
+      ],
+      "starter_code": "#include <iostream>\n#include <vector>\n#include <utility>\n#include <queue>\n#include <functional>\n#include <limits>\n#include <algorithm>\nusing namespace std;\n\nlong long shortest_delay(int n, const vector<vector<long long>>& edges, int source, int target) {\n    return -1;\n}\n\nint main() {\n    int n, m, source, target; cin >> n >> m >> source >> target;\n    vector<vector<long long>> edges(m, vector<long long>(3));\n    for (auto& edge : edges) cin >> edge[0] >> edge[1] >> edge[2];\n    cout << shortest_delay(n, edges, source, target) << \"\\n\";\n}\n",
+      "reference_solution": "#include <iostream>\n#include <vector>\n#include <utility>\n#include <queue>\n#include <functional>\n#include <limits>\n#include <algorithm>\nusing namespace std;\n\nlong long shortest_delay(int n, const vector<vector<long long>>& edges, int source, int target) {\n    vector<vector<pair<int, long long>>> graph(n);\n    for (const auto& edge : edges) graph[edge[0]].push_back({static_cast<int>(edge[1]), edge[2]});\n    const long long infinity = numeric_limits<long long>::max() / 4;\n    vector<long long> distance(n, infinity);\n    priority_queue<pair<long long, int>, vector<pair<long long, int>>, greater<pair<long long, int>>> queue;\n    distance[source] = 0; queue.push({0, source});\n    while (!queue.empty()) {\n        auto [cost, node] = queue.top(); queue.pop();\n        if (cost != distance[node]) continue;\n        if (node == target) return cost;\n        for (auto [next, weight] : graph[node]) {\n            if (cost + weight < distance[next]) {\n                distance[next] = cost + weight;\n                queue.push({distance[next], next});\n            }\n        }\n    }\n    return -1;\n}\n\nint main() {\n    int n, m, source, target; cin >> n >> m >> source >> target;\n    vector<vector<long long>> edges(m, vector<long long>(3));\n    for (auto& edge : edges) cin >> edge[0] >> edge[1] >> edge[2];\n    cout << shortest_delay(n, edges, source, target) << \"\\n\";\n}\n",
+      "hints": [
+        "A FIFO BFS queue is insufficient because link weights differ. Use a min-priority queue of {distance, node}.",
+        "Relax an edge only when cost + weight improves the stored distance, then push the improved entry.",
+        "Skip stale entries. Start source at zero, all others at a large sentinel, and return -1 if target is never reached."
+      ],
+      "tests": [
+        {
+          "input": "4 5 0 3\n0 1 5\n0 2 1\n2 1 1\n1 3 2\n2 3 9\n",
+          "output": "4\n",
+          "hidden": false
+        },
+        {
+          "input": "3 1 0 2\n0 1 4\n",
+          "output": "-1\n",
+          "hidden": false
+        },
+        {
+          "input": "1 0 0 0\n",
+          "output": "0\n",
+          "hidden": true
+        },
+        {
+          "input": "3 3 0 2\n0 1 0\n1 2 0\n0 2 8\n",
+          "output": "0\n",
+          "hidden": true
+        },
+        {
+          "input": "4 3 0 3\n0 1 1000000000\n1 2 1000000000\n2 3 1000000000\n",
+          "output": "3000000000\n",
+          "hidden": true
+        }
+      ],
+      "tags": [
+        "dijkstra",
+        "weighted-graphs",
+        "routing"
+      ]
+    },
+    {
+      "id": "frame-budget",
+      "slug": "frame-budget",
+      "title": "Frame budget optimizer",
+      "summary": "Choose render effects within a strict time budget.",
+      "story": "A game can enable optional visual effects for the next frame. Every effect has an integer cost and a quality value. Each effect may be enabled once; maximize quality without exceeding the frame budget.",
+      "difficulty": "advanced",
+      "track": "games",
+      "order": 24,
+      "xp": 150,
+      "minutes": 40,
+      "concepts": [
+        {
+          "title": "A dynamic-programming state",
+          "body": "dp[b] stores the greatest quality obtainable using processed effects with total cost at most b. Initially every budget achieves quality zero by choosing nothing."
+        },
+        {
+          "title": "Iterate budgets backward",
+          "body": "For a 0/1 choice, update budgets from high to low so the current effect cannot be reused in the same iteration. Forward updates would solve a different, repeatable-item problem.",
+          "code": "for (int b = budget; b >= cost; --b)\n    dp[b] = max(dp[b], dp[b - cost] + quality);"
+        }
+      ],
+      "objectives": [
+        "Define and implement a one-dimensional DP",
+        "Prevent reusing a 0/1 item",
+        "Reason about O(n \u00d7 budget) cost"
+      ],
+      "prompt": "Implement best_quality(budget, effects). Each pair is {cost, quality}. Choose any subset, using each effect at most once. Return the maximum total quality with total cost no greater than budget.",
+      "input_format": "Integers n and budget, followed by n lines cost quality.",
+      "output_format": "One integer: maximum attainable quality.",
+      "constraints": [
+        "0 \u2264 n \u2264 200",
+        "0 \u2264 budget \u2264 10000",
+        "1 \u2264 cost \u2264 10000",
+        "0 \u2264 quality \u2264 1000000"
+      ],
+      "starter_code": "#include <iostream>\n#include <vector>\n#include <utility>\n#include <algorithm>\nusing namespace std;\n\nlong long best_quality(int budget, const vector<pair<int, int>>& effects) {\n    return 0;\n}\n\nint main() {\n    int n, budget; cin >> n >> budget;\n    vector<pair<int, int>> effects(n); for (auto& [cost, quality] : effects) cin >> cost >> quality;\n    cout << best_quality(budget, effects) << \"\\n\";\n}\n",
+      "reference_solution": "#include <iostream>\n#include <vector>\n#include <utility>\n#include <algorithm>\nusing namespace std;\n\nlong long best_quality(int budget, const vector<pair<int, int>>& effects) {\n    vector<long long> dp(budget + 1, 0);\n    for (auto [cost, quality] : effects) {\n        for (int b = budget; b >= cost; --b) dp[b] = max(dp[b], dp[b - cost] + quality);\n    }\n    return dp[budget];\n}\n\nint main() {\n    int n, budget; cin >> n >> budget;\n    vector<pair<int, int>> effects(n); for (auto& [cost, quality] : effects) cin >> cost >> quality;\n    cout << best_quality(budget, effects) << \"\\n\";\n}\n",
+      "hints": [
+        "Represent the best quality for each allowed budget from zero through budget.",
+        "For an effect, compare skipping it with adding its quality to the best result at b - cost.",
+        "Process b downward from budget to cost; ascending order would allow taking the same effect repeatedly."
+      ],
+      "tests": [
+        {
+          "input": "3 7\n3 5\n4 7\n5 8\n",
+          "output": "12\n",
+          "hidden": false
+        },
+        {
+          "input": "2 2\n3 10\n4 20\n",
+          "output": "0\n",
+          "hidden": false
+        },
+        {
+          "input": "0 10\n",
+          "output": "0\n",
+          "hidden": true
+        },
+        {
+          "input": "2 0\n1 3\n2 4\n",
+          "output": "0\n",
+          "hidden": true
+        },
+        {
+          "input": "1 10\n3 5\n",
+          "output": "5\n",
+          "hidden": true
+        }
+      ],
+      "tags": [
+        "dynamic-programming",
+        "knapsack",
+        "rendering"
+      ]
+    }
+  ]
+}

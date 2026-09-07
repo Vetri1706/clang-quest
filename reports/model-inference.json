@@ -1,0 +1,15 @@
+{
+  "status": {
+    "available": true,
+    "mode": "experimental",
+    "name": "Your NumPy model",
+    "quality_gate": "failed",
+    "trained_parameters": 29656
+  },
+  "inference_seconds": 1.303,
+  "mode": "experimental",
+  "label_present": true,
+  "output_characters": 85,
+  "uses_framework": "../numpy-llm-framework/generate.py",
+  "training_started": false
+}

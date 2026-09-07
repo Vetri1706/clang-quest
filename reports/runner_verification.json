@@ -1,0 +1,32 @@
+{
+  "status": "passed",
+  "tests": 11,
+  "failed": 0,
+  "skipped": 0,
+  "duration_seconds": 11.402,
+  "verified_at_utc": "2026-09-07T14:21:36.298684+00:00",
+  "platform": "macOS arm64",
+  "compiler": "Apple clang++ C++20",
+  "sandbox": "macOS Seatbelt via sandbox-exec",
+  "source_sha256": {
+    "runner.py": "99996ea00fc3529d9717d60f5be5944f7701c4bf5e1432f05e85837163707e5f",
+    "test_runner.py": "93426494ca61a97df6c15b8a8914d42c5601b3ea7751062cc52df57da13e5d08"
+  },
+  "coverage": [
+    "arithmetic and wrong answers",
+    "compile errors and diagnostic sanitization",
+    "private compile includes",
+    "home-file and Data-volume alias reads denied",
+    "network connect denied",
+    "filesystem writes denied",
+    "fork and posix_spawn denied",
+    "parent process arguments denied",
+    "signal permission denied",
+    "parent environment excluded",
+    "infinite loop killed",
+    "stdout and stderr floods bounded",
+    "RSS exhaustion killed",
+    "missing sandbox fails closed",
+    "request bounds"
+  ]
+}

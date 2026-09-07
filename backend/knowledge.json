@@ -1,0 +1,702 @@
+{
+  "format": "local-study-cards",
+  "version": 1,
+  "verified_on": "2026-09-07",
+  "authorship": "Original teaching summaries and questions; linked primary references support the technical rules.",
+  "cards": [
+    {
+      "id": "streams",
+      "title": "Reading input and producing exact output",
+      "tags": [
+        "cin",
+        "cout",
+        "iostream",
+        "input",
+        "output",
+        "stdin",
+        "stdout",
+        "stream",
+        "printing"
+      ],
+      "tracks": [
+        "fundamentals",
+        "games",
+        "systems"
+      ],
+      "body": "Include <iostream> for std::cin and std::cout. Match the challenge's input order, then print only the requested result. Labels such as Enter a number can change judged output. Check whether an extraction succeeded before using its destination.",
+      "advanced": "Separate parsing, computation, and formatting so each can be tested independently. Standard output carries the answer; diagnostic logging can use standard error.",
+      "question": "Which input token is read first, and what exact characters should the program print?",
+      "game_question": "Which input values describe the player's state, and which value is the score to display?",
+      "sources": [
+        {
+          "title": "C++ working draft: standard iostream objects",
+          "url": "https://eel.is/c++draft/iostream.objects"
+        }
+      ]
+    },
+    {
+      "id": "numeric-types",
+      "title": "Integer ranges and overflow",
+      "tags": [
+        "integer",
+        "int",
+        "long",
+        "overflow",
+        "unsigned",
+        "signed",
+        "numeric",
+        "types",
+        "range"
+      ],
+      "tracks": [
+        "fundamentals",
+        "systems",
+        "games"
+      ],
+      "body": "Choose a number type that can represent intermediate results, not only the final answer. Signed integer overflow is undefined behavior. Unsigned arithmetic wraps modulo its type's range, which can still be the wrong result. Widen operands before a multiplication that needs the wider range.",
+      "advanced": "The language specifies minimum integer widths; int is not guaranteed to be 32 bits. Derive worst-case sums and products from the input constraints before choosing storage.",
+      "question": "What is the largest intermediate value this input can produce?",
+      "sources": [
+        {
+          "title": "C++ working draft: fundamental types",
+          "url": "https://eel.is/c++draft/basic.fundamental"
+        }
+      ]
+    },
+    {
+      "id": "division",
+      "title": "Integer division and remainder",
+      "tags": [
+        "division",
+        "divide",
+        "dividing",
+        "quotient",
+        "remainder",
+        "modulo",
+        "percent",
+        "fraction",
+        "truncation"
+      ],
+      "tracks": [
+        "fundamentals",
+        "games",
+        "systems"
+      ],
+      "body": "When both operands are integers, division discards the fractional part toward zero: 7 / 3 is 2 and -7 / 3 is -2. Assigning that result to double does not restore the fraction. Convert an operand before division when a fractional result is intended. The divisor must not be zero.",
+      "advanced": "For a representable integral quotient, (a / b) * b + a % b equals a. Also consider the minimum signed integer divided by -1, whose quotient may not be representable.",
+      "question": "What are the operand types at the moment the division happens?",
+      "game_question": "Should a cooldown calculation count whole turns or retain a fraction of a second?",
+      "sources": [
+        {
+          "title": "C++ working draft: multiplicative operators",
+          "url": "https://eel.is/c++draft/expr.mul"
+        }
+      ]
+    },
+    {
+      "id": "branches",
+      "title": "Conditions and boundary cases",
+      "tags": [
+        "if",
+        "else",
+        "condition",
+        "branch",
+        "boolean",
+        "comparison",
+        "boundary",
+        "threshold"
+      ],
+      "tracks": [
+        "fundamentals",
+        "games"
+      ],
+      "body": "An if statement selects a branch using a condition. Decide explicitly where equality belongs: below a threshold, exactly equal, and above it are three useful test cases. An else associates with the nearest unmatched if; braces make the intended grouping visible.",
+      "advanced": "For several branches, check that cases are mutually exclusive when required and that their union covers every permitted input.",
+      "question": "Which branch should run when the input equals the boundary exactly?",
+      "game_question": "When health is exactly zero, is the character alive or defeated according to this challenge?",
+      "sources": [
+        {
+          "title": "C++ working draft: if statements",
+          "url": "https://eel.is/c++draft/stmt.if"
+        }
+      ]
+    },
+    {
+      "id": "loops",
+      "title": "Loops, indices, and invariants",
+      "tags": [
+        "loop",
+        "loops",
+        "for",
+        "while",
+        "index",
+        "indices",
+        "iteration",
+        "invariant",
+        "offbyone"
+      ],
+      "tracks": [
+        "fundamentals",
+        "games",
+        "systems"
+      ],
+      "body": "For a sequence of n elements, the usual indices are 0 through n - 1. Before each iteration, state what has already been processed. Trace the first and last iterations by hand. A range-based loop is useful when you need each element rather than its numeric index.",
+      "advanced": "Distinguish a value copy, auto item, from a reference, auto& item, in a range-based loop. A const reference permits inspection without copying the element.",
+      "question": "Just before iteration i, which elements have already contributed to your result?",
+      "game_question": "Will every enemy be updated exactly once, including the final enemy?",
+      "sources": [
+        {
+          "title": "C++ working draft: range-based for",
+          "url": "https://eel.is/c++draft/stmt.ranged"
+        }
+      ]
+    },
+    {
+      "id": "functions",
+      "title": "Functions and parameter contracts",
+      "tags": [
+        "function",
+        "functions",
+        "parameter",
+        "argument",
+        "return",
+        "const",
+        "signature",
+        "overload"
+      ],
+      "tracks": [
+        "fundamentals",
+        "systems",
+        "games"
+      ],
+      "body": "A function's parameters describe the inputs it accepts, and its return type describes its result. Passing a value creates a parameter value; a reference refers to an existing object. Check argument count, order, and types when a call does not match a function.",
+      "advanced": "Use a const reference when an existing large object should be inspected without copying or modification. Keep observable state changes explicit in the function's contract.",
+      "question": "Which values are inputs, which may change, and which result should be returned?",
+      "sources": [
+        {
+          "title": "C++ working draft: function declarators",
+          "url": "https://eel.is/c++draft/dcl.fct"
+        }
+      ]
+    },
+    {
+      "id": "vector",
+      "title": "Vectors, size, capacity, and invalidation",
+      "tags": [
+        "vector",
+        "vectors",
+        "array",
+        "arrays",
+        "container",
+        "reserve",
+        "resize",
+        "push_back",
+        "iterator",
+        "invalidation",
+        "bounds"
+      ],
+      "tracks": [
+        "fundamentals",
+        "systems",
+        "games"
+      ],
+      "body": "A vector manages a resizable sequence. size() counts its elements; capacity() describes allocated room. reserve() can increase capacity without creating elements. Reallocation invalidates references, pointers, and iterators into the old storage. For ordinary element types, vector storage is contiguous; vector<bool> is a special case.",
+      "advanced": "push_back has amortized constant complexity, but a particular reallocation can move many elements. Check every retained reference after an operation that may reallocate.",
+      "question": "Does this vector already contain the indexed element, or has it only reserved storage?",
+      "game_question": "Could spawning another entity reallocate the vector and invalidate a reference to an existing entity?",
+      "sources": [
+        {
+          "title": "C++ working draft: vector",
+          "url": "https://eel.is/c++draft/vector"
+        }
+      ]
+    },
+    {
+      "id": "strings",
+      "title": "Strings, words, and complete lines",
+      "tags": [
+        "string",
+        "strings",
+        "getline",
+        "word",
+        "line",
+        "newline",
+        "whitespace",
+        "text",
+        "character"
+      ],
+      "tracks": [
+        "fundamentals",
+        "games"
+      ],
+      "body": "Formatted extraction into a string reads a whitespace-delimited word. std::getline reads through a delimiter and removes that delimiter from the stream. After numeric extraction, a pending newline can make the next getline return an empty line; decide how whitespace belongs to your input format before consuming it.",
+      "advanced": "Using std::ws before getline discards leading whitespace, including blank lines. That is appropriate only when those characters are not meaningful input.",
+      "question": "Is this field one word, or can it contain spaces and an intentionally empty line?",
+      "sources": [
+        {
+          "title": "C++ working draft: string input and output",
+          "url": "https://eel.is/c++draft/string.io"
+        }
+      ]
+    },
+    {
+      "id": "sorting",
+      "title": "Sorting and comparator rules",
+      "tags": [
+        "sort",
+        "sorting",
+        "comparator",
+        "ordering",
+        "stable_sort",
+        "leaderboard",
+        "ranking"
+      ],
+      "tracks": [
+        "fundamentals",
+        "games",
+        "systems"
+      ],
+      "body": "A comparator tells sorting whether one element should come before another. It must form a strict weak ordering: an element must not come before itself. Using <= instead of < is a common violation. Specify tie handling when equal scores have a required order.",
+      "advanced": "std::sort does not promise to preserve the original order of equivalent elements. Choose a stability-preserving approach when the specification requires it.",
+      "question": "What should the comparator return when both compared values are identical?",
+      "game_question": "For equal leaderboard scores, should names, arrival order, or another field decide the result?",
+      "sources": [
+        {
+          "title": "C++ working draft: sorting and related operations",
+          "url": "https://eel.is/c++draft/alg.sorting"
+        }
+      ]
+    },
+    {
+      "id": "hash-map",
+      "title": "Maps and frequency counting",
+      "tags": [
+        "map",
+        "unordered_map",
+        "hash",
+        "frequency",
+        "count",
+        "counting",
+        "dictionary",
+        "lookup"
+      ],
+      "tracks": [
+        "fundamentals",
+        "games",
+        "systems"
+      ],
+      "body": "An unordered_map associates a key with a value. Access through operator[] can insert a missing key and value-initialize its mapped value, which is useful for frequency counters. Use find or contains when checking membership should not insert anything.",
+      "advanced": "Do not rely on unordered_map iteration order to produce sorted output. Distinguish a missing key from a present key whose count is zero.",
+      "question": "Should this lookup change the container when the key does not exist?",
+      "game_question": "Should checking whether an inventory item exists also create an inventory entry?",
+      "sources": [
+        {
+          "title": "C++ working draft: unordered_map",
+          "url": "https://eel.is/c++draft/unord.map"
+        }
+      ]
+    },
+    {
+      "id": "lifetime",
+      "title": "Object lifetime and dangling references",
+      "tags": [
+        "lifetime",
+        "dangling",
+        "pointer",
+        "reference",
+        "references",
+        "stack",
+        "scope",
+        "address"
+      ],
+      "tracks": [
+        "systems",
+        "games",
+        "fundamentals"
+      ],
+      "body": "An object's lifetime limits when it can be used as that object. Returning a pointer or reference to an ordinary local object leaves the caller referring to something whose lifetime has ended. A view does not necessarily own the storage it refers to.",
+      "advanced": "Track the owner separately from aliases. Container reallocation and destruction are different ways for an otherwise plausible address to stop naming a usable object.",
+      "question": "Which object owns this storage, and will that owner still exist when the reference is used?",
+      "sources": [
+        {
+          "title": "C++ working draft: object lifetime",
+          "url": "https://eel.is/c++draft/basic.life"
+        }
+      ]
+    },
+    {
+      "id": "raii",
+      "title": "RAII and explicit ownership",
+      "tags": [
+        "raii",
+        "ownership",
+        "resource",
+        "cleanup",
+        "destructor",
+        "unique_ptr",
+        "shared_ptr",
+        "new",
+        "delete"
+      ],
+      "tracks": [
+        "systems",
+        "games"
+      ],
+      "body": "RAII connects a resource's lifetime to an owning object: construction establishes ownership, and destruction performs cleanup. Prefer standard containers and ownership handles when they fit. unique_ptr expresses exclusive ownership; shared_ptr is for ownership that is actually shared.",
+      "advanced": "The C++ Core Guidelines recommend making resource ownership explicit so every return and exception path preserves cleanup obligations.",
+      "question": "Who is responsible for releasing this resource on every exit path?",
+      "game_question": "Which object should release a texture when its level is unloaded?",
+      "sources": [
+        {
+          "title": "C++ Core Guidelines: resource management",
+          "url": "https://isocpp.github.io/CppCoreGuidelines/CppCoreGuidelines#Rr-raii"
+        }
+      ]
+    },
+    {
+      "id": "copy-move",
+      "title": "Copies, moves, and moved-from objects",
+      "tags": [
+        "copy",
+        "move",
+        "moving",
+        "std::move",
+        "constructor",
+        "rvalue",
+        "copying"
+      ],
+      "tracks": [
+        "systems",
+        "games"
+      ],
+      "body": "A copy constructor initializes an object from another object through copying semantics. A move constructor can transfer resources when its type implements that behavior. Writing std::move makes an expression eligible for move-aware operations; it does not itself perform a transfer.",
+      "advanced": "Inspect the selected constructor and the type's documented moved-from guarantees. A const source may prevent selection of a move constructor that expects a non-const rvalue reference.",
+      "question": "Which constructor does this expression select, and what does the type permit afterward?",
+      "sources": [
+        {
+          "title": "C++ working draft: copy and move constructors",
+          "url": "https://eel.is/c++draft/class.copy.ctor"
+        },
+        {
+          "title": "C++ working draft: forward and move helpers",
+          "url": "https://eel.is/c++draft/forward"
+        }
+      ]
+    },
+    {
+      "id": "templates",
+      "title": "Templates and constraints",
+      "tags": [
+        "template",
+        "templates",
+        "concept",
+        "concepts",
+        "requires",
+        "generic",
+        "instantiation"
+      ],
+      "tracks": [
+        "systems",
+        "fundamentals"
+      ],
+      "body": "A template describes a family of declarations parameterized by types or values. Constraints express requirements that template arguments must meet. When a constraint fails, inspect the operation the requirement asks for rather than changing unrelated call sites.",
+      "advanced": "A requires-expression checks whether specified requirements are satisfied. Constraints also participate in overload selection; they do not simply execute as runtime if statements.",
+      "question": "What operation must a supplied type support for this template to make sense?",
+      "sources": [
+        {
+          "title": "C++ working draft: template constraints",
+          "url": "https://eel.is/c++draft/temp.constr"
+        }
+      ]
+    },
+    {
+      "id": "complexity",
+      "title": "Algorithm cost and input constraints",
+      "tags": [
+        "complexity",
+        "algorithm",
+        "big",
+        "time",
+        "performance",
+        "quadratic",
+        "linear",
+        "optimization"
+      ],
+      "tracks": [
+        "fundamentals",
+        "systems",
+        "games"
+      ],
+      "body": "Count how work grows with input size before optimizing individual instructions. A full nested scan can examine roughly n squared pairs; a single scan examines roughly n elements. Library complexity requirements describe operation counts, not a promised wall-clock duration on your machine.",
+      "advanced": "State which operations you count, including comparisons or projections, and distinguish worst-case from amortized or average-case claims.",
+      "question": "If the input size doubles, how many times does the most frequently executed operation run?",
+      "game_question": "Does every entity compare with every other entity each frame, and how does that scale?",
+      "sources": [
+        {
+          "title": "C++ working draft: algorithm requirements",
+          "url": "https://eel.is/c++draft/algorithms.requirements"
+        }
+      ]
+    },
+    {
+      "id": "clang-diagnostics",
+      "title": "Reading Clang diagnostics",
+      "tags": [
+        "clang",
+        "diagnostic",
+        "error",
+        "warning",
+        "compiler",
+        "compile",
+        "semicolon",
+        "undeclared",
+        "linker"
+      ],
+      "tracks": [
+        "compilers",
+        "systems",
+        "fundamentals"
+      ],
+      "body": "Start with the first meaningful diagnostic and its source location. A parser error may be caused by an earlier missing delimiter, so inspect the preceding line too. Compile-time errors, linker errors, and runtime failures occur at different stages and need different evidence.",
+      "advanced": "Use the emitted diagnostic wording and notes to identify the declaration or candidate overload involved. Warning options explain which compiler check reported a concern; a warning is evidence to investigate, not proof of every possible defect.",
+      "question": "What is the first reported error, and what token appears just before its location?",
+      "sources": [
+        {
+          "title": "Clang Compiler User's Manual",
+          "url": "https://clang.llvm.org/docs/UsersManual.html"
+        }
+      ]
+    },
+    {
+      "id": "compiler-pipeline",
+      "title": "From source to LLVM and machine code",
+      "tags": [
+        "llvm",
+        "compiler",
+        "frontend",
+        "backend",
+        "lexer",
+        "parser",
+        "ast",
+        "compilation",
+        "kaleidoscope"
+      ],
+      "tracks": [
+        "compilers",
+        "systems"
+      ],
+      "body": "A compiler frontend turns source syntax into a program representation and checks language rules. LLVM provides an intermediate representation and tools that transform it and generate target code. The LLVM Kaleidoscope tutorial builds a small language step by step; it assumes some C++ knowledge.",
+      "advanced": "Keep lexical analysis, parsing, semantic meaning, intermediate representation, optimization, and target-specific lowering conceptually separate when diagnosing where a transformation belongs.",
+      "question": "Is the failure about source syntax, program meaning, an IR transformation, or target code generation?",
+      "sources": [
+        {
+          "title": "LLVM: My First Language Frontend tutorial",
+          "url": "https://llvm.org/docs/tutorial/MyFirstLanguageFrontend/"
+        }
+      ]
+    },
+    {
+      "id": "llvm-ir",
+      "title": "LLVM IR, SSA, and control flow",
+      "tags": [
+        "llvm",
+        "ir",
+        "ssa",
+        "phi",
+        "basic",
+        "block",
+        "instruction",
+        "intermediate",
+        "dominance"
+      ],
+      "tracks": [
+        "compilers",
+        "systems"
+      ],
+      "body": "LLVM IR is a typed intermediate representation. Function bodies contain basic blocks, and blocks end with terminator instructions such as branches or returns. SSA values have one definition. A phi instruction selects an incoming value according to the predecessor edge used to enter its block.",
+      "advanced": "Distinguish SSA values from memory locations: loads and stores still model mutable memory. Check instruction types and control-flow predecessors when inspecting IR validity.",
+      "question": "Which predecessor edge reaches this block, and which incoming phi value belongs to it?",
+      "sources": [
+        {
+          "title": "LLVM Language Reference Manual",
+          "url": "https://llvm.org/docs/LangRef.html"
+        }
+      ]
+    },
+    {
+      "id": "sanitizers",
+      "title": "Diagnosing memory and undefined-behavior failures",
+      "tags": [
+        "sanitizer",
+        "asan",
+        "ubsan",
+        "segfault",
+        "segmentation",
+        "buffer",
+        "use-after-free",
+        "runtime",
+        "crash"
+      ],
+      "tracks": [
+        "systems",
+        "games",
+        "compilers"
+      ],
+      "body": "AddressSanitizer can expose memory errors such as out-of-bounds access and use-after-free. UndefinedBehaviorSanitizer checks selected undefined-behavior cases. A report supplies a failing execution and location; passing one run does not prove that every path is safe.",
+      "advanced": "Reproduce with the same input, read the first actionable report, and trace the relevant allocation and lifetime. Instrumentation changes execution cost, so keep correctness diagnosis separate from final performance measurement.",
+      "question": "Which access failed, and which allocation or lifetime was that access supposed to remain inside?",
+      "sources": [
+        {
+          "title": "Clang AddressSanitizer",
+          "url": "https://clang.llvm.org/docs/AddressSanitizer.html"
+        },
+        {
+          "title": "Clang UndefinedBehaviorSanitizer",
+          "url": "https://clang.llvm.org/docs/UndefinedBehaviorSanitizer.html"
+        }
+      ]
+    },
+    {
+      "id": "cmake",
+      "title": "CMake targets and build stages",
+      "tags": [
+        "cmake",
+        "build",
+        "target",
+        "library",
+        "link",
+        "linking",
+        "include",
+        "dependency"
+      ],
+      "tracks": [
+        "systems",
+        "compilers",
+        "games"
+      ],
+      "body": "CMake describes build targets and the relationships between them. Configuration generates a build system; building then invokes compilation and linking. A header declaration can make a function call compile while its missing definition still causes a linker failure.",
+      "advanced": "Associate include paths, compile requirements, and linked libraries with the targets that need them. Distinguish a stale build configuration from an error in the C++ source.",
+      "question": "Did configuration, compilation, or linking fail, and which target owns the missing requirement?",
+      "sources": [
+        {
+          "title": "Official CMake tutorial",
+          "url": "https://cmake.org/cmake/help/latest/guide/tutorial/index.html"
+        }
+      ]
+    },
+    {
+      "id": "game-time",
+      "title": "Game time and movement units",
+      "tags": [
+        "game",
+        "games",
+        "delta",
+        "dt",
+        "frame",
+        "timestep",
+        "sfml",
+        "movement",
+        "velocity",
+        "clock"
+      ],
+      "tracks": [
+        "games"
+      ],
+      "body": "Measure elapsed time with an appropriate clock and convert it to a known unit. If speed is expressed in units per second, multiplying by elapsed seconds gives a displacement. Advancing by a fixed distance every rendered frame makes speed depend on the rendering rate.",
+      "advanced": "A timing API measures elapsed duration; it does not choose your simulation's numerical integration scheme. Keep seconds, milliseconds, positions, and velocities distinct when checking an update.",
+      "question": "What units do speed and elapsed time have, and what units should their product have?",
+      "game_question": "At twice the rendering rate, does the player cover the same distance in one second?",
+      "sources": [
+        {
+          "title": "SFML: handling time",
+          "url": "https://www.sfml-dev.org/tutorials/3.0/system/time/"
+        }
+      ]
+    },
+    {
+      "id": "collision",
+      "title": "Collision checks and boundary conventions",
+      "tags": [
+        "collision",
+        "rectangle",
+        "rectangles",
+        "aabb",
+        "overlap",
+        "hitbox",
+        "raylib",
+        "circle"
+      ],
+      "tracks": [
+        "games"
+      ],
+      "body": "Represent collision shapes and their coordinate system before choosing a test. For axis-aligned rectangles, compare their horizontal and vertical intervals. Decide whether touching edges count as a hit according to the challenge. raylib exposes rectangle and circle collision helpers when using that library.",
+      "advanced": "A discrete overlap test checks a particular instant. Fast motion between samples may require a separate swept test; an overlap predicate alone does not resolve movement or collision response.",
+      "question": "Do the shapes overlap on both axes, and should edge-only contact count here?",
+      "sources": [
+        {
+          "title": "raylib official API cheatsheet: collision functions",
+          "url": "https://www.raylib.com/cheatsheet/cheatsheet.html"
+        },
+        {
+          "title": "raylib implementation: shape and collision functions",
+          "url": "https://github.com/raysan5/raylib/blob/master/src/rshapes.c"
+        }
+      ]
+    },
+    {
+      "id": "game-events",
+      "title": "Game event queues and input handling",
+      "tags": [
+        "sdl",
+        "event",
+        "events",
+        "poll",
+        "keyboard",
+        "mouse",
+        "window",
+        "quit",
+        "input"
+      ],
+      "tracks": [
+        "games"
+      ],
+      "body": "SDL_PollEvent retrieves pending events without waiting for a new one. Process the event queue regularly so window and input events are handled. An event is a reported occurrence; holding a key over time is a separate state question that should match the input API you choose.",
+      "advanced": "SDL documents that event polling belongs on the main thread. Keep event collection separate from simulation updates so one event is not accidentally applied several times.",
+      "question": "Is this action triggered once when a key changes state, or continuously while it remains held?",
+      "sources": [
+        {
+          "title": "SDL3: SDL_PollEvent",
+          "url": "https://wiki.libsdl.org/SDL3/SDL_PollEvent"
+        }
+      ]
+    },
+    {
+      "id": "threads",
+      "title": "Threads, data races, and synchronization",
+      "tags": [
+        "thread",
+        "threads",
+        "concurrency",
+        "mutex",
+        "atomic",
+        "race",
+        "parallel",
+        "synchronization"
+      ],
+      "tracks": [
+        "systems",
+        "games"
+      ],
+      "body": "Two threads accessing shared state need a valid synchronization design. Conflicting non-atomic accesses without the required ordering can form a data race, which is undefined behavior. Timing that appears to work in a few runs is not a synchronization guarantee.",
+      "advanced": "Identify the happens-before relationship that orders each conflicting access. Atomic variables can address individual operations, but a multi-variable invariant still needs a coherent protocol.",
+      "question": "Which operation establishes ordering between the producer's write and the consumer's read?",
+      "game_question": "Can a rendering thread observe entity data while a simulation thread is modifying it?",
+      "sources": [
+        {
+          "title": "C++ working draft: data races",
+          "url": "https://eel.is/c++draft/intro.races"
+        }
+      ]
+    }
+  ]
+}

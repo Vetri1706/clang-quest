@@ -1,0 +1,88 @@
+{
+  "url": "http://127.0.0.1:5173",
+  "root_status": 200,
+  "compiler_available": true,
+  "missions": 24,
+  "custom_model_available": true,
+  "assets_verified": 15,
+  "asset_bytes": 1452004,
+  "assets": [
+    {
+      "path": ".vite/manifest.json",
+      "status": 200,
+      "bytes": 1676
+    },
+    {
+      "path": "404.html",
+      "status": 200,
+      "bytes": 7865
+    },
+    {
+      "path": "_next/static/0cc9a1b0-8f8c-4de4-975f-a7efbf67855c/_buildManifest.js",
+      "status": 200,
+      "bytes": 159
+    },
+    {
+      "path": "_next/static/0cc9a1b0-8f8c-4de4-975f-a7efbf67855c/_ssgManifest.js",
+      "status": 200,
+      "bytes": 76
+    },
+    {
+      "path": "_next/static/chunks/framework-DTZGTDtF.js",
+      "status": 200,
+      "bytes": 190109
+    },
+    {
+      "path": "_next/static/chunks/index-C9tvGwLq.js",
+      "status": 200,
+      "bytes": 108656
+    },
+    {
+      "path": "_next/static/chunks/layout-segment-context-DuplfKV-.js",
+      "status": 200,
+      "bytes": 496
+    },
+    {
+      "path": "_next/static/chunks/page-D5bagXX9.js",
+      "status": 200,
+      "bytes": 781233
+    },
+    {
+      "path": "_next/static/chunks/rolldown-runtime-hePW80VL.js",
+      "status": 200,
+      "bytes": 716
+    },
+    {
+      "path": "_next/static/chunks/vinext-Dd9xHAQV.js",
+      "status": 200,
+      "bytes": 110101
+    },
+    {
+      "path": "_next/static/css/index.2Iwtueho.css",
+      "status": 200,
+      "bytes": 218503
+    },
+    {
+      "path": "favicon.svg",
+      "status": 200,
+      "bytes": 264
+    },
+    {
+      "path": "index.html",
+      "status": 200,
+      "bytes": 28699
+    },
+    {
+      "path": "index.rsc",
+      "status": 200,
+      "bytes": 3386
+    },
+    {
+      "path": "vinext-client-entry-manifest.json",
+      "status": 200,
+      "bytes": 65
+    }
+  ],
+  "browser_ui_tested": false,
+  "state_mutated_by_release_check": false
+}

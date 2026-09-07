@@ -1,0 +1,158 @@
+{
+  "challenges": 24,
+  "passed": 24,
+  "difficulty_counts": {
+    "beginner": 8,
+    "intermediate": 8,
+    "advanced": 8
+  },
+  "duration_seconds": 55.383,
+  "compiler": "Apple clang version 21.0.0 (clang-2100.1.1.101)",
+  "curriculum_sha256": "0165a09faa860d7a1e4a666deb086fd313497f867853a5101a663ab251d8f50b",
+  "results": [
+    {
+      "id": "cafe-receipt",
+      "passed": true,
+      "compiled_programs": 2,
+      "executed_reference_cases": 5
+    },
+    {
+      "id": "stock-alert",
+      "passed": true,
+      "compiled_programs": 2,
+      "executed_reference_cases": 5
+    },
+    {
+      "id": "delivery-total",
+      "passed": true,
+      "compiled_programs": 2,
+      "executed_reference_cases": 5
+    },
+    {
+      "id": "quest-reward",
+      "passed": true,
+      "compiled_programs": 2,
+      "executed_reference_cases": 5
+    },
+    {
+      "id": "temperature-watch",
+      "passed": true,
+      "compiled_programs": 2,
+      "executed_reference_cases": 5
+    },
+    {
+      "id": "player-level",
+      "passed": true,
+      "compiled_programs": 2,
+      "executed_reference_cases": 5
+    },
+    {
+      "id": "signal-count",
+      "passed": true,
+      "compiled_programs": 2,
+      "executed_reference_cases": 5
+    },
+    {
+      "id": "average-latency",
+      "passed": true,
+      "compiled_programs": 2,
+      "executed_reference_cases": 5
+    },
+    {
+      "id": "tile-distance",
+      "passed": true,
+      "compiled_programs": 2,
+      "executed_reference_cases": 5
+    },
+    {
+      "id": "seat-reservations",
+      "passed": true,
+      "compiled_programs": 2,
+      "executed_reference_cases": 5
+    },
+    {
+      "id": "sensor-window",
+      "passed": true,
+      "compiled_programs": 2,
+      "executed_reference_cases": 5
+    },
+    {
+      "id": "inventory-merge",
+      "passed": true,
+      "compiled_programs": 2,
+      "executed_reference_cases": 5
+    },
+    {
+      "id": "error-run",
+      "passed": true,
+      "compiled_programs": 2,
+      "executed_reference_cases": 5
+    },
+    {
+      "id": "packet-checksum",
+      "passed": true,
+      "compiled_programs": 2,
+      "executed_reference_cases": 5
+    },
+    {
+      "id": "expression-tokens",
+      "passed": true,
+      "compiled_programs": 2,
+      "executed_reference_cases": 5
+    },
+    {
+      "id": "scoreboard-cut",
+      "passed": true,
+      "compiled_programs": 2,
+      "executed_reference_cases": 5
+    },
+    {
+      "id": "request-cache",
+      "passed": true,
+      "compiled_programs": 2,
+      "executed_reference_cases": 5
+    },
+    {
+      "id": "rescue-route",
+      "passed": true,
+      "compiled_programs": 2,
+      "executed_reference_cases": 5
+    },
+    {
+      "id": "build-order",
+      "passed": true,
+      "compiled_programs": 2,
+      "executed_reference_cases": 5
+    },
+    {
+      "id": "event-scheduler",
+      "passed": true,
+      "compiled_programs": 2,
+      "executed_reference_cases": 5
+    },
+    {
+      "id": "ssa-renaming",
+      "passed": true,
+      "compiled_programs": 2,
+      "executed_reference_cases": 5
+    },
+    {
+      "id": "bytecode-stack",
+      "passed": true,
+      "compiled_programs": 2,
+      "executed_reference_cases": 5
+    },
+    {
+      "id": "network-route",
+      "passed": true,
+      "compiled_programs": 2,
+      "executed_reference_cases": 5
+    },
+    {
+      "id": "frame-budget",
+      "passed": true,
+      "compiled_programs": 2,
+      "executed_reference_cases": 5
+    }
+  ]
+}
