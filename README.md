@@ -2,19 +2,57 @@
 
 A gamified learning workspace with an embedded C++ editor, real compilation and tests, a local study mentor, and persistent progress. It runs entirely on your Mac. No Docker, accounts, API keys, or paid services are required.
 
+The repository now includes the complete NumPy research framework, actual trained weights, tokenizer, training fixtures, and AI environment verification. The neural checkpoint has **29,656 parameters** and **fails its C++ quality gate**. Use the grounded study guide for practice; the neural option is a small training and inference experiment.
+
+## Actual AI and environment test results
+
+Verified locally on **7 September 2026**, using Apple M3, 8 GiB memory, macOS arm64, CPython 3.14.6, NumPy 2.4.6, and Apple Clang 21.0.0. Tests use temporary databases and real restricted compiler processes.
+
+| Check | Measured result | Evidence |
+| --- | --- | --- |
+| Tensor, gradient, model, training, checkpoint, and distributed framework tests | **181 passed**, zero skips | [Log](reports/ai/framework-tests.txt), [machine report](reports/ai/framework-tests.json) |
+| Dashboard, mentor, runner, persistence, API, and bundled-checkpoint tests | **81 passed**, zero skips | [Full test log](reports/ai/application-tests.txt) |
+| Actual model → HTTP API → restricted C++ environment journey | **36 execution checks passed** in 8.526 seconds | [Readable report](reports/ai/environment-validation.md), [JSON with outputs and source hashes](reports/ai/environment-validation.json) |
+| Neural C++ output compiled unchanged | **Failed compilation**; the model returned 24 dots for the program request | [Actual prompts, output, and compiler result](reports/ai/environment-validation.md#observed-neural-outputs) |
+| Explicitly requested curated reference solution | **5/5 C++ cases passed**, with three hidden result payloads redacted | [Environment report](reports/ai/environment-validation.md) |
+| Held-out C++ paired-answer quality screen | **FAILED**: correct answer preferred on **7/18 (38.9%)** using mean token likelihood and **6/18 (33.3%)** using summed likelihood | [Complete quality report](reports/ai/cpp-quality.json), [model card](ai/MODEL_CARD.md) |
+
+The quality gate requires both preference accuracies to reach 75% and the corresponding bootstrap lower bounds to exceed 50%. Successful execution checks establish that the software runs; they do not establish that the neural model teaches correctly. The curated solution is separate authored curriculum content, not a neural generation. [Reproduction commands and interpretation](reports/ai/README.md) accompany the raw evidence. Earlier frontend build, typecheck, lint, dependency audit, and all-120 curriculum-case results remain in the [original dashboard verification](reports/VERIFICATION.md).
+
+The same 36 environment checks also passed from an [independent Git source export](reports/ai/source-export/environment-validation.md) using a newly installed pinned virtual environment, without any adjacent AI project.
+
+## Where are inference, environment, weights, and the basis?
+
+| Component | Included location |
+| --- | --- |
+| Actual local inference | [ai/generate.py](ai/generate.py), [dashboard model bridge](backend/model_bridge.py), [standalone inference server](ai/serve.py) |
+| Active trained weights | [DPO checkpoint directory](ai/runs/hardened_dpo/checkpoint/), [manifest with payload SHA-256](ai/runs/hardened_dpo/checkpoint/manifest.json) |
+| Earlier weights and frozen reference | [Pretraining run](ai/runs/hardened_pretrain/), [SFT run](ai/runs/hardened_sft/), [DPO reference weights](ai/runs/hardened_dpo/reference.npz) |
+| Tokenizer and model configuration | [BPE vocabulary/merges](ai/runs/hardened_dpo/tokenizer.json), [settings](ai/runs/hardened_dpo/settings.json) |
+| Local Python and C++ environments | [Environment setup](environment/README.md), [pinned NumPy requirement](requirements-ai.txt), [restricted compiler engine](backend/runner.py) |
+| Training basis and actual datasets | [Training basis, objectives, counts, and hashes](ai/TRAINING_BASIS.md), [original fixtures](ai/examples/) |
+| Model architecture and mathematical basis | [Model card](ai/MODEL_CARD.md), [equations and gradients](ai/docs/MATHEMATICS.md), [architecture and memory manual](ai/docs/ARCHITECTURE.md) |
+| Training, SFT, DPO, and raw TCP orchestration | [Framework source map and commands](ai/README.md) |
+| Teaching curriculum and grounded knowledge | [24 missions](backend/data/CATALOG.md), [curriculum](backend/data/curriculum.json), [grounded mentor](backend/mentor.py) |
+
+The `.npz` files are real committed weights, not download stubs. The model starts from random initialization and has three pretraining updates, three SFT updates, and three offline DPO updates on small original fixtures. There is no external pretrained base, exhaustive programming knowledge, or online RL training from compiler feedback. The 7,018,450,944-parameter configuration is an untrained architecture specification. See the [model card](ai/MODEL_CARD.md) for the precise limits.
+
 ## Clone from GitHub
 
-The repository contains source code. Build the frontend once after cloning:
+Use Python **3.11 or newer**, Node.js **22.13 or newer**, and Apple's Command Line Tools. Build the frontend and install the pinned AI dependency once after cloning:
 
 ```sh
 gh repo clone Vetri1706/clang-quest
 cd clang-quest
+python3 -m venv .venv
+.venv/bin/python -m pip install -r requirements-ai.txt
+source .venv/bin/activate
 npm ci
 npm run build
-python3 start.py
+.venv/bin/python start.py
 ```
 
-This setup requires Node.js 22.13 or newer. Once built, ordinary use only needs Python 3.10 or newer and Apple's Command Line Tools. The local release ZIP already includes the compiled interface and can skip the npm steps.
+The source repository excludes `node_modules`, the built interface, and your virtual environment. All required model artifacts are included under `ai/`; no sibling project is required. Once built, ordinary use does not need Node.js. NumPy 2.4.6 requires Python 3.11+; the standard-library-only grounded guide can also run on Python 3.10 without the neural option.
 
 ## Open the app
 
@@ -23,12 +61,12 @@ Double-click **Start Questline.command**, then open **http://127.0.0.1:5173**. K
 Alternatively, from this folder:
 
 ```sh
-python3 start.py
+.venv/bin/python start.py
 ```
 
-After a source build, or when using the local release ZIP, the compiled interface lives in `dist/client`. Ordinary use then does not need Node.js or an npm development server. Python 3.10 or newer and Apple's Command Line Tools are required. If the restricted compiler is unavailable, the dashboard explains the engine status. Install missing Apple tools with `xcode-select --install`, then restart Questline. The runtime does not fall back to unrestricted execution.
+After a source build, the compiled interface lives in `dist/client`. The double-click launcher prefers `.venv/bin/python` when present and otherwise uses `python3`. If the restricted compiler is unavailable, the dashboard explains the engine status. Install missing Apple tools with `xcode-select --install`, then restart Questline. The runtime does not fall back to unrestricted execution.
 
-Use `python3 start.py --port 5174` if another application already uses the default port. The app listens only on the loopback interface. It is a personal local application, not an Internet hosting service.
+Use `.venv/bin/python start.py --port 5174` if another application already uses the default port. The app listens only on the loopback interface. It is a personal local application, not an Internet hosting service.
 
 ## Practice, then make it yours
 
@@ -60,19 +98,15 @@ Each mission includes starter code, objectives, concepts, three hints, and five 
 
 **Grounded study guide** is the default. It uses an original local curriculum, 24 reference cards, deterministic retrieval, conservative code checks, and actual compiler/test evidence. It adapts to the difficulty you choose and the current mission's domain, and links to primary documentation. It runs with the Python standard library and sends no requests to an external AI service. This is a bounded teaching assistant, not a newly trained general-purpose LLM. It admits when a topic is outside its reference set.
 
-**Your NumPy model · experimental** connects to the custom model created earlier in the adjacent `numpy-llm-framework` project. That 29,656-parameter checkpoint has not passed its C++ knowledge gate. It is available for testing actual local inference, not as a verified source of programming explanations. It produces a short, clearly labeled continuation. Switch back to the grounded guide for learning help.
+**Your NumPy model · experimental** loads the bundled `ai/runs/hardened_dpo` checkpoint through the from-scratch NumPy implementation. It produces a short, clearly labeled continuation. Its 29,656 parameters have not learned reliable C++ explanations, as the actual outputs and failed quality screen above demonstrate. Switch back to the grounded guide for learning help.
 
-The experimental option requires NumPy and this layout:
+You can also run inference directly, independently of the dashboard:
 
-```text
-workspace/
-  clang-quest/  # cpp-quest in the local release ZIP
-  numpy-llm-framework/
-    generate.py
-    runs/hardened_dpo/
+```sh
+.venv/bin/python ai/generate.py ai/runs/hardened_dpo 'What is RAII?' --tokens 24 --temperature 0
 ```
 
-If you clone this repository or move/share the dashboard alone, the grounded mentor and compiler remain usable, while the experimental option becomes unavailable. The new app imports no PyTorch, TensorFlow, JAX, Hugging Face, or LangChain code. No training job runs in the background.
+The AI implementation uses NumPy and the Python standard library, with no PyTorch, TensorFlow, JAX, Hugging Face, or LangChain imports. Training is available through explicit [bounded local commands](ai/README.md#reproduce-the-three-stage-small-training-experiment); it does not run in the background or change weights when you practice.
 
 ## Your saved work
 
@@ -106,14 +140,17 @@ npm ci
 npm run typecheck
 npm run lint
 npm run build
-python3 -m unittest discover -s tests -v
-python3 start.py
+.venv/bin/python -m unittest discover -s tests -v
+.venv/bin/python ai/verify.py
+.venv/bin/python scripts/verify_ai_environment.py --output reports/ai
+.venv/bin/python ai/evaluate.py ai/runs/hardened_dpo --output reports/ai/cpp-quality.json
+.venv/bin/python start.py
 ```
 
 For live frontend development, run these in separate terminals:
 
 ```sh
-python3 -m backend.server --port 8766
+.venv/bin/python -m backend.server --port 8766
 npm run dev
 ```
 

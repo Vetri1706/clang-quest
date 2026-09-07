@@ -13,7 +13,9 @@ Questline is a single-user local learning application. The shipped interface is 
 | `backend/server.py` | Loopback HTTP boundary, request validation, concurrency gates, API orchestration, and static delivery |
 | `backend/runner.py` | Compilation, restricted child execution, stream bounds, CPU/wall/RSS monitoring, and process-group cleanup |
 | `backend/mentor.py` | Local retrieval, progressive hints, source review, compiler/test explanations, and adaptive teaching |
-| `backend/model_bridge.py` | Lazy bounded generation through the adjacent NumPy framework |
+| `backend/model_bridge.py` | Lazy bounded generation through the bundled `ai/` NumPy framework |
+| `ai/generate.py`, `ai/rawllm/` | Actual NumPy inference, model/autograd/cache/tokenizer, training and distributed implementation |
+| `ai/runs/hardened_dpo/` | Active trained checkpoint, tokenizer, settings, and frozen DPO reference |
 | `backend/store.py` | SQLite migrations, drafts, attempts, messages, activity, and unique completion awards |
 
 The app uses matching shadcn sidebar, tabs, dialogs, progress, buttons, input, and select components. It uses system fonts and packaged assets. No remote scripts, CDN assets, hosted model endpoint, telemetry, or account service is required at runtime. Primary documentation links open only when the learner follows them.
@@ -44,7 +46,7 @@ The default guide retrieves original teaching cards with a small BM25 index and 
 
 The saved learning difficulty takes precedence over XP rank. A profile path of `all` falls back to the current challenge's path. Hints advance through a maximum of three stages. Solution disclosure requires a positive, explicit request; negated or unrelated requests do not trigger it. Unknown topics receive a bounded admission rather than an invented answer.
 
-The optional experimental bridge imports only the user's NumPy framework and loads its own non-pickle checkpoint format. The framework validates checkpoint metadata and tensor data. A single model lock prevents simultaneous generation; output is short, thread counts are capped, and the prompt is shortened to fit a bounded output budget. Tiny or unusable context windows fail intentionally instead of looping forever. The UI labels this checkpoint as having failed its knowledge gate. Neural output never executes code or determines XP.
+The optional experimental bridge resolves the NumPy framework under this repository's `ai/` directory and loads its own non-pickle checkpoint format. Before allocation, the dashboard rejects configurations above two million parameters or 512 context tokens. The shipped model has 29,656 parameters and a 256-token context. The framework validates checkpoint metadata and tensor data. A single model lock prevents simultaneous generation; output is short, thread counts are capped, and the prompt is shortened to fit a bounded output budget. Tiny or unusable context windows fail intentionally instead of looping forever. The UI labels this checkpoint as having failed its knowledge gate. Neural output never automatically executes code or determines XP. The [environment verification](ai/environment-validation.md) explicitly submits one captured generation to the compiler and records its failure.
 
 ## Delivery and trust limits
 
@@ -52,4 +54,4 @@ The production process binds to `127.0.0.1`; static file delivery resolves paths
 
 This is deliberately a local deployment. Apple's deprecated Seatbelt launcher, sampled RSS, finite runner regression tests, absence of public-service authentication, and a small curated mentor remain material boundaries. Sudden power loss or force-killing the entire Python process bypasses graceful application shutdown; it is different from the tested Control+C/SIGTERM drain path. Source fixtures should not be treated as secret against the local machine owner.
 
-The final package includes the compiled frontend, source, original curriculum, tests, and reports. It contains no background training, remote execution, Docker configuration, personal learning database, or Node dependency directory. Rebuilding requires npm dependencies; ordinary operation requires only Python and the installed Apple compiler, plus NumPy when the experimental model is selected.
+The GitHub repository includes the source, original curriculum, tests, reports, and self-contained AI weights and framework. The compiled frontend is generated locally using `npm ci` and `npm run build`; the repository excludes personal learning databases, virtual environments, and Node dependencies. No training runs in the background. Ordinary operation requires Python and the installed Apple compiler, plus NumPy for the experimental model. [Environment setup](../environment/README.md) records the pinned dependency and supported execution platform.

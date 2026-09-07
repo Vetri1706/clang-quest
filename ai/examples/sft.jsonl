@@ -1,0 +1,3 @@
+{"prompt":"C++: 5 / 2?\nAnswer: ","response":"2. Integer division truncates toward zero."}
+{"prompt":"What is RAII?\nAnswer: ","response":"Cleanup tied to object lifetime."}
+{"prompt":"What is LLVM IR?\nAnswer: ","response":"A typed intermediate representation."}

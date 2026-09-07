@@ -1,0 +1,637 @@
+{
+  "available_examples": 18,
+  "by_domain": {
+    "compilers": {
+      "chosen_mean_token_nll": 5.637643645117722,
+      "chosen_response_tokens": 119,
+      "chosen_token_perplexity": 280.8002732090041,
+      "examples": 6,
+      "mean_nll_ci95": null,
+      "mean_preference_accuracy": 0.16666666666666666,
+      "mean_preference_ci95": null,
+      "mean_preference_ties": 0,
+      "sum_preference_accuracy": 0.3333333333333333,
+      "sum_preference_ci95": null,
+      "sum_preference_ties": 0
+    },
+    "cpp": {
+      "chosen_mean_token_nll": 5.63670756129221,
+      "chosen_response_tokens": 131,
+      "chosen_token_perplexity": 280.5375436027063,
+      "examples": 6,
+      "mean_nll_ci95": null,
+      "mean_preference_accuracy": 0.5,
+      "mean_preference_ci95": null,
+      "mean_preference_ties": 0,
+      "sum_preference_accuracy": 0.16666666666666666,
+      "sum_preference_ci95": null,
+      "sum_preference_ties": 0
+    },
+    "game_development": {
+      "chosen_mean_token_nll": 5.6213315185878345,
+      "chosen_response_tokens": 173,
+      "chosen_token_perplexity": 276.2569797532336,
+      "examples": 6,
+      "mean_nll_ci95": null,
+      "mean_preference_accuracy": 0.5,
+      "mean_preference_ci95": null,
+      "mean_preference_ties": 0,
+      "sum_preference_accuracy": 0.5,
+      "sum_preference_ci95": null,
+      "sum_preference_ties": 0
+    }
+  },
+  "by_level": {
+    "advanced": {
+      "chosen_mean_token_nll": 5.625647278722813,
+      "chosen_response_tokens": 192,
+      "chosen_token_perplexity": 277.45181507021493,
+      "examples": 6,
+      "mean_nll_ci95": null,
+      "mean_preference_accuracy": 0.6666666666666666,
+      "mean_preference_ci95": null,
+      "mean_preference_ties": 0,
+      "sum_preference_accuracy": 0.0,
+      "sum_preference_ci95": null,
+      "sum_preference_ties": 0
+    },
+    "beginner": {
+      "chosen_mean_token_nll": 5.622093386227184,
+      "chosen_response_tokens": 71,
+      "chosen_token_perplexity": 276.46753120223536,
+      "examples": 6,
+      "mean_nll_ci95": null,
+      "mean_preference_accuracy": 0.3333333333333333,
+      "mean_preference_ci95": null,
+      "mean_preference_ties": 0,
+      "sum_preference_accuracy": 0.6666666666666666,
+      "sum_preference_ci95": null,
+      "sum_preference_ties": 0
+    },
+    "intermediate": {
+      "chosen_mean_token_nll": 5.640535806731711,
+      "chosen_response_tokens": 160,
+      "chosen_token_perplexity": 281.6135685041863,
+      "examples": 6,
+      "mean_nll_ci95": null,
+      "mean_preference_accuracy": 0.16666666666666666,
+      "mean_preference_ci95": null,
+      "mean_preference_ties": 0,
+      "sum_preference_accuracy": 0.3333333333333333,
+      "sum_preference_ci95": null,
+      "sum_preference_ties": 0
+    }
+  },
+  "coverage": {
+    "advanced": {
+      "compilers": 2,
+      "cpp": 2,
+      "game_development": 2
+    },
+    "beginner": {
+      "compilers": 2,
+      "cpp": 2,
+      "game_development": 2
+    },
+    "intermediate": {
+      "compilers": 2,
+      "cpp": 2,
+      "game_development": 2
+    }
+  },
+  "effective_context_tokens": 256,
+  "elapsed_seconds": 0.07629504200303927,
+  "estimated_logit_bytes_per_element": 4,
+  "examples": [
+    {
+      "chosen": {
+        "mean_log_probability": -5.553846388987965,
+        "mean_token_nll": 5.553846388987965,
+        "response_tokens": 3,
+        "sum_log_probability": -16.661539166963895,
+        "token_perplexity": 258.2288969274798
+      },
+      "domain": "cpp",
+      "id": "beginner-cpp-division",
+      "level": "beginner",
+      "mean_log_probability_margin": 0.15199509226523755,
+      "mean_preference_credit": 1.0,
+      "rejected": {
+        "mean_log_probability": -5.705841481253202,
+        "mean_token_nll": 5.705841481253202,
+        "response_tokens": 3,
+        "sum_log_probability": -17.117524443759606,
+        "token_perplexity": 300.6183383420088
+      },
+      "sum_log_probability_margin": 0.45598527679571177,
+      "sum_preference_credit": 1.0
+    },
+    {
+      "chosen": {
+        "mean_log_probability": -5.5739091123735305,
+        "mean_token_nll": 5.5739091123735305,
+        "response_tokens": 10,
+        "sum_log_probability": -55.73909112373531,
+        "token_perplexity": 263.46199138886544
+      },
+      "domain": "cpp",
+      "id": "beginner-cpp-declaration",
+      "level": "beginner",
+      "mean_log_probability_margin": 0.052715393832285073,
+      "mean_preference_credit": 1.0,
+      "rejected": {
+        "mean_log_probability": -5.626624506205816,
+        "mean_token_nll": 5.626624506205816,
+        "response_tokens": 6,
+        "sum_log_probability": -33.759747037234895,
+        "token_perplexity": 277.72308113184823
+      },
+      "sum_log_probability_margin": -21.97934408650041,
+      "sum_preference_credit": 0.0
+    },
+    {
+      "chosen": {
+        "mean_log_probability": -5.634022154051481,
+        "mean_token_nll": 5.634022154051481,
+        "response_tokens": 21,
+        "sum_log_probability": -118.3144652350811,
+        "token_perplexity": 279.7851966828757
+      },
+      "domain": "compilers",
+      "id": "beginner-compiler-input",
+      "level": "beginner",
+      "mean_log_probability_margin": -0.044675664407161975,
+      "mean_preference_credit": 0.0,
+      "rejected": {
+        "mean_log_probability": -5.589346489644319,
+        "mean_token_nll": 5.589346489644319,
+        "response_tokens": 17,
+        "sum_log_probability": -95.01889032395341,
+        "token_perplexity": 267.5607088728275
+      },
+      "sum_log_probability_margin": -23.295574911127687,
+      "sum_preference_credit": 0.0
+    },
+    {
+      "chosen": {
+        "mean_log_probability": -5.668170128427616,
+        "mean_token_nll": 5.668170128427616,
+        "response_tokens": 12,
+        "sum_log_probability": -68.0180415411314,
+        "token_perplexity": 289.50429372635784
+      },
+      "domain": "compilers",
+      "id": "beginner-llvm-ir",
+      "level": "beginner",
+      "mean_log_probability_margin": -0.007527605253773828,
+      "mean_preference_credit": 0.0,
+      "rejected": {
+        "mean_log_probability": -5.660642523173842,
+        "mean_token_nll": 5.660642523173842,
+        "response_tokens": 16,
+        "sum_log_probability": -90.57028037078148,
+        "token_perplexity": 287.33320149858326
+      },
+      "sum_log_probability_margin": 22.55223882965008,
+      "sum_preference_credit": 1.0
+    },
+    {
+      "chosen": {
+        "mean_log_probability": -5.610687753202882,
+        "mean_token_nll": 5.610687753202882,
+        "response_tokens": 14,
+        "sum_log_probability": -78.54962854484035,
+        "token_perplexity": 273.3321584433277
+      },
+      "domain": "game_development",
+      "id": "beginner-game-update",
+      "level": "beginner",
+      "mean_log_probability_margin": -0.01778028152561184,
+      "mean_preference_credit": 0.0,
+      "rejected": {
+        "mean_log_probability": -5.59290747167727,
+        "mean_token_nll": 5.59290747167727,
+        "response_tokens": 15,
+        "sum_log_probability": -83.89361207515906,
+        "token_perplexity": 268.515186179506
+      },
+      "sum_log_probability_margin": 5.3439835303187095,
+      "sum_preference_credit": 1.0
+    },
+    {
+      "chosen": {
+        "mean_log_probability": -5.625987710034361,
+        "mean_token_nll": 5.625987710034361,
+        "response_tokens": 11,
+        "sum_log_probability": -61.885864810377974,
+        "token_perplexity": 277.5462844347633
+      },
+      "domain": "game_development",
+      "id": "beginner-game-frame",
+      "level": "beginner",
+      "mean_log_probability_margin": -0.029025308035782516,
+      "mean_preference_credit": 0.0,
+      "rejected": {
+        "mean_log_probability": -5.596962401998579,
+        "mean_token_nll": 5.596962401998579,
+        "response_tokens": 14,
+        "sum_log_probability": -78.3574736279801,
+        "token_perplexity": 269.6062070615833
+      },
+      "sum_log_probability_margin": 16.471608817602124,
+      "sum_preference_credit": 1.0
+    },
+    {
+      "chosen": {
+        "mean_log_probability": -5.662027339511903,
+        "mean_token_nll": 5.662027339511903,
+        "response_tokens": 29,
+        "sum_log_probability": -164.1987928458452,
+        "token_perplexity": 287.7313808494883
+      },
+      "domain": "cpp",
+      "id": "intermediate-cpp-raii",
+      "level": "intermediate",
+      "mean_log_probability_margin": -0.0038878940388409333,
+      "mean_preference_credit": 0.0,
+      "rejected": {
+        "mean_log_probability": -5.658139445473062,
+        "mean_token_nll": 5.658139445473062,
+        "response_tokens": 23,
+        "sum_log_probability": -130.13720724588043,
+        "token_perplexity": 286.6148835470873
+      },
+      "sum_log_probability_margin": -34.06158559996476,
+      "sum_preference_credit": 0.0
+    },
+    {
+      "chosen": {
+        "mean_log_probability": -5.659938401297438,
+        "mean_token_nll": 5.659938401297438,
+        "response_tokens": 27,
+        "sum_log_probability": -152.81833683503083,
+        "token_perplexity": 287.1309551169977
+      },
+      "domain": "cpp",
+      "id": "intermediate-cpp-lifetime",
+      "level": "intermediate",
+      "mean_log_probability_margin": -0.02065588219410852,
+      "mean_preference_credit": 0.0,
+      "rejected": {
+        "mean_log_probability": -5.63928251910333,
+        "mean_token_nll": 5.63928251910333,
+        "response_tokens": 27,
+        "sum_log_probability": -152.2606280157899,
+        "token_perplexity": 281.2608467798517
+      },
+      "sum_log_probability_margin": -0.5577088192409292,
+      "sum_preference_credit": 0.0
+    },
+    {
+      "chosen": {
+        "mean_log_probability": -5.634065063352245,
+        "mean_token_nll": 5.634065063352245,
+        "response_tokens": 24,
+        "sum_log_probability": -135.21756152045387,
+        "token_perplexity": 279.79720232760457
+      },
+      "domain": "compilers",
+      "id": "intermediate-compiler-folding",
+      "level": "intermediate",
+      "mean_log_probability_margin": -0.009390697395125436,
+      "mean_preference_credit": 0.0,
+      "rejected": {
+        "mean_log_probability": -5.6246743659571194,
+        "mean_token_nll": 5.6246743659571194,
+        "response_tokens": 32,
+        "sum_log_probability": -179.98957971062782,
+        "token_perplexity": 277.18200992718454
+      },
+      "sum_log_probability_margin": 44.77201819017395,
+      "sum_preference_credit": 1.0
+    },
+    {
+      "chosen": {
+        "mean_log_probability": -5.689052486170839,
+        "mean_token_nll": 5.689052486170839,
+        "response_tokens": 7,
+        "sum_log_probability": -39.823367403195874,
+        "token_perplexity": 295.61339012507636
+      },
+      "domain": "compilers",
+      "id": "intermediate-compiler-link",
+      "level": "intermediate",
+      "mean_log_probability_margin": -0.06660581132821353,
+      "mean_preference_credit": 0.0,
+      "rejected": {
+        "mean_log_probability": -5.622446674842625,
+        "mean_token_nll": 5.622446674842625,
+        "response_tokens": 7,
+        "sum_log_probability": -39.357126723898375,
+        "token_perplexity": 276.56522128892993
+      },
+      "sum_log_probability_margin": -0.4662406792974991,
+      "sum_preference_credit": 0.0
+    },
+    {
+      "chosen": {
+        "mean_log_probability": -5.645637469365326,
+        "mean_token_nll": 5.645637469365326,
+        "response_tokens": 33,
+        "sum_log_probability": -186.30603648905574,
+        "token_perplexity": 283.05393693661523
+      },
+      "domain": "game_development",
+      "id": "intermediate-game-timestep",
+      "level": "intermediate",
+      "mean_log_probability_margin": -0.030501546875205676,
+      "mean_preference_credit": 0.0,
+      "rejected": {
+        "mean_log_probability": -5.61513592249012,
+        "mean_token_nll": 5.61513592249012,
+        "response_tokens": 40,
+        "sum_log_probability": -224.60543689960483,
+        "token_perplexity": 274.5506942733741
+      },
+      "sum_log_probability_margin": 38.29940041054908,
+      "sum_preference_credit": 1.0
+    },
+    {
+      "chosen": {
+        "mean_log_probability": -5.603040849587307,
+        "mean_token_nll": 5.603040849587307,
+        "response_tokens": 40,
+        "sum_log_probability": -224.12163398349227,
+        "token_perplexity": 271.24998500872846
+      },
+      "domain": "game_development",
+      "id": "intermediate-game-resource",
+      "level": "intermediate",
+      "mean_log_probability_margin": 0.0022760593882908964,
+      "mean_preference_credit": 1.0,
+      "rejected": {
+        "mean_log_probability": -5.605316908975598,
+        "mean_token_nll": 5.605316908975598,
+        "response_tokens": 25,
+        "sum_log_probability": -140.13292272438994,
+        "token_perplexity": 271.8680692150323
+      },
+      "sum_log_probability_margin": -83.98871125910233,
+      "sum_preference_credit": 0.0
+    },
+    {
+      "chosen": {
+        "mean_log_probability": -5.629877323309284,
+        "mean_token_nll": 5.629877323309284,
+        "response_tokens": 35,
+        "sum_log_probability": -197.04570631582493,
+        "token_perplexity": 278.62793438340765
+      },
+      "domain": "cpp",
+      "id": "advanced-cpp-overflow",
+      "level": "advanced",
+      "mean_log_probability_margin": 0.008539848919186355,
+      "mean_preference_credit": 1.0,
+      "rejected": {
+        "mean_log_probability": -5.63841717222847,
+        "mean_token_nll": 5.63841717222847,
+        "response_tokens": 32,
+        "sum_log_probability": -180.42934951131105,
+        "token_perplexity": 281.01756386230795
+      },
+      "sum_log_probability_margin": -16.616356804513885,
+      "sum_preference_credit": 0.0
+    },
+    {
+      "chosen": {
+        "mean_log_probability": -5.627600897847383,
+        "mean_token_nll": 5.627600897847383,
+        "response_tokens": 27,
+        "sum_log_probability": -151.94522424187934,
+        "token_perplexity": 277.99438005238164
+      },
+      "domain": "cpp",
+      "id": "advanced-cpp-constexpr",
+      "level": "advanced",
+      "mean_log_probability_margin": -0.005687778961601886,
+      "mean_preference_credit": 0.0,
+      "rejected": {
+        "mean_log_probability": -5.621913118885781,
+        "mean_token_nll": 5.621913118885781,
+        "response_tokens": 26,
+        "sum_log_probability": -146.16974109103032,
+        "token_perplexity": 276.41769762721935
+      },
+      "sum_log_probability_margin": -5.775483150849027,
+      "sum_preference_credit": 0.0
+    },
+    {
+      "chosen": {
+        "mean_log_probability": -5.6452281936857895,
+        "mean_token_nll": 5.6452281936857895,
+        "response_tokens": 37,
+        "sum_log_probability": -208.87344316637422,
+        "token_perplexity": 282.9381135476949
+      },
+      "domain": "compilers",
+      "id": "advanced-llvm-phi",
+      "level": "advanced",
+      "mean_log_probability_margin": -0.025883964464209264,
+      "mean_preference_credit": 0.0,
+      "rejected": {
+        "mean_log_probability": -5.61934422922158,
+        "mean_token_nll": 5.61934422922158,
+        "response_tokens": 22,
+        "sum_log_probability": -123.62557304287476,
+        "token_perplexity": 275.7085223473046
+      },
+      "sum_log_probability_margin": -85.24787012349945,
+      "sum_preference_credit": 0.0
+    },
+    {
+      "chosen": {
+        "mean_log_probability": -5.590706383487357,
+        "mean_token_nll": 5.590706383487357,
+        "response_tokens": 18,
+        "sum_log_probability": -100.63271490277243,
+        "token_perplexity": 267.9248105471639
+      },
+      "domain": "compilers",
+      "id": "advanced-compiler-selection",
+      "level": "advanced",
+      "mean_log_probability_margin": 0.0662372762319956,
+      "mean_preference_credit": 1.0,
+      "rejected": {
+        "mean_log_probability": -5.656943659719353,
+        "mean_token_nll": 5.656943659719353,
+        "response_tokens": 17,
+        "sum_log_probability": -96.16804221522901,
+        "token_perplexity": 286.272358386709
+      },
+      "sum_log_probability_margin": -4.464672687543427,
+      "sum_preference_credit": 0.0
+    },
+    {
+      "chosen": {
+        "mean_log_probability": -5.624335180969724,
+        "mean_token_nll": 5.624335180969724,
+        "response_tokens": 41,
+        "sum_log_probability": -230.59774241975867,
+        "token_perplexity": 277.0880098932425
+      },
+      "domain": "game_development",
+      "id": "advanced-game-determinism",
+      "level": "advanced",
+      "mean_log_probability_margin": 0.016259872653776597,
+      "mean_preference_credit": 1.0,
+      "rejected": {
+        "mean_log_probability": -5.6405950536235006,
+        "mean_token_nll": 5.6405950536235006,
+        "response_tokens": 37,
+        "sum_log_probability": -208.70201698406953,
+        "token_perplexity": 281.63025372707494
+      },
+      "sum_log_probability_margin": -21.895725435689144,
+      "sum_preference_credit": 0.0
+    },
+    {
+      "chosen": {
+        "mean_log_probability": -5.618513131416776,
+        "mean_token_nll": 5.618513131416776,
+        "response_tokens": 34,
+        "sum_log_probability": -191.0294464681704,
+        "token_perplexity": 275.47947679242884
+      },
+      "domain": "game_development",
+      "id": "advanced-game-vector",
+      "level": "advanced",
+      "mean_log_probability_margin": 0.016752797421350607,
+      "mean_preference_credit": 1.0,
+      "rejected": {
+        "mean_log_probability": -5.635265928838127,
+        "mean_token_nll": 5.635265928838127,
+        "response_tokens": 33,
+        "sum_log_probability": -185.96377565165818,
+        "token_perplexity": 280.13340295638955
+      },
+      "sum_log_probability_margin": -5.06567081651221,
+      "sum_preference_credit": 0.0
+    }
+  ],
+  "format": "rawllm-cpp-likelihood-evaluation",
+  "gate": {
+    "criteria": {
+      "minimum_bootstrap_lower_bound": 0.5,
+      "minimum_examples": 18,
+      "minimum_per_level_domain": 2,
+      "minimum_preference_accuracy": 0.75
+    },
+    "freeform_tutor_competence_assessed": false,
+    "reasons": [
+      "mean_preference_accuracy_below_threshold",
+      "mean_preference_interval_not_above_threshold",
+      "sum_preference_accuracy_below_threshold",
+      "sum_preference_interval_not_above_threshold"
+    ],
+    "scope": "paired_teacher_forced_likelihood_screen_only",
+    "status": "fail"
+  },
+  "limitations": [
+    "Teacher forcing supplies every preceding correct-response token.",
+    "Summed response probability is sensitive to answer length; average probability measures a different quantity.",
+    "These original questions are a small curated probe, not a representative programming benchmark.",
+    "Likelihood preference and perplexity do not establish freeform factual accuracy, teaching quality, or executable-code correctness."
+  ],
+  "limits": {
+    "bootstrap_min_examples": 8,
+    "bootstrap_samples": 1000,
+    "bootstrap_seed": 173,
+    "max_examples": 64,
+    "max_logits_bytes": 33554432,
+    "max_seconds": 30,
+    "max_sequence_tokens": 256
+  },
+  "overall": {
+    "chosen_mean_token_nll": 5.630682357007054,
+    "chosen_response_tokens": 423,
+    "chosen_token_perplexity": 278.8523295704512,
+    "examples": 18,
+    "mean_nll_ci95": {
+      "confidence_level": 0.95,
+      "examples": 18,
+      "lower": 5.620647072728318,
+      "method": "deterministic_nonparametric_percentile_bootstrap",
+      "replicates": 1000,
+      "upper": 5.640680260189149
+    },
+    "mean_preference_accuracy": 0.3888888888888889,
+    "mean_preference_ci95": {
+      "confidence_level": 0.95,
+      "examples": 18,
+      "lower": 0.16666666666666666,
+      "method": "deterministic_nonparametric_percentile_bootstrap",
+      "replicates": 1000,
+      "upper": 0.6111111111111112
+    },
+    "mean_preference_ties": 0,
+    "sum_preference_accuracy": 0.3333333333333333,
+    "sum_preference_ci95": {
+      "confidence_level": 0.95,
+      "examples": 18,
+      "lower": 0.1111111111111111,
+      "method": "deterministic_nonparametric_percentile_bootstrap",
+      "replicates": 1000,
+      "upper": 0.5555555555555556
+    },
+    "sum_preference_ties": 0
+  },
+  "recipe": {
+    "aggregate_nll_weighting": "response_token_weighted",
+    "bootstrap_interpretation": "resampling_sensitivity_of_this_prompt_set_only",
+    "bos_in_prompt": true,
+    "deadline_semantics": "checked_between_full_forward_calls; native NumPy kernels are not preempted",
+    "eos_in_response_score": true,
+    "generated_code_executed": false,
+    "logits_memory_cap_exclusions": "model weights, saved forward activations, and bounded float64 scoring temporaries",
+    "nll_interval_weighting": "resample_examples_then_compute_response_token_weighted_nll",
+    "nll_units": "natural_log_nats_per_response_token",
+    "preference_tie_credit": 0.5,
+    "prompt_response_bpe_boundary": "encoded_separately",
+    "tie_absolute_tolerance": 1e-12
+  },
+  "rejected_examples": [],
+  "rejection_counts": {
+    "example_limit": 0,
+    "logits_memory_limit": 0,
+    "time_limit": 0,
+    "tokenizer_context_limit": 0
+  },
+  "reproducibility": {
+    "checkpoint_counters": {
+      "samples_consumed": 6,
+      "skipped_updates": 0,
+      "step": 3,
+      "updates": 3
+    },
+    "checkpoint_manifest_sha256": "a2e98920c25c00dcf45efe4196cd3568c2a0275538bb3e096f666535b9371605",
+    "checkpoint_payload_sha256": "f803d1cf276ae9bb02858d37f516a2c3aa7a455d9213d03ffe62318bd4e51bf5",
+    "evaluation_sha256": "505d503f1666a4fae0bb717f17b098d85f55580f743b3ddc6eca3fac52d70b82",
+    "numpy_version": "2.4.6",
+    "parameter_count": 29656,
+    "precision": "fp32",
+    "run_settings_sha256": "1a544ab2c787d386d9c4c4abe7558561b9875f1ef17a1859fe492acda7c58d32",
+    "tokenizer_sha256": "58b7f45d9ccdd4c22ec61d27b93504147eeb655987e9046f0b5f2d7309cba233"
+  },
+  "scored_examples": 18,
+  "split": {
+    "fact_check_references": [
+      "https://llvm.org/docs/LangRef.html#phi-instruction",
+      "https://eel.is/c++draft/vector.modifiers"
+    ],
+    "question_authorship": "Original short paired questions authored for this local framework.",
+    "role": "evaluation_only",
+    "training_exclusion": "The shipped evaluation JSONL is not a default training input; a supplied/custom run's training history must be audited separately."
+  },
+  "time_budget_exhausted": false,
+  "version": 1
+}

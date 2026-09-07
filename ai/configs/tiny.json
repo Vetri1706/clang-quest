@@ -1,0 +1,16 @@
+{
+  "vocab_size": 320,
+  "dim": 32,
+  "layers": 2,
+  "heads": 4,
+  "q_rank": 16,
+  "kv_rank": 12,
+  "content_dim": 8,
+  "rope_dim": 8,
+  "value_dim": 8,
+  "hidden_dim": 64,
+  "max_seq_len": 128,
+  "rope_base": 10000.0,
+  "norm_eps": 1e-06,
+  "tie_embeddings": true
+}

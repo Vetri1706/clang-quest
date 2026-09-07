@@ -42,3 +42,12 @@ next-env.d.ts
 __pycache__/
 *.pyc
 *.tsbuildinfo
+
+# Local Python environment and new user training runs
+/.venv/
+/ai/runs/local-*/
+*.token
+*.key
+*.partial
+.run.lock
+.writer.lock

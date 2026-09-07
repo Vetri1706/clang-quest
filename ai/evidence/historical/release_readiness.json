@@ -1,0 +1,52 @@
+{
+  "status": "verified_local_reference",
+  "production_certified": false,
+  "model_tutor_release_gate": "fail",
+  "verification": {
+    "tests_run": 181,
+    "failures": 0,
+    "errors": 0,
+    "skipped": 0,
+    "passed": true,
+    "seconds": 27.708743124996545,
+    "python_files_audited": 44,
+    "forbidden_imports": [],
+    "third_party_static_imports": [
+      "numpy"
+    ],
+    "python_source_sha256": "06ef658760fc5e48fdad05a17744088ee7cd3ac5393fbf04e14eed10a3a7960a",
+    "python_version": "3.14.6",
+    "numpy_version": "2.4.6",
+    "system": "Darwin",
+    "machine": "arm64",
+    "audit_scope": "Static imports in project Python source; no claim of sandboxing arbitrary dynamic code",
+    "limitations": "Small local numerical and process tests; not production certification or GPU validation."
+  },
+  "automatic_zero_maximum_weight_error": 6.51925802230835e-09,
+  "actual_training_reports": [
+    "results/zero_corpus.json",
+    "results/zero_corpus_sft.json",
+    "results/supervised_pretrain/result.json",
+    "results/supervised_sft/result.json",
+    "results/supervised_dpo/result.json"
+  ],
+  "serving_functional_load_report": "results/serving_load.json",
+  "pretraining_cpp_mean_preference_accuracy": 0.4444444444444444,
+  "three_phase_cpp_mean_preference_accuracy": 0.3888888888888889,
+  "architecture_manual_words": 6114,
+  "operation_manual_words": 2286,
+  "large_model_parameters": 7018450944,
+  "large_model_allocation_or_training_performed": false,
+  "third_party_datasets_ingested": false,
+  "docker_used": false,
+  "unverified_or_unimplemented": [
+    "combined automatic ZeRO plus three-dimensional scheduling",
+    "native GPU kernels and native mixed precision",
+    "encrypted multi-node transport and RDMA",
+    "elastic membership and resharded restart",
+    "sustained production load and independent security review",
+    "authenticated external artifact provenance and automatic retention",
+    "competent freeform C++ tutoring and broad programming knowledge"
+  ],
+  "scope": "Complete runnable local source and measured small-model behavior; no assertion that a trained 7B assistant or production deployment has been achieved."
+}

@@ -1,0 +1,3 @@
+# The only non-standard-library Python dependency for model inference/training.
+# Verified with CPython 3.14.6 on macOS arm64; NumPy requires Python 3.11+.
+numpy==2.4.6

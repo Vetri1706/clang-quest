@@ -1,0 +1,25 @@
+.....................................................................................................................................................................................
+----------------------------------------------------------------------
+Ran 181 tests in 32.849s
+
+OK
+{
+  "tests_run": 181,
+  "failures": 0,
+  "errors": 0,
+  "skipped": 0,
+  "passed": true,
+  "seconds": 33.28345208300016,
+  "python_files_audited": 44,
+  "forbidden_imports": [],
+  "third_party_static_imports": [
+    "numpy"
+  ],
+  "python_source_sha256": "06ef658760fc5e48fdad05a17744088ee7cd3ac5393fbf04e14eed10a3a7960a",
+  "python_version": "3.14.6",
+  "numpy_version": "2.4.6",
+  "system": "Darwin",
+  "machine": "arm64",
+  "audit_scope": "Static imports in project Python source; no claim of sandboxing arbitrary dynamic code",
+  "limitations": "Small local numerical and process tests; not production certification or GPU validation."
+}

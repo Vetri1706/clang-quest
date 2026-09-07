@@ -1,0 +1,10 @@
+A variable has a type and a value. C++ integer division truncates toward zero.
+RAII connects resource cleanup to object lifetime. A reference must not outlive its object.
+A compiler parses source, checks language rules, lowers a representation, and generates target code.
+LLVM IR is a typed intermediate representation. A constant can be folded when doing so preserves semantics.
+A game loop separates input, simulation, and rendering. Fixed time steps make simulation timing explicit.
+A matrix product combines rows and columns. A gradient describes a local rate of change.
+A training loss measures a defined objective. A lower loss does not establish every desired capability.
+A held-out evaluation uses examples excluded from optimizer updates. The split must be recorded.
+A network protocol needs message boundaries, size limits, timeouts, and a clear failure model.
+Checkpoints preserve the model, optimizer, random state, and the data position needed for recovery.

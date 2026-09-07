@@ -1,0 +1,30 @@
+{
+  "accumulation": 2,
+  "beta": 0.1,
+  "config": {
+    "content_dim": 8,
+    "dim": 32,
+    "heads": 4,
+    "hidden_dim": 64,
+    "kv_rank": 12,
+    "layers": 2,
+    "max_seq_len": 256,
+    "norm_eps": 1e-06,
+    "q_rank": 16,
+    "rope_base": 10000.0,
+    "rope_dim": 8,
+    "tie_embeddings": true,
+    "value_dim": 8,
+    "vocab_size": 288
+  },
+  "dataset": "examples/sft.jsonl",
+  "dataset_sha256": "956832bd33fa796d32e0fd8d336f8c1bc9bb29aa5159f0674ebb5364de2afc95",
+  "initialization": "runs/hardened_pretrain",
+  "learning_rate": 0.0003,
+  "mode": "sft",
+  "numpy_version": "2.4.6",
+  "precision": "fp32",
+  "seed": 17,
+  "sequence_length": 64,
+  "tokenizer_sha256": "58b7f45d9ccdd4c22ec61d27b93504147eeb655987e9046f0b5f2d7309cba233"
+}

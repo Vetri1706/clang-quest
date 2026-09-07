@@ -1,4 +1,6 @@
-# Release verification — 7 September 2026
+# Original dashboard release verification — 7 September 2026
+
+This document preserves the initial dashboard release results. The subsequent self-contained AI integration is verified separately in [reports/ai](ai/README.md): **81 application tests**, **181 framework tests**, and **36 real AI/HTTP/compiler execution checks** passed. The neural C++ quality screen **failed**. The current inference implementation and weights are bundled under `ai/`; the original `model-inference.json` below was captured before that relocation. Frontend sources are unchanged in the AI integration update.
 
 The local dashboard is served at **http://127.0.0.1:5173** by the packaged Python launcher. The Vite development server and separate development API process were stopped. No training process, Docker service, or remote AI service was started for the dashboard.
 
@@ -32,4 +34,4 @@ Dependency fixes were applied as compatible version groups with their lockfile, 
 
 Browser interaction, screenshots, viewport resizing, and visual QA were not performed. Responsive layout, semantics, safe text rendering, and shared action wiring were checked at source level, with TypeScript and a production build. Feature-detected WebMCP tools are implemented but were not verified in a supported browser context.
 
-The C++ engine is a restricted local macOS runner, not a hosted multi-tenant sandbox certification. Seatbelt tooling is deprecated, and memory limits rely on sampled RSS. The 24 original missions and curated mentor do not cover every programming topic. The adjacent 29,656-parameter NumPy checkpoint remains below the C++ knowledge quality gate and is explicitly experimental. See `RUNNER.md` and `ARCHITECTURE.md` for these boundaries.
+The C++ engine is a restricted local macOS runner, not a hosted multi-tenant sandbox certification. Seatbelt tooling is deprecated, and memory limits rely on sampled RSS. The 24 original missions and curated mentor do not cover every programming topic. The now-bundled 29,656-parameter NumPy checkpoint remains below the C++ knowledge quality gate and is explicitly experimental. See [RUNNER.md](RUNNER.md) and [ARCHITECTURE.md](ARCHITECTURE.md) for these boundaries.

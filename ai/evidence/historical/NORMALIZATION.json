@@ -1,0 +1,86 @@
+[
+  {
+    "path": "evidence/historical/capacity_7b.json",
+    "original_sha256": "baa655068c6af4573183d100ff42458e7a8816dc6533f2d85c05bfee97305a9d",
+    "bundled_sha256": "baa655068c6af4573183d100ff42458e7a8816dc6533f2d85c05bfee97305a9d",
+    "role": "historical evidence; absolute artifact location values normalized, recorded metric/hash fields retained"
+  },
+  {
+    "path": "evidence/historical/cpp_evaluation.json",
+    "original_sha256": "41448106812e0afcb1a82e32d0f387c25a6c1682ed0491cf743414aa7950c863",
+    "bundled_sha256": "41448106812e0afcb1a82e32d0f387c25a6c1682ed0491cf743414aa7950c863",
+    "role": "historical evidence; absolute artifact location values normalized, recorded metric/hash fields retained"
+  },
+  {
+    "path": "evidence/historical/cpp_evaluation_dpo.json",
+    "original_sha256": "735cd77162d6cf587bca49d60c92044a593a6c7788220ebf8d55f2499c7c40ff",
+    "bundled_sha256": "735cd77162d6cf587bca49d60c92044a593a6c7788220ebf8d55f2499c7c40ff",
+    "role": "historical evidence; absolute artifact location values normalized, recorded metric/hash fields retained"
+  },
+  {
+    "path": "evidence/historical/distributed_demo.json",
+    "original_sha256": "b815dc111907271a8cd422017b5e9bc459f56b9fec238c0f0912b878f3c5c559",
+    "bundled_sha256": "b815dc111907271a8cd422017b5e9bc459f56b9fec238c0f0912b878f3c5c559",
+    "role": "historical evidence; absolute artifact location values normalized, recorded metric/hash fields retained"
+  },
+  {
+    "path": "evidence/historical/distributed_llm3d.json",
+    "original_sha256": "89663338bc1769c031d6a9c222afcdf8c43acffbcffcf2914053a9c5a034e97a",
+    "bundled_sha256": "0dc02d759a4f895c15725ffb9e1a6eb901838830f5b484bb83b8553e3aa56438",
+    "role": "historical evidence; absolute artifact location values normalized, recorded metric/hash fields retained"
+  },
+  {
+    "path": "evidence/historical/distributed_transformer.json",
+    "original_sha256": "b822d59a3cb3f9c2d81261faa06e2f6618b86132c254e6549d2da584ae92c570",
+    "bundled_sha256": "bcd0678b8f250a5db548752cd5aedb680a2a558d60a34470a2ad53d26e589ca3",
+    "role": "historical evidence; absolute artifact location values normalized, recorded metric/hash fields retained"
+  },
+  {
+    "path": "evidence/historical/release_readiness.json",
+    "original_sha256": "9b6a35ef29052d58ae516743c148da39e61cd2971b26076275212d56086f56d6",
+    "bundled_sha256": "9b6a35ef29052d58ae516743c148da39e61cd2971b26076275212d56086f56d6",
+    "role": "historical evidence; absolute artifact location values normalized, recorded metric/hash fields retained"
+  },
+  {
+    "path": "evidence/historical/serving.json",
+    "original_sha256": "04744c8d29d3092cab1f51cc6ca4bdadf6479da927f8a7238465e61d460526cf",
+    "bundled_sha256": "04744c8d29d3092cab1f51cc6ca4bdadf6479da927f8a7238465e61d460526cf",
+    "role": "historical evidence; absolute artifact location values normalized, recorded metric/hash fields retained"
+  },
+  {
+    "path": "evidence/historical/serving_load.json",
+    "original_sha256": "e266ef1976b0ea96458554ec0817bb1dbdf81bd69f5b72cd94d58acd38c8aadf",
+    "bundled_sha256": "e266ef1976b0ea96458554ec0817bb1dbdf81bd69f5b72cd94d58acd38c8aadf",
+    "role": "historical evidence; absolute artifact location values normalized, recorded metric/hash fields retained"
+  },
+  {
+    "path": "evidence/historical/verification.json",
+    "original_sha256": "858edb4807a18ab391888286b36f95de5645a52d91d2b7c83ea73c34fa0d7a48",
+    "bundled_sha256": "858edb4807a18ab391888286b36f95de5645a52d91d2b7c83ea73c34fa0d7a48",
+    "role": "historical evidence; absolute artifact location values normalized, recorded metric/hash fields retained"
+  },
+  {
+    "path": "evidence/historical/zero_corpus.json",
+    "original_sha256": "e9893763f14a5327e01c980b766fe711f0d5e91d68fedb841900caf34367815c",
+    "bundled_sha256": "41196f4ea13f2887c2020087679fe882da3afd9bd9a18e601a01fc18a7f05269",
+    "role": "historical evidence; absolute artifact location values normalized, recorded metric/hash fields retained"
+  },
+  {
+    "path": "evidence/historical/zero_corpus_sft.json",
+    "original_sha256": "937a5b66277e059b11d0fedd629d95bbc6a62fa50f7891c1aa0491ef1e8cbde5",
+    "bundled_sha256": "c32e3b35bd2995f9fb511166d456890bc85966e240b97762d3119ded2ed8d4d6",
+    "role": "historical evidence; absolute artifact location values normalized, recorded metric/hash fields retained"
+  },
+  {
+    "path": "evidence/historical/zero_transformer.json",
+    "original_sha256": "55aeddb24ae1e48ec09b1fa69fbbef47994c95b264ef0feafbce4e49978fa933",
+    "bundled_sha256": "1bec811bbaa54fcba8c6aa405e12ad9ca49fd0c6370c883216daa5de791aed1e",
+    "role": "historical evidence; absolute artifact location values normalized, recorded metric/hash fields retained"
+  },
+  {
+    "path": "evidence/historical/zero_transformer_resumed.json",
+    "original_sha256": "aad33f048909af4b6a9f56633419b38cab400dfa68d990e423bd46fe79239d7c",
+    "bundled_sha256": "635498e4df5093051e85702a54a071b2c4857a6f90fca763057bb7f573746a7b",
+    "role": "historical evidence; absolute artifact location values normalized, recorded metric/hash fields retained"
+  }
+]

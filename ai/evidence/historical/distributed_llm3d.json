@@ -1,0 +1,40 @@
+{
+  "mode": "real MLA Transformer 3D parallel training",
+  "topology": {
+    "data": 2,
+    "pipeline": 2,
+    "tensor": 2,
+    "processes": 8
+  },
+  "parameters": 12652,
+  "locally_owned_parameters_by_rank": [
+    5374,
+    5374,
+    5390,
+    5390,
+    5374,
+    5374,
+    5390,
+    5390
+  ],
+  "updates": 2,
+  "microbatches_per_data_rank": 2,
+  "global_sequences_per_update": 4,
+  "global_target_tokens_per_update": 32,
+  "losses": [
+    5.5549636833306,
+    5.575985746775855
+  ],
+  "maximum_loss_absolute_error": 8.881784197001252e-16,
+  "maximum_gradient_absolute_error": 5.551115123125783e-17,
+  "maximum_weight_absolute_error": 0.0,
+  "maximum_data_replica_absolute_error": 0.0,
+  "tensor_replicas_exact": true,
+  "reference": "full unpartitioned MLA/RoPE/SwiGLU Transformer on combined global batches",
+  "arithmetic": "FP64 model/autograd; FP32 AdamW masters and moments",
+  "transport": "HMAC-authenticated coordinator-routed raw TCP over loopback",
+  "elapsed_seconds": 0.95151970799634,
+  "verified": true,
+  "weight_export": "results/distributed_llm3d_weights",
+  "scope": "Fixed tiny untied-embedding Transformer, sequential two-stage schedule, head/FFN tensor shards, replicated latent projections; no automatic ZeRO integration or optimized GPU transport."
+}

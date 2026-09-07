@@ -1,0 +1,55 @@
+{
+  "mode": "automatic operation-rematerialized ZeRO-3 Transformer",
+  "world_size": 2,
+  "parameters": 8556,
+  "tie_embeddings": true,
+  "updates": 1,
+  "starting_step": 3,
+  "completed_steps": 4,
+  "microbatches_per_rank": 2,
+  "losses": [
+    5.545056104660034
+  ],
+  "maximum_absolute_errors": {
+    "loss": 2.384185791015625e-07,
+    "gradients": 2.9802322387695312e-08,
+    "weights": 6.51925802230835e-09,
+    "first_moment": 3.725290298461914e-09,
+    "second_moment": 3.637978807091713e-12,
+    "grad_norm": 1.6839132532808776e-08
+  },
+  "memory_by_rank": [
+    {
+      "global_parameters": 8556,
+      "locally_owned_parameters": 4278,
+      "persistent_parameter_gradient_adam_bytes": 68448,
+      "largest_initial_tensor_bytes": 16384,
+      "largest_materialized_tensor_bytes": 16384,
+      "maximum_simultaneous_materialized_tensors": 1,
+      "materialization_count": 122,
+      "backward_parameter_calls": 62,
+      "active_materialization": null,
+      "memory_exclusions": "saved activations, full transient gradient, received shard-list/serialization/coordinator buffers, local Adam arithmetic temporaries, and initialization temporaries",
+      "verification_trace_bytes": 68448
+    },
+    {
+      "global_parameters": 8556,
+      "locally_owned_parameters": 4278,
+      "persistent_parameter_gradient_adam_bytes": 68448,
+      "largest_initial_tensor_bytes": 16384,
+      "largest_materialized_tensor_bytes": 16384,
+      "maximum_simultaneous_materialized_tensors": 1,
+      "materialization_count": 122,
+      "backward_parameter_calls": 62,
+      "active_materialization": null,
+      "memory_exclusions": "saved activations, full transient gradient, received shard-list/serialization/coordinator buffers, local Adam arithmetic temporaries, and initialization temporaries",
+      "verification_trace_bytes": 68448
+    }
+  ],
+  "reference": "regular FP32 Transformer and AdamW on combined global batches with global norm clipping",
+  "verified": true,
+  "elapsed_seconds": 0.4498745000018971,
+  "sharded_checkpoint": null,
+  "resumed_from": "results/zero_checkpoint_v2",
+  "scope": "automatic ZeRO-3 for the Config MLA architecture across data ranks; activation checkpointing and combination with pipeline/tensor parallelism are not implemented"
+}

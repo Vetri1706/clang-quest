@@ -1,0 +1,12 @@
+{
+  "budget_reached": false,
+  "output": "runs/hardened_dpo",
+  "parameters": 29656,
+  "run_id": "1d8a6fcbb636434896267210c27797a8",
+  "samples_consumed": 6,
+  "skipped_updates": 0,
+  "status": "completed",
+  "step": 3,
+  "stop_requested": false,
+  "updates": 3
+}

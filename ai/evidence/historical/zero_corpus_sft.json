@@ -1,0 +1,73 @@
+{
+  "checkpoint": "runs/zero_corpus_sft/checkpoint",
+  "completed_steps": 2,
+  "config_sha256": "c5ab61218106bcdd427aa32f94a4cf803d80d94ab3e8a8375e5aa1ed751abdc6",
+  "dataset_sha256": "956832bd33fa796d32e0fd8d336f8c1bc9bb29aa5159f0674ebb5364de2afc95",
+  "elapsed_seconds": 0.326205666999158,
+  "global_target_tokens": 92,
+  "losses": [
+    5.632087788683303,
+    5.655574713812934
+  ],
+  "memory_by_rank": [
+    {
+      "active_materialization": null,
+      "backward_parameter_calls": 68,
+      "global_parameters": 4730,
+      "largest_initial_tensor_bytes": 13584,
+      "largest_materialized_tensor_bytes": 13584,
+      "locally_owned_parameters": 2365,
+      "materialization_count": 132,
+      "maximum_simultaneous_materialized_tensors": 1,
+      "memory_exclusions": "saved activations, full transient gradient, received shard-list/serialization/coordinator buffers, local Adam arithmetic temporaries, and initialization temporaries",
+      "persistent_parameter_gradient_adam_bytes": 37840
+    },
+    {
+      "active_materialization": null,
+      "backward_parameter_calls": 68,
+      "global_parameters": 4730,
+      "largest_initial_tensor_bytes": 13584,
+      "largest_materialized_tensor_bytes": 13584,
+      "locally_owned_parameters": 2365,
+      "materialization_count": 132,
+      "maximum_simultaneous_materialized_tensors": 1,
+      "memory_exclusions": "saved activations, full transient gradient, received shard-list/serialization/coordinator buffers, local Adam arithmetic temporaries, and initialization temporaries",
+      "persistent_parameter_gradient_adam_bytes": 37840
+    }
+  ],
+  "mode": "sft",
+  "parameters": 4730,
+  "run_directory": "runs/zero_corpus_sft",
+  "scope": "pretraining/SFT with exact fixed-topology resume; no DPO or train.py-compatible dense export",
+  "settings_sha256": "c37960129e19c3902c850710ab355127fcb1a950894b4b001e7e8fb227fa405e",
+  "source_byte_limit": 16777216,
+  "starting_step": 0,
+  "status": "completed",
+  "target_steps": 2,
+  "token_mass_by_rank": [
+    [
+      {
+        "global": 47,
+        "local": 16
+      },
+      {
+        "global": 45,
+        "local": 30
+      }
+    ],
+    [
+      {
+        "global": 47,
+        "local": 31
+      },
+      {
+        "global": 45,
+        "local": 15
+      }
+    ]
+  ],
+  "tokenizer_sha256": "02e3bc2f02ee6dbbf956a31716db5b0f2caa2c4c6f5bb1b2110d7e73c2fcca05",
+  "tokenizer_training_byte_limit": 65536,
+  "training": "actual packed corpus with automatic ZeRO-3",
+  "world_size": 2
+}

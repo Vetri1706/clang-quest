@@ -1,0 +1,3 @@
+{"prompt":"5/2? ","chosen":"2","rejected":"3"}
+{"prompt":"RAII? ","chosen":"Object lifetime cleanup.","rejected":"A garbage collector."}
+{"prompt":"LLVM? ","chosen":"Compiler infrastructure.","rejected":"A game texture."}

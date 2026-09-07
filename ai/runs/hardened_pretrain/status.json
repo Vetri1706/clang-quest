@@ -1,0 +1,12 @@
+{
+  "budget_reached": false,
+  "output": "runs/hardened_pretrain",
+  "parameters": 29656,
+  "run_id": "960cf7ae60a1465e8ceb08ed4d04f717",
+  "samples_consumed": 6,
+  "skipped_updates": 0,
+  "status": "completed",
+  "step": 3,
+  "stop_requested": false,
+  "updates": 3
+}

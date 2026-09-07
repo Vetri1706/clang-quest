@@ -10,14 +10,16 @@ for key in ('OPENBLAS_NUM_THREADS', 'OMP_NUM_THREADS', 'VECLIB_MAXIMUM_THREADS',
 
 _lock = threading.Lock()
 _loaded = None
-FRAMEWORK = Path(__file__).resolve().parents[2] / 'numpy-llm-framework'
+FRAMEWORK = Path(__file__).resolve().parents[1] / 'ai'
 RUN = FRAMEWORK / 'runs/hardened_dpo'
 
 
 def model_status():
     available = (RUN / 'checkpoint/manifest.json').is_file() and (FRAMEWORK / 'generate.py').is_file() and importlib.util.find_spec('numpy') is not None
     return {'available': available, 'mode': 'experimental',
-            'name': 'Your NumPy model', 'quality_gate': 'failed', 'trained_parameters': 29656}
+            'name': 'Your NumPy model', 'quality_gate': 'failed', 'trained_parameters': 29656,
+            'inference_path': 'ai/generate.py', 'checkpoint_path': 'ai/runs/hardened_dpo/checkpoint/manifest.json',
+            'training_basis_path': 'ai/TRAINING_BASIS.md'}
 
 
 def experimental_reply(question):
@@ -26,12 +28,17 @@ def experimental_reply(question):
         raise ValueError('The experimental model is busy. Try again in a moment.')
     try:
         if not model_status()['available']:
-            raise ValueError('The NumPy checkpoint is not available beside this application.')
+            raise ValueError('The bundled NumPy checkpoint or NumPy dependency is unavailable. Follow the AI environment setup in README.md.')
         if _loaded is None:
             sys.path.insert(0, str(FRAMEWORK))
             spec = importlib.util.spec_from_file_location('questline_numpy_generate', FRAMEWORK / 'generate.py')
             module = importlib.util.module_from_spec(spec)
             spec.loader.exec_module(module)
+            from rawllm.model import Config
+            from rawllm.safeio import read_json
+            configuration = Config(**read_json(RUN / 'settings.json')['config'])
+            if configuration.parameter_count > 2_000_000 or configuration.max_seq_len > 512:
+                raise ValueError('This dashboard only loads bounded research checkpoints up to 2 million parameters and 512 context tokens.')
             model, tokenizer = module.load_run(RUN)
             _loaded = module, model, tokenizer
         module, model, tokenizer = _loaded

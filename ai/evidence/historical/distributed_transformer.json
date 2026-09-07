@@ -1,0 +1,24 @@
+{
+  "mode": "replicated Transformer data parallelism",
+  "processes": 2,
+  "parameters": 8556,
+  "updates": 3,
+  "examples_per_global_batch": 4,
+  "tokens_per_global_batch": 32,
+  "losses": [
+    5.5369643463661955,
+    5.556595428158355,
+    5.540774277881593
+  ],
+  "maximum_loss_absolute_error": 8.881784197001252e-16,
+  "maximum_gradient_absolute_error": 5.551115123125783e-17,
+  "maximum_weight_absolute_error": 0.0,
+  "maximum_replica_absolute_error": 0.0,
+  "reference": "same initialized MLA/RoPE/SwiGLU Transformer on the combined global batch",
+  "arithmetic": "FP64 model/autograd; FP32 AdamW master weights and moments",
+  "transport": "authenticated coordinator-routed raw TCP on loopback",
+  "elapsed_seconds": 0.3359896660040249,
+  "verified": true,
+  "checkpoint": "results/distributed_transformer_checkpoint",
+  "scope": "Ordinary DP with full model and optimizer replicas; separate 3D and ZeRO primitives are not integrated here."
+}

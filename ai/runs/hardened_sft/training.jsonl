@@ -1,0 +1,3 @@
+{"step": 1, "samples_consumed": 2, "updates": 1, "skipped_updates": 0, "loss": 5.661281701290246, "gradient_norm": 1.1925407024462333, "scale": 1.0, "finite": true, "forward_error": null}
+{"step": 2, "samples_consumed": 4, "updates": 2, "skipped_updates": 0, "loss": 5.622527313232422, "gradient_norm": 1.314340059442443, "scale": 1.0, "finite": true, "forward_error": null}
+{"step": 3, "samples_consumed": 6, "updates": 3, "skipped_updates": 0, "loss": 5.613011474609375, "gradient_norm": 1.3850867907717521, "scale": 1.0, "finite": true, "forward_error": null}

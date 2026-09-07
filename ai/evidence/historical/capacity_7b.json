@@ -1,0 +1,32 @@
+{
+  "config": {
+    "vocab_size": 32000,
+    "dim": 4096,
+    "layers": 32,
+    "heads": 32,
+    "q_rank": 1536,
+    "kv_rank": 512,
+    "content_dim": 128,
+    "rope_dim": 64,
+    "value_dim": 128,
+    "hidden_dim": 14336,
+    "max_seq_len": 32768,
+    "rope_base": 10000.0,
+    "norm_eps": 1e-06,
+    "tie_embeddings": true
+  },
+  "parameters": 7018450944,
+  "ranks": 8,
+  "fp32_parameters_bytes": 28073803776,
+  "ideal_sharded_mixed_model_state_bytes_per_rank": 15791514624.0,
+  "numpy_fp32_zero_state_bytes_per_rank": 14036901888.0,
+  "largest_parameter_materialization_bytes": 524288000,
+  "dense_kv_bytes_total": 1342177280,
+  "latent_kv_bytes_total": 75497472,
+  "pipeline_boundary_activation_bytes_per_microbatch": 33554432,
+  "ring_allreduce_estimated_seconds": 0.28074803776,
+  "coordinator_link_serialization_lower_bound_seconds": 0.56147607552,
+  "assumed_link_gbps": 200,
+  "assumed_latency_us": 5,
+  "caveat": "Model-state estimates exclude activations, transient full groups, packing masks, runtime and allocator overhead. Network inputs are illustrative; TCP demo is coordinator routed, not this hypothetical ring."
+}

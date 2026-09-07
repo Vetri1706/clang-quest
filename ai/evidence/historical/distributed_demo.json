@@ -1,0 +1,20 @@
+{
+  "topology": {
+    "data": 2,
+    "pipeline": 2,
+    "tensor": 2,
+    "processes": 8
+  },
+  "transport": "authenticated coordinator-routed TCP over loopback",
+  "model": "four-layer float64 tanh MLP, 6-8-6-8-3 dimensions",
+  "examples": 12,
+  "microbatches_per_data_rank": 2,
+  "reference_loss": 0.5644600514773821,
+  "distributed_loss": 0.5644600514773821,
+  "maximum_gradient_absolute_error": 6.938893903907228e-18,
+  "maximum_weight_absolute_error": 0.0,
+  "maximum_data_replica_absolute_error": 0.0,
+  "elapsed_seconds": 0.4181519580015447,
+  "verified": true,
+  "scope": "Executable 3D primitives on a tiny MLP; arbitrary Transformer partitioning and GPU transport are not implemented."
+}

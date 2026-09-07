@@ -1,0 +1,12 @@
+{
+  "budget_reached": false,
+  "output": "runs/hardened_sft",
+  "parameters": 29656,
+  "run_id": "d7e2765b9a2e4490ad8c14441029ae78",
+  "samples_consumed": 6,
+  "skipped_updates": 0,
+  "status": "completed",
+  "step": 3,
+  "stop_requested": false,
+  "updates": 3
+}

@@ -1,0 +1,18 @@
+{
+  "suite": "local_authenticated_http_serving",
+  "tests_passed": 18,
+  "saved_run": "runs/pretrain",
+  "parameter_count": 29656,
+  "http_status": 200,
+  "generation_matches_standalone_paged": true,
+  "generated_tokens": 4,
+  "request_latency_seconds": 0.005659166999976151,
+  "cache_bytes_after_request": 0,
+  "peak_cache_array_bytes": 1288,
+  "model_parameter_array_bytes": 118624,
+  "shutdown_exit_code": 0,
+  "workers": 1,
+  "queue_capacity": 1,
+  "model_and_python_overhead_excluded_from_cache_cap": true,
+  "server_still_running": false
+}

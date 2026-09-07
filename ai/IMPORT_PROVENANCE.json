@@ -1,0 +1,403 @@
+{
+  "source_project": "numpy-llm-framework, the local framework created earlier in this project",
+  "included_dense_runs": [
+    "hardened_pretrain",
+    "hardened_sft",
+    "hardened_dpo"
+  ],
+  "selection": "Each run includes only the payload named by its authoritative checkpoint manifest. Tensor archives, manifests, tokenizers, datasets and training logs are unchanged. Settings/status metadata normalization is recorded per file. Historical evidence hashes describe the original locations/metadata.",
+  "files": [
+    {
+      "path": "rawllm/__init__.py",
+      "sha256": "f72036bb700734dc6b97087dff3c8946eb301557bcd4aedd49db57fb88d2ed1a",
+      "transformed": false
+    },
+    {
+      "path": "rawllm/alignment.py",
+      "sha256": "f854e38c768f33561d153caf345ca46ae42f41d7fc03068de8f8167a46b5905c",
+      "transformed": false
+    },
+    {
+      "path": "rawllm/cache.py",
+      "sha256": "fdb5f7a141e5970b012f802214372d4dc0265314e51306a9ddbd507fdfdfd704",
+      "transformed": false
+    },
+    {
+      "path": "rawllm/data.py",
+      "sha256": "76565e13d44b2e099f215b14034cb81d6744d5b2ac3f68fa5f3a3c0cdf9e74b2",
+      "transformed": false
+    },
+    {
+      "path": "rawllm/distributed.py",
+      "sha256": "7d00c0dd142af0eeeade0adf020955085f01a33388d177d9915757c09f007412",
+      "transformed": false
+    },
+    {
+      "path": "rawllm/evaluation.py",
+      "sha256": "2e38d1b40a6e6b80ce84bcd67bb2c6660fa3b6087eb31ec4029f45fb6b956a9c",
+      "transformed": false
+    },
+    {
+      "path": "rawllm/kernels.py",
+      "sha256": "b46429e52c4ec6a0cb5bc08036e04c404306ac2d1096b25db9e747d0e380d730",
+      "transformed": false
+    },
+    {
+      "path": "rawllm/model.py",
+      "sha256": "b398f83119303688db2bb6e7d3867198fe8422b523e716d2ed62ef09083f2cf2",
+      "transformed": false
+    },
+    {
+      "path": "rawllm/optim.py",
+      "sha256": "67f6715f8430b8a4d6cbc92abba05421f25af8fb1d3e98a988d8148d83e3d5c7",
+      "transformed": false
+    },
+    {
+      "path": "rawllm/runtime.py",
+      "sha256": "10d96427325dd4efda47f2a29d285020410bd47abb7b9b977efc0766a3198953",
+      "transformed": false
+    },
+    {
+      "path": "rawllm/safeio.py",
+      "sha256": "579c186f8e73676328e58175e14d0f7d533322c4099ea88e9d0be6cb7c1a7f79",
+      "transformed": false
+    },
+    {
+      "path": "rawllm/serving.py",
+      "sha256": "2bd06f6fe273b3a8d9a2dfb1ba35a7e03b655cc1d62b246221bd1d57e436d322",
+      "transformed": false
+    },
+    {
+      "path": "rawllm/sharded_checkpoint.py",
+      "sha256": "8c86d0b8d03e5971aff4b686022cb295e6c49d3269c2461f5cc857cda2233c6c",
+      "transformed": false
+    },
+    {
+      "path": "rawllm/tensor.py",
+      "sha256": "d3a3587a481fd7c6a6dcccf76d4aea254960160a7bab8a1de38b09a11d0d1cef",
+      "transformed": false
+    },
+    {
+      "path": "rawllm/tokenizer.py",
+      "sha256": "79ce57dd1791210a52ae4c7036c2cf1cefc90a33f26ce7ece701c51da01e0453",
+      "transformed": false
+    },
+    {
+      "path": "rawllm/zero.py",
+      "sha256": "980ae20f6857b87006719585fc955e9031ccffffe3f2562868564a458218afff",
+      "transformed": false
+    },
+    {
+      "path": "rawllm/zero_model.py",
+      "sha256": "575a7af990065eae5cd197e5f3e80c3acd866573b0621d114bb6233913d8e40d",
+      "transformed": false
+    },
+    {
+      "path": "tests/__init__.py",
+      "sha256": "168796317a61cb2c30ff1ff25a8c18df2472ccbf2c91a83ba46599cf8326ca38",
+      "transformed": false
+    },
+    {
+      "path": "tests/test_distributed.py",
+      "sha256": "5abd722eedfc2a59d6581e5ca2f3570c7eb6adee430002e429805d91be5b086f",
+      "transformed": false
+    },
+    {
+      "path": "tests/test_evaluation.py",
+      "sha256": "bd7b4f2a60738ab6cc241316c3f35f59f616c533d031f7616dbeb1a8d0e7b2cf",
+      "transformed": false
+    },
+    {
+      "path": "tests/test_hardening.py",
+      "sha256": "d39e842eda247e95ed01d96abeed15975b79f3ca85cea8b04db64ce5875cb929",
+      "transformed": false
+    },
+    {
+      "path": "tests/test_model.py",
+      "sha256": "4d02210f80ac4ba2763f537af0ec3f21e06b86d42ce5a06d41937d1ff2acf31e",
+      "transformed": false
+    },
+    {
+      "path": "tests/test_pipeline.py",
+      "sha256": "614ae6059600cb74949a6c10b3c35ac77e142ad92c62554b41c492a7264d8999",
+      "transformed": false
+    },
+    {
+      "path": "tests/test_runtime.py",
+      "sha256": "1b4ef203efe80773e00df60eb0b419b27cd7d15ea40ab568736bfa3e119a70a4",
+      "transformed": false
+    },
+    {
+      "path": "tests/test_serving.py",
+      "sha256": "f87f65ad3adde2ac9983fe1fce24f45b22031857138376091ff658e0dcf84fe4",
+      "transformed": false
+    },
+    {
+      "path": "tests/test_sharded_checkpoint.py",
+      "sha256": "91c84e60d550c2b8abada0979831d974977edbcad2ddb411ed6da823cec2fef5",
+      "transformed": false
+    },
+    {
+      "path": "tests/test_tensor.py",
+      "sha256": "1431e01fd2ea5566e2e687cd896bc92385ac82a4457367bcc9ddd6f4bd123ce8",
+      "transformed": false
+    },
+    {
+      "path": "tests/test_training.py",
+      "sha256": "0c8ee51657cd533e071f5ce3e33264d36e4397733400219cf2c64a195a777cd3",
+      "transformed": false
+    },
+    {
+      "path": "tests/test_zero_corpus.py",
+      "sha256": "cfda032e44b3effefaa53c31694db63e64cd32a97f8ba72fc23b2b161b530ace",
+      "transformed": false
+    },
+    {
+      "path": "tests/test_zero_model.py",
+      "sha256": "d466787a59bc08cd96ca8a922f9f4da36663f0cda0198c05bde123424ea7bbed",
+      "transformed": false
+    },
+    {
+      "path": "configs/seven_b.json",
+      "sha256": "af95914fc53ad054f3d22e001e58cc512d11db18f9b39dacde4b119d2ba1b3af",
+      "transformed": false
+    },
+    {
+      "path": "configs/tiny.json",
+      "sha256": "ba91df2ec66e03184ce7755c9af5a3312c6cd5cc745e05277dbf7d148a183435",
+      "transformed": false
+    },
+    {
+      "path": "examples/corpus.txt",
+      "sha256": "588eb2b4d1c2be975db6124c705e66ac18217f9814fd84486e4786983a793130",
+      "transformed": false
+    },
+    {
+      "path": "examples/cpp_eval.jsonl",
+      "sha256": "505d503f1666a4fae0bb717f17b098d85f55580f743b3ddc6eca3fac52d70b82",
+      "transformed": false
+    },
+    {
+      "path": "examples/preferences.jsonl",
+      "sha256": "44ce38b27adcd33bad0c8cd5bcdbdbe45b4b0e2a9dcdd840079305fedb028286",
+      "transformed": false
+    },
+    {
+      "path": "examples/sft.jsonl",
+      "sha256": "956832bd33fa796d32e0fd8d336f8c1bc9bb29aa5159f0674ebb5364de2afc95",
+      "transformed": false
+    },
+    {
+      "path": "docs/ARCHITECTURE.md",
+      "sha256": "eb3ecfdcf6f8fe429a646be88fb59124973283353fd56882fc7f35c4888c3bc1",
+      "transformed": false
+    },
+    {
+      "path": "docs/MATHEMATICS.md",
+      "sha256": "c0b2ccf4b0292ad79e2a4e34de6744a2e49571c4a9e7ea986ab87d911d421a8f",
+      "transformed": false
+    },
+    {
+      "path": "docs/OPERATIONS.md",
+      "sha256": "1f3cd71f6bd1c51e04955096954c6c120a2e3d8f2090a6f3d778686138e5bb48",
+      "transformed": false
+    },
+    {
+      "path": "docs/distributed_reference.md",
+      "sha256": "6a5e77b4c7e48d1df945682db315e9d2ae7582db9f873e560e7fac105f963461",
+      "transformed": false
+    },
+    {
+      "path": "distributed_demo.py",
+      "sha256": "58c1404a144410d2175cb330aa5b98b7d315d84a8ac3223c46e73b7dcf4f745f",
+      "transformed": false
+    },
+    {
+      "path": "distributed_llm3d.py",
+      "sha256": "9016a016629b73a486a30788fa0aa8da3468063127d0debaa61e120a839e167b",
+      "transformed": false
+    },
+    {
+      "path": "distributed_train.py",
+      "sha256": "a76cae6ed0d03e913acec77879005885166718d73d57615b30b937e69728a18d",
+      "transformed": false
+    },
+    {
+      "path": "estimate.py",
+      "sha256": "d3e04ef9d25654eba9b38cf938d6587512726ee7071d3f8904b8a260febdab4d",
+      "transformed": false
+    },
+    {
+      "path": "evaluate.py",
+      "sha256": "367455efa236680667ff46f0baacb3b2eacf2c22734832000df79759266f50de",
+      "transformed": false
+    },
+    {
+      "path": "generate.py",
+      "sha256": "0ba7f42b80dddcf452a6ab695bd548f7304bd97fb7dcdb4560b60f53e5a8b5de",
+      "transformed": false
+    },
+    {
+      "path": "load_serving.py",
+      "sha256": "8a5b6ddbd0359ffaa9d6009462f913c4ea869cdae7f55894a85506ffdda51c6f",
+      "transformed": false
+    },
+    {
+      "path": "release.py",
+      "sha256": "83a25827cb1340e77d6facda4a3f8e1b2a6e09959a892b457bb8e0feb77defcd",
+      "transformed": false
+    },
+    {
+      "path": "serve.py",
+      "sha256": "b50b3b510ff6ab7341db728d85dda653807e10a6880c54eec11a5b8b9860b8d0",
+      "transformed": false
+    },
+    {
+      "path": "supervise.py",
+      "sha256": "7ef68bd9c76ae121bf6272b65233931410bd307aed160e306588c7cf900399e2",
+      "transformed": false
+    },
+    {
+      "path": "train.py",
+      "sha256": "0eaa211b82b2fad0f06e0f7d60280538438b9efda4cd39f1e8c3ca037bca9685",
+      "transformed": false
+    },
+    {
+      "path": "verify.py",
+      "sha256": "d47e59563d8a508cafd5b873fac88da4d0a88e9a0f16a8a204913c5283a15550",
+      "transformed": false
+    },
+    {
+      "path": "zero_corpus.py",
+      "sha256": "f69de3c5df8af554aab427259c68b16b4b39d7228bc747420c40281c5e6d4caa",
+      "transformed": false
+    },
+    {
+      "path": "zero_train.py",
+      "sha256": "19fcf077226875997d4572da190ea8dbd98446045b0c5398614aead8fb7f892a",
+      "transformed": false
+    },
+    {
+      "path": "requirements.txt",
+      "sha256": "bb260e03cdea3a1ab25a889a9edc62ced108f38d1fc09ddc7a67c718b12e5958",
+      "transformed": false
+    },
+    {
+      "path": "requirements-tested.txt",
+      "sha256": "7242524339a9388141e1383e79b66ac2fd4b82276448eae06b8fa428192ccd1f",
+      "transformed": false
+    },
+    {
+      "path": "Makefile",
+      "sha256": "81310b8c65f749035d60d5c72c743da82b38340a328b924518be1248850d0bb7",
+      "transformed": false
+    },
+    {
+      "path": "runs/hardened_pretrain/settings.json",
+      "sha256": "39f50962c3da9c08f1917b6a21d0cca4dffa252427d379fa9b5148100271226a",
+      "transformed": true,
+      "transformation": "Normalized source/output paths to ai-relative paths; historical PID omitted from status.",
+      "bundled_sha256": "b55d7074b64fc8a53fcbb7ce3f042c42cd69997d0e5cb1338f44ec3894fd88b4"
+    },
+    {
+      "path": "runs/hardened_pretrain/status.json",
+      "sha256": "4c7951e6c5324b8c437af6c40ff94e31204e64a9e1bb31618b54bce1d5887053",
+      "transformed": true,
+      "transformation": "Normalized source/output paths to ai-relative paths; historical PID omitted from status.",
+      "bundled_sha256": "ef5e95fac3c575d736dce0a20d93ae589626fbf810f4b47d116aaeee4cb52d30"
+    },
+    {
+      "path": "runs/hardened_pretrain/tokenizer.json",
+      "sha256": "58b7f45d9ccdd4c22ec61d27b93504147eeb655987e9046f0b5f2d7309cba233",
+      "transformed": false
+    },
+    {
+      "path": "runs/hardened_pretrain/training.jsonl",
+      "sha256": "73cae45d9d8f4615867b63058a690ac984db1e3d1c964f6c86686ac699286860",
+      "transformed": false
+    },
+    {
+      "path": "runs/hardened_pretrain/checkpoint/manifest.json",
+      "sha256": "82bbb961e763c1b5824a9874225c48810a55ebc6de84d0b755f557f50d9fa632",
+      "transformed": false
+    },
+    {
+      "path": "runs/hardened_pretrain/checkpoint/weights-6c75b0af8b4f49749e8245c276ad3cf5.npz",
+      "sha256": "5a8600333b3116953ed6dd8e79c1545903ca3a722999e1ed5269d47df7d0034a",
+      "transformed": false
+    },
+    {
+      "path": "runs/hardened_sft/settings.json",
+      "sha256": "82b1af77a0bc6839121168d43218edcea0c37c3a573b85f3cad0d436e1586360",
+      "transformed": true,
+      "transformation": "Normalized source/output paths to ai-relative paths; historical PID omitted from status.",
+      "bundled_sha256": "a252fb56d6923db3b1dcf2696199d81e1fab9b334050de4c78283696a4837e32"
+    },
+    {
+      "path": "runs/hardened_sft/status.json",
+      "sha256": "757dd4646fa96a229755490285fd0def08f441a98b9c9fd5fda7d092059257fe",
+      "transformed": true,
+      "transformation": "Normalized source/output paths to ai-relative paths; historical PID omitted from status.",
+      "bundled_sha256": "be0388eb724cc527d6c5d5ed8516ffaa176ec0189d2731528a4b8117a52dba74"
+    },
+    {
+      "path": "runs/hardened_sft/tokenizer.json",
+      "sha256": "58b7f45d9ccdd4c22ec61d27b93504147eeb655987e9046f0b5f2d7309cba233",
+      "transformed": false
+    },
+    {
+      "path": "runs/hardened_sft/training.jsonl",
+      "sha256": "50779a6cc04fe6e567b7e5c1e44f064c18f66945e5e88aea1bac78127ed84c5b",
+      "transformed": false
+    },
+    {
+      "path": "runs/hardened_sft/checkpoint/manifest.json",
+      "sha256": "e61b3777e66dabcc8a18b45fee4e632685135ff755e603340567231fb2741bb7",
+      "transformed": false
+    },
+    {
+      "path": "runs/hardened_sft/checkpoint/weights-56b3858c0f4b4752bc3ec1c097e31c94.npz",
+      "sha256": "df087ebe3fdce9ad99bcb6e1f6899642ad5fcbbf28c66e8ef60cc1430ba4b7e5",
+      "transformed": false
+    },
+    {
+      "path": "runs/hardened_dpo/settings.json",
+      "sha256": "1a544ab2c787d386d9c4c4abe7558561b9875f1ef17a1859fe492acda7c58d32",
+      "transformed": true,
+      "transformation": "Normalized source/output paths to ai-relative paths; historical PID omitted from status.",
+      "bundled_sha256": "0170f5bb6fc16b0cfe75154f6e1d680daebddbff4c5a224c2e5b2275fd5c8ba7"
+    },
+    {
+      "path": "runs/hardened_dpo/status.json",
+      "sha256": "e4dba0ea601528a288f8977792f495ea65adfd6aef3b336ae1b018a74b602c5c",
+      "transformed": true,
+      "transformation": "Normalized source/output paths to ai-relative paths; historical PID omitted from status.",
+      "bundled_sha256": "af3f3533ebb2379d32e8f50b874627139f250061b6fc8a887ce30450784d4d2b"
+    },
+    {
+      "path": "runs/hardened_dpo/tokenizer.json",
+      "sha256": "58b7f45d9ccdd4c22ec61d27b93504147eeb655987e9046f0b5f2d7309cba233",
+      "transformed": false
+    },
+    {
+      "path": "runs/hardened_dpo/training.jsonl",
+      "sha256": "3e806d868f3de51dcccf56d43693e5db1067c110e6f2a738bb94816fd3677e5e",
+      "transformed": false
+    },
+    {
+      "path": "runs/hardened_dpo/checkpoint/manifest.json",
+      "sha256": "a2e98920c25c00dcf45efe4196cd3568c2a0275538bb3e096f666535b9371605",
+      "transformed": false
+    },
+    {
+      "path": "runs/hardened_dpo/checkpoint/weights-09437d05fd214570a2786922d365d1d1.npz",
+      "sha256": "f803d1cf276ae9bb02858d37f516a2c3aa7a455d9213d03ffe62318bd4e51bf5",
+      "transformed": false
+    },
+    {
+      "path": "runs/hardened_dpo/reference.npz",
+      "sha256": "1e30f681518e38117145c247f2607001e93d1a62eedd37aa293c1ff8838beb26",
+      "transformed": false
+    }
+  ]
+}
