@@ -2,6 +2,16 @@
 
 The actual NumPy checkpoint was loaded and invoked through the local application's HTTP API, and its output was passed unchanged to the real restricted C++ compiler. The inference and execution integration works. **The neural checkpoint fails its C++ quality screen and did not generate compilable C++ in the program probe.**
 
+## Result images
+
+![Recorded pretraining, SFT, and DPO loss over three optimizer updates each. These are training minibatches, not validation curves.](figures/training-loss.png)
+
+![181 framework tests, 81 application tests, and 36 environment checks passed; the neural program failed compilation and the separate curated program passed five cases.](figures/environment-tests.png)
+
+![C++ paired-answer quality gate failed: 38.9% mean-log-probability preference and 33.3% summed-log-probability preference, with bootstrap intervals and the 75% score threshold shown.](figures/cpp-quality.png)
+
+[Download the PNG/SVG images or regenerate them from the recorded evidence.](figures/README.md)
+
 ## Results and scope
 
 | Measurement | Result | Full evidence |

@@ -1,0 +1,24 @@
+{
+  "purpose": "Static figures of existing recorded evidence; no training or tests rerun.",
+  "renderer": "scripts/plot_ai_results.py",
+  "renderer_sha256": "f25f7665eafe8b129b3c7d33b7b4736753dc4c6ca040452a907dbde7fdbc0993",
+  "python_version": "3.14.6",
+  "matplotlib_version": "3.11.1",
+  "source_sha256": {
+    "ai/runs/hardened_pretrain/training.jsonl": "73cae45d9d8f4615867b63058a690ac984db1e3d1c964f6c86686ac699286860",
+    "ai/runs/hardened_sft/training.jsonl": "50779a6cc04fe6e567b7e5c1e44f064c18f66945e5e88aea1bac78127ed84c5b",
+    "ai/runs/hardened_dpo/training.jsonl": "3e806d868f3de51dcccf56d43693e5db1067c110e6f2a738bb94816fd3677e5e",
+    "reports/ai/framework-tests.json": "4e8f956e944898dcb33895b5b49836607c8bb942a7c370afb010d8e488676292",
+    "reports/ai/application-tests.txt": "4422faf84c4eca38d303374fc5ce38404aa448127dfd3f62ad3f6c4722b9bf17",
+    "reports/ai/environment-validation.json": "f85d7b7fe5ece10a09f9fa2f04e75009b0c49c898801078a786c467b369915df",
+    "reports/ai/cpp-quality.json": "1a8f55f2b385c6d5f921f3937f00d246e3b02b246afd9766b60ab561ae595731"
+  },
+  "figure_sha256": {
+    "training-loss.png": "ccbc706276f4d709277d1610a3a0b4214b8a891ed048aad21c97be0ca169f0e4",
+    "training-loss.svg": "a3014b81dfb25320e9d44ba178d7bed17406511642212d9268ef4e1bc5046e5f",
+    "environment-tests.png": "da4a724f2ec6b9888a30786da469ccebf439f8758b7010e6e4c85e6e32290a77",
+    "environment-tests.svg": "7620fae8b86f0326661060c1ab7c094eabfb5b9e7419ffc3e7531aea2f750bfb",
+    "cpp-quality.png": "a266795846ec9d7820f7cd7dadcc0b23ddbeb85ebd1149b4f14ddb02546f9d87",
+    "cpp-quality.svg": "2d319adaebac79103119cfcf709a4598b2f101584aa957872303c6a89fd34f05"
+  }
+}

@@ -1,0 +1,3 @@
+# Optional report rendering only; not used by model training or inference.
+-r requirements-ai.txt
+matplotlib==3.11.1

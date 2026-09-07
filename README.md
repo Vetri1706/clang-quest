@@ -4,6 +4,16 @@ A gamified learning workspace with an embedded C++ editor, real compilation and 
 
 The repository now includes the complete NumPy research framework, actual trained weights, tokenizer, training fixtures, and AI environment verification. The neural checkpoint has **29,656 parameters** and **fails its C++ quality gate**. Use the grounded study guide for practice; the neural option is a small training and inference experiment.
 
+## Training and test result images
+
+These charts are rendered directly from the committed training logs and test reports. They show the existing recorded runs; no new training or benchmark run is implied. [Full-resolution PNGs, vector SVGs, source hashes, and regeneration instructions](reports/ai/figures/README.md) are included.
+
+![Training loss across three optimizer updates per phase: pretraining 5.6698 to 5.6444, SFT 5.6613 to 5.6130, and offline DPO 0.6931 to 0.6634. Different objectives have separate scales; no validation-loss series exists.](reports/ai/figures/training-loss.png)
+
+![Execution results: 181 framework tests, 81 application tests, and 36 environment checks passed. One actual neural program failed compilation; the separate authored curriculum solution passed five of five C++ cases.](reports/ai/figures/environment-tests.png)
+
+![Failed C++ paired-answer quality screen: mean token log-probability prefers the correct answer on 7 of 18 questions, 38.9%, and summed log-probability on 6 of 18, 33.3%. Both are below the 75% score requirement; bootstrap lower bounds also fail the 50% requirement.](reports/ai/figures/cpp-quality.png)
+
 ## Actual AI and environment test results
 
 Verified locally on **7 September 2026**, using Apple M3, 8 GiB memory, macOS arm64, CPython 3.14.6, NumPy 2.4.6, and Apple Clang 21.0.0. Tests use temporary databases and real restricted compiler processes.
